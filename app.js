@@ -29,4 +29,3 @@ app.get('/product-detail', (req, res) => { // vistas detalle de producto
 app.get('/register', (req, res) => { // vistas de registro
     res.sendFile(path.resolve(__dirname, './views/register.html'));
 });
-

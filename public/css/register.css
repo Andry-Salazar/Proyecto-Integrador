@@ -130,7 +130,68 @@ li{
     list-style: none;
     padding-bottom: 7px;
 }
-/*FOOTER*/
+
+
+/* -------------------------- FORMULARIO DE REGISTRO -------------------------- */
+
+.titulo-formulario{
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.contenedor-formulario{
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4px 15px;
+    /* border: solid red 2px; */
+}
+
+.formulario-registro{
+    display: block;
+    /* border: solid red 2px; */
+}
+
+.item-formulario{
+    padding: 15px;
+}
+
+.item-formulario label{
+    display: block;
+    margin-bottom: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.item-formulario input{
+    min-width: 200px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+}
+
+.btn-registro{
+    display: flex;
+    padding-top: 15px;
+    /* border: solid red 2px; */
+}
+
+.btn-registro input{
+    margin: auto;
+    background-color: #FF007B;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 5px 40px;
+    font-weight: normal;
+    border-radius: 7px;
+    border: none;
+}
+
+
+
+/* -------------------------- FOOTER -------------------------- */
 
 footer{
     background-color: #000000;
@@ -258,7 +319,23 @@ footer div ul li a{
     header div form button{
         font-size: 20px;
     }
-    /*footer*/
+
+    /* -------------------------- FORMULARIO DE REGISTRO -------------------------- */
+    .titulo-formulario{
+        font-size: 20px;
+    }
+    .item-formulario input{
+        min-width: 300px;
+    }
+    .item-formulario label{
+        font-size: 17px;
+    }
+    .btn-registro input{
+        font-size: 17px;
+        padding: 8px 43px;
+    }
+
+    /* --------------------------footer -------------------------- */
     .categorias{
         margin-top: 0.2%;
     }
@@ -321,7 +398,18 @@ footer div ul li a{
     }
     /*fin del header*/
 
-    /*footer*/
+    /* -------------------------- FORMULARIO DE REGISTRO -------------------------- */
+
+    .formulario-registro{
+        /* border: solid red 2px; */
+        margin: auto;
+        margin-top: 15px;
+        padding: 0 150px 20px;
+        min-width: 600px;
+        background-color: #DED1D1;
+    }
+
+    /* -------------------------- footer -------------------------- */
 
     footer div ul li a{
         margin-left: -0.5%;
