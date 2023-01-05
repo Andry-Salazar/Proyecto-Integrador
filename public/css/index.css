@@ -1,6 +1,6 @@
 /*MAIN*/
 
-.banner{
+.banner {
     margin-bottom: 1rem;
 }
 
@@ -8,6 +8,12 @@
     width: 100%;
     height: 400px;
     object-fit: cover;
+    -webkit-filter: grayscale(1);
+    /* Webkit */
+    filter: gray;
+    /* IE6-9 */
+    filter: grayscale(1);
+    /* W3C */
 }
 
 .informacion {
@@ -24,14 +30,17 @@ main div h3 {
 }
 
 main div form button {
-    width: 200px;
-    height: 50px;
-    background-color: #01baefd1;
-    color: white;
-    font-weight: bold;
-    padding: 5px;
-    border: #01baefd1;
+    background-color: #01baefe6;
     border-radius: 10px;
+    border: #01baefd1;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    height: 50px;
+    padding: 5px;
+    position: relative;
+    top: 100px;
+    width: 200px;
 }
 
 .subir {
@@ -70,7 +79,102 @@ main div form button {
 }
 
 /* Footer Banner*/
-.img-foot {
-    height: auto;
+.bannerFoot {
+    display: flex;
+    height: 250px;
 }
 
+.imgFoot {
+    width: 100%;
+    object-fit: cover;
+    -webkit-filter: grayscale(1);
+    /* Webkit */
+    filter: gray;
+    /* IE6-9 */
+    filter: grayscale(1);
+    /* W3C */
+}
+
+/* More Info*/
+
+.moreInfo {
+    display: flex;
+    justify-content: center;
+}
+
+.infoWrapper {
+    border: 1px solid #edeff1;
+    padding: 2rem;
+    text-align: center;
+    height: 250px;
+    max-width: 400px;
+    width: 400px;
+}
+
+.infoWrapper i {
+    font-size: 40px;
+    color: #01baef;
+}
+
+.infoTitle {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Media Celular*/
+@media screen and (max-width: 599px) {
+
+    .informacion {
+        position: relative;
+        bottom: 200px;
+        text-align: center;
+        left: 0;
+    }
+
+    main div form button {
+        font-size: 15px;
+        height: 40px;
+        width: 130px;
+    }
+
+    .productsWrapper {
+        margin: 0;
+    }
+
+    .moreInfo {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .infoWrapper {
+        width: auto;
+    }
+}
+
+/* Media Tablet*/
+@media screen and (max-width: 992px) {
+
+    .informacion {
+        position: relative;
+        bottom: 200px;
+        text-align: center;
+        left: 0;
+    }
+
+    main div form button {
+        font-size: 15px;
+        height: 40px;
+        width: 130px;
+    }
+    .moreInfo {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .infoWrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+}
