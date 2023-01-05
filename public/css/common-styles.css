@@ -32,12 +32,13 @@
   }
   
   /* contenedor padre*/
+
   .bar {
     display: flex;
     justify-content: space-between;
     width: 100%;
   }
-  
+
   /* contenedoer logo*/
   .logo {
     display: flex;
@@ -92,8 +93,9 @@
     align-self: center;
     display: none;
     max-height: fit-content;
-    border: solid 1px #000000;
     border-radius: 3px;
+    border: solid 1px;
+    padding: 0 1rem;
   }
   
   .buscador {
@@ -289,10 +291,16 @@
     .redes-2 {
       margin-right: 10%;
     }
+    .bar i{
+      visibility: initial;
+    }
   }
   
   /*ACOMODAR */
   @media (min-width:900px) {
+    .bar i{
+      visibility: initial;
+    }
   
     .texto {
       margin-left: -2.5%;
@@ -302,7 +310,15 @@
   /*DESTOP*/
   
   @media (min-width:1000px) {
-  
+    
+    .fa-bars{
+      visibility: hidden!important;
+    }
+
+    .contenedor-lupa{
+      border: none;
+    }
+
     /*media*/
     header {
       background-image: url('/images/logo-banner/logo-trs.png');

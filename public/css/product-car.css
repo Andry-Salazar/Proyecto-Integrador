@@ -168,6 +168,7 @@ section.recentView {
   transition: all .4s;
 }
 
+/* Media Celular*/
 @media screen and (max-width: 599px) {
   .singleProductWrapper {
     padding: 1rem;
@@ -197,6 +198,7 @@ section.recentView {
   }
 }
 
+/* Media Tablet*/
 @media screen and (max-width: 992px) {
   .discountButton {
     width: 10%;
