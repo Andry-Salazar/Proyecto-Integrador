@@ -18,8 +18,8 @@ app.get('/login', (req, res) => { //vistas login
     res.sendFile(path.resolve(__dirname, './views/login.html'));
 });
 
-app.get('/product-cart', (req, res) => { // vistas de carrito de ventas
-    res.sendFile(path.resolve(__dirname, './views/product-cart.html'));
+app.get('/product-car', (req, res) => { // vistas de carrito de ventas
+    res.sendFile(path.resolve(__dirname, './views/product-car.html'));
 });
 
 app.get('/product-detail', (req, res) => { // vistas detalle de producto
@@ -29,4 +29,3 @@ app.get('/product-detail', (req, res) => { // vistas detalle de producto
 app.get('/register', (req, res) => { // vistas de registro
     res.sendFile(path.resolve(__dirname, './views/register.html'));
 });
-

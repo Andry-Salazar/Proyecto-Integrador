@@ -1,0 +1,392 @@
+* {
+    box-sizing: border-box;
+    transition: .2s ease;
+  }
+  
+  :root {
+    negro: #000000;
+    rosa: #FF007B;
+    azul: #01BAEF;
+    blanco: #FBFBFF;
+    gris: #757575;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #FBFBFF;
+    width: 100%;
+  }
+  
+  /*HEADER*/
+  header {
+    width: 100%;
+    max-height: fit-content;
+  }
+  
+  h4 {
+    background-color: #000000;
+    color: #FBFBFF;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* contenedor padre*/
+
+  .bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* contenedoer logo*/
+  .logo {
+    display: flex;
+  }
+  
+  .play {
+    font-size: 20px;
+    padding-left: 10px;
+    position: relative;
+    left: 5%;
+    font-style: italic;
+    padding-top: 4px;
+  }
+  
+  header div img {
+    width: 72px;
+    padding-bottom: 4px;
+  }
+  
+  .sport {
+    font-size: 20px;
+    padding-left: 10px;
+    position: relative;
+    right: 10%;
+    font-style: italic;
+    padding-top: 4px;
+  }
+  
+  /* fin contenedor logo*/
+  
+  header div i {
+    color: #000000;
+    font-size: 1.4em;
+    padding: 5px;
+    margin-top: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .icono {
+    display: flex;
+    font-size: 0.8em;
+    position: relative;
+    top: 4px;
+    right: 11px;
+    max-width: fit-content;
+    width: auto;
+  }
+  
+  .contenedor-lupa {
+    background-color: #FBFBFF;
+    align-self: center;
+    display: none;
+    max-height: fit-content;
+    border-radius: 3px;
+    border: solid 1px;
+    padding: 0 1rem;
+  }
+  
+  .buscador {
+    background-color: #FBFBFF;
+    color: #757575;
+    font-size: 14px;
+    border: solid 1px #FBFBFF;
+  
+  }
+  
+  .boton {
+    background-color: #FBFBFF;
+    border: solid 1px #FBFBFF;
+    width: 15%;
+  }
+  
+  div #lupita i {
+    background-color: #FBFBFF;
+    margin: auto;
+    color: #757575;
+  }
+  
+  div #lupita i:hover {
+    color: #000000;
+  }
+  
+  div ul li a {
+    text-decoration: none;
+    color: black;
+  
+  }
+  
+  .ocultar {
+    display: none;
+  }
+  
+  li {
+    list-style: none;
+    padding-bottom: 7px;
+  }
+  
+  /*FOOTER*/
+  
+  footer {
+    background-color: #000000;
+    width: 100%;
+  }
+  
+  .contenedor-footer {
+    color: #FBFBFF;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+  }
+  
+  .categorias {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 20px;
+    width: 50%;
+    margin-top: 27px;
+  }
+  
+  footer div ul li a {
+    color: #FBFBFF;
+    position: relative;
+    right: 19px;
+    bottom: 25px;
+    opacity: 60%;
+    margin-bottom: 20px;
+  }
+  
+  .categorias :hover {
+    opacity: 100%;
+  }
+  
+  .siguenos {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-top: 5px;
+    padding-left: 20px;
+    height: fit-content;
+  }
+  
+  .texto {
+    height: fit-content;
+    display: block;
+    margin-top: 42px;
+  }
+  
+  .redes {
+    color: #757575;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    transition: all 400ms;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    align-items: center;
+    height: fit-content;
+    width: fit-content;
+    padding-left: 48%;
+  }
+  
+  .redes :hover {
+    color: #FBFBFF;
+    font-size: 1.5em;
+  }
+  
+  .final {
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    padding-bottom: 12px;
+  }
+  
+  .copy {
+    color: #FBFBFF;
+    font-size: 12px;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    padding-left: 6px;
+    padding-right: 20px;
+  }
+  
+  .t-p {
+    color: #FBFBFF;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  /*MEDIAS*/
+  
+  /*TABLET*/
+  
+  @media (min-width:768px) {
+    .logo {
+      left: 6%;
+    }
+  
+    .contenedor-lupa {
+      display: flex;
+      position: relative;
+      bottom: 7px;
+      left: 50px;
+    }
+  
+    .img {
+      width: 100%;
+      height: 420px;
+    }
+  
+    .informacion {
+      width: 80%;
+      left: 11%;
+      font-size: 25px;
+      bottom: 180px;
+    }
+  
+    header div form button {
+      font-size: 20px;
+    }
+  
+    /*footer*/
+    .categorias {
+      margin-top: 0.2%;
+    }
+  
+    .texto {
+      margin-top: 4%;
+    }
+  
+    .siguenos {
+      flex-direction: column;
+      justify-content: space-around;
+    }
+  
+    .redes {
+      margin-left: -13%;
+      display: flex;
+      flex-direction: row;
+    }
+  
+    .redes-2 {
+      margin-right: 10%;
+    }
+    .bar i{
+      visibility: initial;
+    }
+  }
+  
+  /*ACOMODAR */
+  @media (min-width:900px) {
+    .bar i{
+      visibility: initial;
+    }
+  
+    .texto {
+      margin-left: -2.5%;
+    }
+  }
+  
+  /*DESTOP*/
+  
+  @media (min-width:1000px) {
+    
+    .fa-bars{
+      visibility: hidden!important;
+    }
+
+    .contenedor-lupa{
+      border: none;
+    }
+
+    /*media*/
+    header {
+      background-image: url('/images/logo-banner/logo-trs.png');
+      background-size: 100%;
+      background-position: center;
+    }
+  
+    header div i {
+      margin-top: 21px;
+    }
+  
+    .logo {
+      display: none;
+    }
+  
+    .ocultar {
+      display: block;
+    }
+  
+    .decoracion {
+      display: flex;
+      font-weight: bold;
+    }
+  
+    .contenedor-lupa {
+      width: 37%;
+    }
+  
+    .buscador {
+      width: 120%;
+    }
+  
+    div ul.decoracion li {
+      margin: 5%;
+    }
+  
+    /*fin del header*/
+  
+    /*footer*/
+  
+    footer div ul li a {
+      margin-left: -0.5%;
+    }
+  
+    .texto {
+      margin-top: 2.5%;
+    }
+  
+    .redes {
+      margin-left: -8%;
+    }
+  
+    .copy {
+      opacity: 60%;
+      transition: all 400ms;
+    }
+  
+    .t-p {
+      opacity: 60%;
+      transition: all 400ms;
+    }
+  
+    .copy:hover {
+      opacity: 100%;
+    }
+  
+    .t-p:hover {
+      opacity: 100%;
+    }
+  }
+  
