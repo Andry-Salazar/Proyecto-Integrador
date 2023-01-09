@@ -72,71 +72,17 @@
             <h2>Productos Destacadas</h2>
         </div>
         <section class="productsWrapper">
-
-            <article class="products">
-                <img class="imgProducts" src="/images/ropa-deportiva/conj-dep-gris.jpg" alt="products Set Body Pump">
-                <p>Sudadera deportiva</p>
-                <p>$119.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="images/ropa-deportiva/bascula.jpeg" alt="products bascula">
-                <p>Bascula Digital</p>
-                <p>$68.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="images/ropa-deportiva/colchoneta-yoga.jpg" alt="products colchoneta-yoga">
-                <p>Mat de Yoga Doble Fax</p>
-                <p>$72.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="/images/ropa-deportiva/mancuerna-encauchetada-sportfitness.jpg"
-                    alt="products mancuerna-encauchetada">
-                <p>Mancuerna Encauchetada</p>
-                <p>Desde $125.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="/images/ropa-deportiva/saco-de-boxeo-23-kg-sportfitness.jpg"
-                    alt="products saco-de-boxeo">
-                <p>Saco de Boxeo 23 KG</p>
-                <p>$376.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="/images/ropa-deportiva/set-body-pump-sportfitness.jpg"
-                    alt="products Set Body Pump">
-                <p>Set body pump</p>
-                <p>$450.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="/images/ropa-deportiva/colchoneta.jpg" alt="products Set Body Pump">
-                <p>Colchoneta</p>
-                <p>$90.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="/images/ropa-deportiva/steps-aerobicos-sportfitness.jpg"
-                    alt="products Set Body Pump">
-                <p>Step aerobico</p>
-                <p>$120.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="/images/ropa-deportiva/conjunto.png" alt="products Set Body Pump">
-                <p>Sudadera deportiva</p>
-                <p>$130.000</p>
-            </article>
-
-            <article class="products">
-                <img class="imgProducts" src="images/ropa-deportiva/bandas.png" alt="products bandas">
-                <p>Set de Bandas Elasticas x5</p>
-                <p>$32.000</p>
-            </article>
-
+            <% for (const product of products) { %>
+                <article class="products">
+                  <img
+                    class="imgProducts"
+                    src="<%= product.img %>"
+                    alt="products Set Body Pump"
+                  />
+                  <p><%= product.name %></p>
+                  <p><%= new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(product.price) %></p>
+                </article>
+            <% } %>
         </section>
         <section class="bannerFoot">
             <img class="imgFoot" src="images/logo-banner/bannerHomeFoot.png" alt="">

@@ -1,10 +1,5 @@
-const path = require('path');
-
 const controller = {
-  detail: (req, res) => {
-    // vistas detalle de producto
-    res.sendFile(path.resolve(__dirname, '../views/product-detail.html'));
-  },
+  detail: (req, res) => res.render('product-detail'),
 };
 
 module.exports = controller;

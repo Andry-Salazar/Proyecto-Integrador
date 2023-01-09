@@ -1,14 +1,6 @@
-const path = require('path');
-
 const controller = {
-  login: (req, res) => {
-    //vistas login
-    res.sendFile(path.resolve(__dirname, '../views/login.html'));
-  },
-  register: (req, res) => {
-    // vistas de registro
-    res.sendFile(path.resolve(__dirname, '../views/register.html'));
-  },
+  login: (req, res) => res.render('login'),
+  register: (req, res) => res.render('register'),
 };
 
 module.exports = controller;
