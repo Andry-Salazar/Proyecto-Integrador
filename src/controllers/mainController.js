@@ -53,7 +53,7 @@ const controller = {
       },
     ];
 
-    res.render('index');
+    res.render('index', { products });
   },
 };
 
