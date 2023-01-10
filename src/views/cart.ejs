@@ -1,206 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PlaySport</title>
+<%- include('./partials/head',{url:"/css/cart.css"}) %>
 
-  <!--Normalize css-->
-  <link rel="stylesheet" href="/css/Normalize.css">
-
-  <!--ICONOS-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
-  <!--tipografias-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-
-  <!--conexion css-->
-  <link rel="stylesheet" href="/css/cart.css">
-  <link rel="stylesheet" href="/css/common-styles.css">
-
-</head>
-
-<body>
-  <header>
-    <h4>Mensajes publicitarios</h4>
-    <div class="bar">
-      <i class="fas fa-bars"></i>
-      <div class="logo">
-        <h2 class="play">Play</h2>
-        <a href="/">
-          <img src="images/logo-banner/logo-trs.png" alt="">
-        </a>
-        <h2 class="sport">Sport</h2>
-      </div>
-      <div class="ocultar">
-        <ul class="decoracion">
-          <li><a href="/DEPORTES">DEPORTES</a></li>
-          <li><a href="/MUJER">MUJER</a></li>
-          <li><a href="/HOMBRE">HOMBRE</a></li>
-          <li><a href="/NIÑO">NIÑO</a></li>
-        </ul>
-      </div>
-      <div class="contenedor-lupa">
-        <input class="buscador" placeholder="Buscar productos, marcas y más">
-        <button class="boton" type="submit">
-          <div id="lupita"><i class="fas fa-search"></i></div>
-        </button>
-      </div>
-      <div class="icono">
-        <a href="/auth/register"><i class="fas fa-id-card"></i></a>
-        <a href="/auth/login"><i class="fas fa-user"></i></a>
-        <a href="/cart"><i class="fas fa-shopping-bag"></i></a>
-      </div>
-    </div>
-  </header>
-  <main>
-    <section id="main">
-      <h1>Carrito de compras</h1>
-      <div class="detailsWrapper">
-        <section class="product">
-          <article class="singleProductWrapper">
-            <img src="/images/ropa-deportiva/bandas.png" alt="" />
-            <div>
-              <p>Set de bandas elasticas</p>
-              <form class="add">
-                <button type="submit" class="left">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <input type="text" placeholder="2" name="search" />
-                <button type="submit" class="right">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </form>
-              <p><strong>Quitar articulo</strong></p>
+  <body>
+    <%- include('./partials/nav-bar') %>
+      <main>
+        <section id="main">
+          <h1>Carrito de compras</h1>
+          <div class="detailsWrapper">
+            <section class="product">
+              <article class="singleProductWrapper">
+                <img src="/images/ropa-deportiva/bandas.png" alt="" />
+                <div>
+                  <p>Set de bandas elasticas</p>
+                  <form class="add">
+                    <button type="submit" class="left">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input type="text" placeholder="2" name="search" />
+                    <button type="submit" class="right">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </form>
+                  <p><strong>Quitar articulo</strong></p>
+                </div>
+                <p>$60.000</p>
+              </article>
+              <article class="singleProductWrapper">
+                <img src="/images/ropa-deportiva/conjunto.png" alt="" />
+                <div>
+                  <p>Conjunto deportivo</p>
+                  <form class="add">
+                    <button type="submit" class="left">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                    <input type="text" placeholder="2" name="search" />
+                    <button type="submit" class="right">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </form>
+                  <p><strong>Quitar articulo</strong></p>
+                </div>
+                <p>$120.000</p>
+              </article>
+            </section>
+            <section class="payment">
+              <article>
+                <table>
+                  <thead>
+                    <tr>
+                      <th colspan="2">Total de carrito</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Subtotal</td>
+                      <td>$180.000</td>
+                    </tr>
+                    <tr>
+                      <td>Envio</td>
+                      <td>$10.000</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Total</strong></td>
+                      <td><strong>$190.000</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <form class="discount">
+                  <input type="text" placeholder="Codigo de descuento" />
+                  <button class="discountButton">Usar</button>
+                </form>
+              </article>
+            </section>
+          </div>
+          <h2>Visto recientemente</h2>
+          <section class="recentView">
+            <div class="products">
+              <img class="imgProducts" src="/images/ropa-deportiva/bascula.jpeg" alt="products bascula">
+              <p>Bascula Digital</p>
+              <p>$68.000</p>
             </div>
-            <p>$60.000</p>
-          </article>
-          <article class="singleProductWrapper">
-            <img src="/images/ropa-deportiva/conjunto.png" alt="" />
-            <div>
-              <p>Conjunto deportivo</p>
-              <form class="add">
-                <button type="submit" class="left">
-                  <i class="fas fa-minus"></i>
-                </button>
-                <input type="text" placeholder="2" name="search" />
-                <button type="submit" class="right">
-                  <i class="fas fa-plus"></i>
-                </button>
-              </form>
-              <p><strong>Quitar articulo</strong></p>
+
+            <div class="products">
+              <img class="imgProducts" src="/images/ropa-deportiva/colchoneta-yoga.jpg" alt="products colchoneta-yoga">
+              <p>Mat de Yoga Doble Fax</p>
+              <p>$72.000</p>
             </div>
-            <p>$120.000</p>
-          </article>
+
+            <div class="products">
+              <img class="imgProducts" src="/images/ropa-deportiva/mancuerna-encauchetada-sportfitness.jpg"
+                alt="products mancuerna-encauchetada">
+              <p>Mancuerna Encauchetada</p>
+              <p>Desde $125.000</p>
+            </div>
+
+            <div class="products">
+              <img class="imgProducts" src="/images/ropa-deportiva/saco-de-boxeo-23-kg-sportfitness.jpg"
+                alt="products saco-de-boxeo">
+              <p>Saco de Boxeo 23 KG</p>
+              <p>$376.000</p>
+            </div>
+          </section>
         </section>
-        <section class="payment">
-          <article>
-            <table>
-              <thead>
-                <tr>
-                  <th colspan="2">Total de carrito</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Subtotal</td>
-                  <td>$180.000</td>
-                </tr>
-                <tr>
-                  <td>Envio</td>
-                  <td>$10.000</td>
-                </tr>
-                <tr>
-                  <td><strong>Total</strong></td>
-                  <td><strong>$190.000</strong></td>
-                </tr>
-              </tbody>
-            </table>
-            <form class="discount">
-              <input type="text" placeholder="Codigo de descuento" />
-              <button class="discountButton">Usar</button>
-            </form>
-          </article>
-        </section>
-      </div>
-      <h2>Visto recientemente</h2>
-      <section class="recentView">
-        <div class="products">
-          <img class="imgProducts" src="/images/ropa-deportiva/bascula.jpeg" alt="products bascula">
-          <p>Bascula Digital</p>
-          <p>$68.000</p>
-        </div>
-
-        <div class="products">
-          <img class="imgProducts" src="/images/ropa-deportiva/colchoneta-yoga.jpg" alt="products colchoneta-yoga">
-          <p>Mat de Yoga Doble Fax</p>
-          <p>$72.000</p>
-        </div>
-
-        <div class="products">
-          <img class="imgProducts" src="/images/ropa-deportiva/mancuerna-encauchetada-sportfitness.jpg"
-            alt="products mancuerna-encauchetada">
-          <p>Mancuerna Encauchetada</p>
-          <p>Desde $125.000</p>
-        </div>
-
-        <div class="products">
-          <img class="imgProducts" src="/images/ropa-deportiva/saco-de-boxeo-23-kg-sportfitness.jpg"
-            alt="products saco-de-boxeo">
-          <p>Saco de Boxeo 23 KG</p>
-          <p>$376.000</p>
-        </div>
-      </section>
-    </section>
-  </main>
-  <footer>
-    <div class="contenedor-footer">
-      <div class="categorias">
-        <h2>Categorias</h2>
-        <ul>
-          <li><a href="/DEPORTES">DEPORTES</a></li>
-          <li><a href="/MUJER">MUJER</a></li>
-          <li><a href="/HOMBRE">HOMBRE</a></li>
-          <li><a href="/NIÑO">NIÑO</a></li>
-        </ul>
-      </div>
-      <div class="siguenos">
-        <h2 class="texto">Siguenos</h2>
-        <div class="redes">
-          <div class="redes-2">
-            <i class="fab fa-github"></i>
-          </div>
-          <br>
-          <div class="redes-2">
-            <i class="fab fa-instagram"></i>
-          </div>
-          <br>
-          <div class="redes-2">
-            <i class="fab fa-facebook"></i>
-          </div>
-          <br>
-          <div class="redes-2">
-            <i class="fab fa-discord"></i>
-          </div>
-          <br>
-          <div class="redes-2">
-            <i class="fab fa-twitter"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="final">
-      <p class="copy">© 2022 PlaySport</p>
-      <div class="t-p">
-        <p> Terminos de uso </p>
-        <p> Politica de privacidad </p>
-      </div>
-    </div>
-  </footer>
-</body>
+      </main>
+      <%- include('./partials/footer') %>
+  </body>
 
 </html>
