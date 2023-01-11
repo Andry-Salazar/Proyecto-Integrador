@@ -1,165 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title></title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="/css/product-detail.css" rel="stylesheet" type="text/css" />
-    <script
-      src="https://kit.fontawesome.com/72d35dbdee.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+<%- include('./partials/head',{url:"/css/product-details.css"}) %>
 
   <body>
     <div class="main-container">
       <div class="container-central">
-        <!-- HEADER -->
-        <div class="header-container">
-          <div class="header-superior">
-            <button class="hamburguesa">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-            <input
-              type="search"
-              class="input-buscar"
-              placeholder="Buscar..."
-            /><button class="lupa">
-              <i class="fa-solid fa-search"></i>
-            </button>
-          </div>
-          <div class="header-inferior">
-            <a class="enlace-menu" href="#">DEPORTES</a>
-            <a class="enlace-menu" href="#">MUJER</a>
-            <a class="enlace-menu" href="#">HOMBRE</a>
-            <a class="enlace-menu" href="#">NIÑOS</a>
-          </div>
-        </div>
 
-        <!-- CONTENIDO -->
-        <div class="primary-content">
-          <div class="content-left">
-            <div class="slider">
-              <div class="arrow item-absoluto top-140px">
-                <i class="fa-solid fa-chevron-left"></i>
-              </div>
-              <div class="puntos-pag"></div>
-              <div class="arrow item-absoluto top-140px right-0">
-                <i class="fa-solid fa-chevron-right"></i>
-              </div>
-            </div>
-            <div class="acordeon">
-              <div class="acordeon-item gris1">
-                <label class="acordeon-item-title">Descripción</label>
-                <div class="arrow">
-                  <i class="fa-solid fa-chevron-down"></i>
+        <%- include('./partials/nav-bar') %>
+
+          <!-- CONTENIDO -->
+          <div class="primary-content">
+            <div class="content-left">
+              <div class="slider">
+                <div class="arrow item-absoluto top-140px">
+                  <i class="fa-solid fa-chevron-left"></i>
+                </div>
+                <div class="puntos-pag"></div>
+                <div class="arrow item-absoluto top-140px right-0">
+                  <i class="fa-solid fa-chevron-right"></i>
                 </div>
               </div>
-              <div class="acordeon-item gris2">
-                <label class="acordeon-item-title">Cuidados</label>
-                <div class="arrow">
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-              </div>
-              <div class="acordeon-item gris3">
-                <label class="acordeon-item-title">Detalles</label>
-                <div class="arrow">
-                  <i class="fa-solid fa-chevron-down"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="content-right">
-            <div class="top-buttons">
-              <button class="top-buttons-btns">
-                <i class="fa-solid fa-user"></i>
-              </button>
-              <button class="top-buttons-btns">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-              <div class="counter-products">2</div>
-            </div>
-            <div class="article-info">
-              <div class="article-info-primmary">
-                <div class="article-info-left">
-                  <div class="stars">
-                    <i class="fa-solid fa-star" style="color: orange"></i>
-                    <i class="fa-solid fa-star" style="color: orange"></i>
-                    <i class="fa-solid fa-star" style="color: orange"></i>
-                    <i class="fa-solid fa-star" style="color: orange"></i>
-                    <i class="fa-regular fa-star" style="color: orange"></i>
+              <div class="acordeon">
+                <div class="acordeon-item gris1">
+                  <label class="acordeon-item-title">Descripción</label>
+                  <div class="arrow">
+                    <i class="fa-solid fa-chevron-down"></i>
                   </div>
-                  <div class="article-name">CHAQUETA</div>
-                  <div class="article-price">$59.999</div>
                 </div>
-                <div class="article-info-right">
-                  <div class="promo">Envío gratis</div>
+                <div class="acordeon-item gris2">
+                  <label class="acordeon-item-title">Cuidados</label>
+                  <div class="arrow">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                </div>
+                <div class="acordeon-item gris3">
+                  <label class="acordeon-item-title">Detalles</label>
+                  <div class="arrow">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </div>
                 </div>
               </div>
-              <div class="colores-producto">
-                <label>Colores</label>
-                <div class="color color1"></div>
-                <div class="color color2"></div>
-                <div class="color color3"></div>
-                <div class="color color4"></div>
-              </div>
-              <div class="article-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
-                repellendus quia nostrum porro unde officia aliquid, laborum
-                soluta enim sint recusandae neque fugiat nemo, reiciendis id
-                aut. Fugit, eum ea!
-              </div>
-              <div class="tallas-box">
-                <div class="tallas-title">Tallas</div>
-                <div class="tallas-items">
-                  <div class="talla-item"></div>
-                  <div class="talla-item"></div>
-                  <div class="talla-item"></div>
-                  <div class="talla-item"></div>
-                  <div class="talla-item"></div>
-                  <div class="talla-item"></div>
-                  <div class="talla-item"></div>
-                </div>
-                <div class="tallas-title">Guia de tallas</div>
-                <button class="registrarse-button">
-                  REGÍSTRATE GRATIS <i class="fa-solid fa-chevron-right"></i>
+            </div>
+            <div class="content-right">
+              <div class="top-buttons">
+                <button class="top-buttons-btns">
+                  <i class="fa-solid fa-user"></i>
                 </button>
+                <button class="top-buttons-btns">
+                  <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+                <div class="counter-products">2</div>
+              </div>
+              <div class="article-info">
+                <div class="article-info-primmary">
+                  <div class="article-info-left">
+                    <div class="stars">
+                      <i class="fa-solid fa-star" style="color: orange"></i>
+                      <i class="fa-solid fa-star" style="color: orange"></i>
+                      <i class="fa-solid fa-star" style="color: orange"></i>
+                      <i class="fa-solid fa-star" style="color: orange"></i>
+                      <i class="fa-regular fa-star" style="color: orange"></i>
+                    </div>
+                    <div class="article-name">CHAQUETA</div>
+                    <div class="article-price">$59.999</div>
+                  </div>
+                  <div class="article-info-right">
+                    <div class="promo">Envío gratis</div>
+                  </div>
+                </div>
+                <div class="colores-producto">
+                  <label>Colores</label>
+                  <div class="color color1"></div>
+                  <div class="color color2"></div>
+                  <div class="color color3"></div>
+                  <div class="color color4"></div>
+                </div>
+                <div class="article-description">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
+                  repellendus quia nostrum porro unde officia aliquid, laborum
+                  soluta enim sint recusandae neque fugiat nemo, reiciendis id
+                  aut. Fugit, eum ea!
+                </div>
+                <div class="tallas-box">
+                  <div class="tallas-title">Tallas</div>
+                  <div class="tallas-items">
+                    <div class="talla-item"></div>
+                    <div class="talla-item"></div>
+                    <div class="talla-item"></div>
+                    <div class="talla-item"></div>
+                    <div class="talla-item"></div>
+                    <div class="talla-item"></div>
+                    <div class="talla-item"></div>
+                  </div>
+                  <div class="tallas-title">Guia de tallas</div>
+                  <button class="registrarse-button">
+                    REGÍSTRATE GRATIS <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- FOOTER -->
-        <div class="footer-container">
-          <div class="footer-content">
-            <div class="footer-content-title">PRODUCTOS</div>
-            <a class="enlace-menu" href="#">Deportes</a>
-            <a class="enlace-menu" href="#">Mujer</a>
-            <a class="enlace-menu" href="#">Hombre</a>
-            <a class="enlace-menu" href="#">Niños</a>
-          </div>
-          <div class="footer-content">
-            <div class="footer-content-title">COLECCIONES</div>
-            <a class="enlace-menu" href="#">2022</a>
-            <a class="enlace-menu" href="#">2021</a>
-            <a class="enlace-menu" href="#">2020</a>
-            <a class="enlace-menu" href="#">Clásicos</a>
-          </div>
-          <div class="footer-content">
-            <div class="footer-content-title">TIENDAS</div>
-            <a class="enlace-menu" href="#">Bogotá</a>
-            <a class="enlace-menu" href="#">Medellín</a>
-            <a class="enlace-menu" href="#">Cali</a>
-            <a class="enlace-menu" href="#">Barranquilla</a>
-          </div>
-          <div class="footer-content">
-            <div class="footer-content-title">CONTÁCTENOS</div>
-            <a class="enlace-menu" href="#">Teléfonos</a>
-            <a class="enlace-menu" href="#">PQR</a>
-            <a class="enlace-menu" href="#">E-mail</a>
-          </div>
-        </div>
+          <%- include('./partials/footer') %>
       </div>
     </div>
   </body>
+
 </html>

@@ -1,134 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlaySport</title>
 
-    <!--Normalize css-->
-    <link rel="stylesheet" href="/css/Normalize.css">
+<%- include('./partials/head',{url:"/css/login.css"}) %>
 
-    <!--ICONOS-->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
-        <!--tipografias-->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
-    
-    <!--conexion css-->
-    <link rel="stylesheet" href="/css/login.css">  
-    <link rel="stylesheet" href="/css/common-styles.css">
-    
-</head>
-<body>
-    <header>
-        <h4>Mensajes publicitarios</h4>
-        <div class="bar">
-            <i class="fas fa-bars"></i>
-            <div class="logo">
-                <h2 class="play">Play</h2>
-                <a href="/">
-                    <img  src="images/logo-banner/logo-trs.png" alt="">
-                </a>
-                <h2 class="sport">Sport</h2>
-            </div>
-            <div class="ocultar"> 
-                <ul class="decoracion">
-                    <li><a href="/DEPORTES">DEPORTES</a></li>
-                    <li><a href="/MUJER">MUJER</a></li>
-                    <li><a href="/HOMBRE">HOMBRE</a></li>
-                    <li><a href="/NIÑO">NIÑO</a></li>
-                </ul>
-            </div>
-            <div class="contenedor-lupa">
-                <input class="buscador" placeholder="Buscar productos, marcas y más">
-                <button class="boton" type="submit">
-                    <div id="lupita"><i class="fas fa-search"></i></div>
-                </button>
-            </div>
-            <div class="icono">
-                <a href="/auth/register"><i class="fas fa-id-card"></i></a>
-                <a href="/auth/login"><i class="fas fa-user"></i></a>
-                <a href="/cart"><i class="fas fa-shopping-bag"></i></a>
-            </div>
-        </div>
-        </header>
-    <main>
-        <h2 class="cuestionario">INICIAR SESIÓN</h2>
-      <div>
-            <form action="/index.html">
-                <div  class="botones">
-                    <input placeholder="correo electronico" type="email" required>
-                    <br>
-                    <input placeholder="contraseña" type="password" required>
-                    <br>
-                    <br>
-                    <div>
-                        <button class="continuar" type="submit">CONTINUAR</button>
-                    </div>
+    <body>
+        <%- include('./partials/nav-bar') %>
+            <main>
+                <h2 class="cuestionario">INICIAR SESIÓN</h2>
+                <div>
+                    <form action="/index.html">
+                        <div class="botones">
+                            <input placeholder="correo electronico" type="email" required>
+                            <br>
+                            <input placeholder="contraseña" type="password" required>
+                            <br>
+                            <br>
+                            <div>
+                                <button class="continuar" type="submit">CONTINUAR</button>
+                            </div>
+                        </div>
+                    </form>
+                    <h2 class="cuestionario"> Tambien puedes iniciar sesión con:</h2>
+                    <form action="/auth/login">
+                        <div class="inicio-con-red">
+                            <a
+                                href="https://www.facebook.com/?stype=lo&jlou=AfekAlCjMgtFUGarvZHUOYCJeL1zyN-UrBmfGfSUbXxKtOT92SY-cSyr2qaR5Ao_bvxDkIhm_90YgdPFiYYgSQXyjnSgbMZQn5ztbJJdRgI01Q&smuh=53745&lh=Ac9i6fFuxRY8Q-3Vd18"><i
+                                    class="fab fa-facebook"></i></a>
+                            <a
+                                href="https://accounts.google.com/v3/signin/identifier?dsh=S352459982%3A1672939679361549&authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1&ec=GAlAwAE&hl=es_419&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession"><i
+                                    class="fab fa-google"></i></a>
+                        </div>
+                    </form>
+                    <h2 class="cuestionario">¿No tienes cuenta?</h2>
+                    <form class="botones" action="/auth/register">
+                        <a href="/auth/register">
+                            <button class="registro" type="submit"> Registrate aqui</button>
+                        </a>
+                    </form>
                 </div>
-            </form>
-            <h2 class="cuestionario"> Tambien puedes iniciar sesión con:</h2>
-            <form action="/auth/login">
-                <div class="inicio-con-red">
-                    <a href="https://www.facebook.com/?stype=lo&jlou=AfekAlCjMgtFUGarvZHUOYCJeL1zyN-UrBmfGfSUbXxKtOT92SY-cSyr2qaR5Ao_bvxDkIhm_90YgdPFiYYgSQXyjnSgbMZQn5ztbJJdRgI01Q&smuh=53745&lh=Ac9i6fFuxRY8Q-3Vd18"><i class="fab fa-facebook"></i></a>
-                    <a href="https://accounts.google.com/v3/signin/identifier?dsh=S352459982%3A1672939679361549&authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1&ec=GAlAwAE&hl=es_419&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession"><i class="fab fa-google"></i></a>
-                </div>
-            </form>
-            <h2 class="cuestionario">¿No tienes cuenta?</h2>
-            <form class="botones" action="/auth/register">
-                <a href="/auth/register">
-                    <button class="registro" type="submit"> Registrate aqui</button>
-                </a>
-            </form>
-      </div>
-      <br>
-    </main>
-    <footer>
-        <div class="contenedor-footer">
-            <div class="categorias">
-                <h2>Categorias</h2>
-                <ul>
-                    <li><a href="/DEPORTES">DEPORTES</a></li>
-                    <li><a href="/MUJER">MUJER</a></li>
-                    <li><a href="/HOMBRE">HOMBRE</a></li>
-                    <li><a href="/NIÑO">NIÑO</a></li>
-                </ul>
-            </div>
-            <div class="siguenos">
-                <h2 class="texto">Siguenos</h2>
-                <div class="redes">
-                    <div class="redes-2">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <br>
-                    <div class="redes-2">
-                        <i class="fab fa-instagram"></i>
-                    </div>
-                    <br>
-                    <div class="redes-2">
-                        <i class="fab fa-facebook"></i>
-                    </div>
-                    <br>
-                    <div class="redes-2">
-                        <i class="fab fa-discord"></i>
-                    </div>   
-                    <br>
-                    <div class="redes-2">
-                        <i class="fab fa-twitter"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="final">
-            <p class="copy">© 2022 PlaySport</p>
-            <div class="t-p">
-                <p> Terminos de uso </p>
-                <p> Politica de privacidad </p>
-            </div>
-        </div>
-    </footer>
-</body>
+                <br>
+            </main>
+            <%- include('./partials/footer') %>
+    </body>
+
 </html>
