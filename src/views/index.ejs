@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head',{url:"/css/index.css"}) %>
+
+    <body>
+        <%- include('./partials/nav-bar') %>
+            <main>
+                <div class="banner">
+                    <img class="img" src="images/logo-banner/banner.png" alt="">
+                    <div class="informacion">
+                        <form action="/DEPORTES" method="post">
+                            <button type="submit">Compra ahora</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="subir">
+                    <h2>Productos Destacadas</h2>
+                </div>
+                <section class="productsWrapper">
+                    <% for (const product of products) { %>
+                        <article class="products">
+                            <img class="imgProducts" src="<%= product.img %>" alt="products Set Body Pump" />
+                            <p>
+                                <%= product.name %>
+                            </p>
+                            <p>
+                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                    }).format(product.price) %>
+                            </p>
+                        </article>
+                        <% } %>
+                </section>
+                <section class="bannerFoot">
+                    <img class="imgFoot" src="images/logo-banner/bannerHomeFoot.png" alt="">
+                </section>
+
+                <section class="moreInfo">
+                    <article class="infoWrapper">
+                        <i class="fas fa-biking"></i>
+                        <p class="infoTitle">Más de 60 deportes</p>
+                        <p> Encuentra más de 5.000 productos para hacer deporte en un solo lugar</p>
+                    </article>
+                    <article class="infoWrapper">
+                        <i class="fas fa-box-open"></i>
+                        <p class="infoTitle">Recoge en Tienda</p>
+                        <p>¡Compra en decathlon.com.co y recoge tu pedido en 2 horas en tu tienda favorita!</p>
+                    </article>
+                    <article class="infoWrapper">
+                        <i class="fas fa-retweet"></i>
+                        <p class="infoTitle">Cambios y Devoluciones</p>
+                        <p>Tienes 30 días para realizar tus cambios</p>
+                    </article>
+                    <article class="infoWrapper">
+                        <i class="fas fa-truck"></i>
+                        <p class="infoTitle">Métodos de Entrega</p>
+                        <p>Conoce nuestros tiempos de entrega para las diferentes ciudades del país</p>
+                    </article>
+                </section>
+
+            </main>
+            <%- include('./partials/footer') %>
+    </body>
+
+</html>
