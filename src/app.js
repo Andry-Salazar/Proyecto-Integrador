@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require("path");
 const app = express();
 const port = 3000;
 
@@ -17,3 +18,5 @@ app.use('/', routesMain);
 app.use('/products', routesProduct);
 app.use('/cart', routesCart);
 app.use('/auth', routesAuth);
+
+app.use(express.static(path.join(__dirname,'/public')));

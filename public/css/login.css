@@ -26,6 +26,10 @@ main div form div input {
     border-radius: 10px;
     margin-bottom: 10px;
 }
+main div form div input:hover{
+    color: #000000;
+    border: solid 1px #01BAEF;
+}
 
 .continuar {
     position: relative;
@@ -36,7 +40,12 @@ main div form div input {
     padding: 10px;
     padding-left: 6.7%;
     padding-right: 6.7%;
-    z-index: 10;
+    border-radius: 10px;
+    opacity: 70%;
+    transition: .5s;
+}
+.continuar:hover{
+    opacity: 100%;
 }
 
 .inicio-con-red {
@@ -56,6 +65,10 @@ main form div a {
     padding-left: 5%;
     padding-right: 5%;
     margin-bottom: 10px;
+    transition: .5s;
+}
+main form div a:hover{
+    border:solid 1px #01BAEF;
 }
 
 .registro {
@@ -67,10 +80,16 @@ main form div a {
     padding-left: 6.5%;
     padding-right: 6.5%;
     margin-bottom: 10px;
+    border-radius: 10px;
+    opacity: 70%;
+    transition: .5s;
+}
+.registro:hover{
+    opacity: 100%;
 }
 
 @media (min-width:1000px) {
-    main {
+    main:hover {
         box-shadow: 0px 0px 3px rgb(100, 100, 100);
         margin-bottom: 20px;
     }

@@ -1,0 +1,92 @@
+[
+    {
+      "id": "sudadera-deportiva",
+      "name": "Sudadera Deportiva",
+      "descripcion":"sudadera en algodon",
+      "img": "/images/ropa-deportiva/conj-dep-gris.jpg",
+      "price": 119000,
+      "color":"gris",
+      "category":"Hombre"
+    },
+    {
+      "id": "bascula-digital",
+      "name": "Bascula Digital",
+      "descripcion":"bascula 50cm x 50cm",
+      "img": "/images/ropa-deportiva/bascula.jpeg",
+      "price": 68000,
+      "color":"negro",
+      "category":"Destacado"
+    },
+    {
+      "id": "mat-de-yoga-doble-fax",
+      "name": "Mat de Yoga Doble Fax",
+      "descripcion":"Longitud: 173cm Ancho: 61cm Grosor: 5mm",
+      "img": "/images/ropa-deportiva/colchoneta-yoga.jpg",
+      "price": 72000,
+      "color":"morado, azul, verde, rosa",
+      "category":"Destacado"
+    },
+    {
+      "id": "mancuerna-encauchetada",
+      "name": "Mancuerna Encauchetada",
+      "descripcion":"diferentes pesos con un maximo de 40kg",
+      "img": "/images/ropa-deportiva/mancuerna-encauchetada-sportfitness.jpg",
+      "price": 125000,
+      "color":"plateado con negro",
+      "category":"Deporte"
+    },
+    {
+      "id": "saco-de-boxeo-23-kg",
+      "name": "Saco de Boxeo 23 KG",
+      "descripcion":"altura: 150 peso: 23kg",
+      "img": "/images/ropa-deportiva/saco-de-boxeo-23-kg-sportfitness.jpg",
+      "price": 376000,
+      "color":"negro con azul",
+      "category":"Deporte"
+    },
+    {
+      "id": "set-body-pump",
+      "name": "Set Body Pump",
+      "descripcion":"3 pares de pesas de diferente peso",
+      "img": "/images/ropa-deportiva/set-body-pump-sportfitness.jpg",
+      "price": 450000,
+      "color":"negro, amarillo, rosa, morado",
+      "category":"Deporte"
+    },
+    {
+      "id": "colchoneta",
+      "name": "Colchoneta",
+      "descripcion":"altura: 150cm",
+      "img": "/images/ropa-deportiva/colchoneta.jpg",
+      "price": 90000,
+      "color":"negra",
+      "category":"Destacado"
+    },
+    {
+      "id": "step-arepbico",
+      "name": "Step Aerobico",
+      "descripcion":"step portatil",
+      "img": "/images/ropa-deportiva/steps-aerobicos-sportfitness.jpg",
+      "price": 120000,
+      "color":"negro con blanco",
+      "category":"Deporte"
+    },
+    {
+      "id": "sudadera-deportiva",
+      "name": "Sudadera Deportiva",
+      "descripcion":"sudadera en licra talla unica",
+      "img": "/images/ropa-deportiva/conjunto.png",
+      "price": 130000,
+      "color":"negra con blanco",
+      "category":"Mujer"
+    },
+    {
+      "id": "set-de-bandas-eslasticas-x5",
+      "name": "Set de Bandas Elasticas x5",
+      "descripcion":"5 bandas de distos colores",
+      "img": "images/ropa-deportiva/bandas.png",
+      "price": 32000,
+      "color":"azul, negra, amarillo, rojo, verde",
+      "category":"Niño"
+    }
+  ]
