@@ -1,9 +1,25 @@
 {
   "scripts": {
-    "start": "node ./src/app.js"
+    "start": "nodemon ./src/app.js"
   },
   "dependencies": {
     "ejs": "^3.1.8",
-    "express": "^4.18.2"
-  }
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  },
+  "name": "grupo_1_playsport",
+  "description": "El objetivo principal de la marca PlaySports será ofrecer prendas deportivas en la máxima calidad para que nuestros clientes practiquen su deporte favorito con la máxima comodidad posible, de esta forma mejorar su experiencia a la hora de la práctica.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andry-Salazar/grupo_1_playsport.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andry-Salazar/grupo_1_playsport/issues"
+  },
+  "homepage": "https://github.com/Andry-Salazar/grupo_1_playsport#readme"
 }

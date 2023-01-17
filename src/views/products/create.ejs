@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head',{url:"/css/create.css"}) %>
+
+  <body>
+    <%- include('../partials/nav-bar') %>
+        <main>
+            <div>
+                <h2 class="titulos">Crea tu producto</h2>
+                <h3 class="titulos">Informacion Del Producto</h3>
+                <form class="cuestionario" action="/">
+                    <label class="titulos">Categoria del producto:</label>
+                    <br>
+                    <select name="categoria">
+                        <option value="Destacados">Destacado</option>
+                        <option value="Deporte">Deporte</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
+                        <option value="Niño">Niño</option>
+                    </select>
+                    <br>
+                    <label class="titulos">Nombre Del producto:</label>
+                    <br>
+                    <input  placeholder="Nombre" type="text">
+                    <br>
+                    <label class="titulos">Precio Del producto:</label>
+                    <br>
+                    <input placeholder="Precio" type="text">
+                    <br>
+                    <label class="titulos">Imagen del producto:</label>
+                    <br>
+                    <input class="boton-imagen" type="file" accept=".jpg , .png">
+                    <br>
+                    <a href="/">
+                        <input class="guardar" placeholder="Guardar" type="submit">
+                    </a>
+                </form>
+            </div>
+        </main>
+    <%- include('../partials/footer') %>
+    </body>
+</html>

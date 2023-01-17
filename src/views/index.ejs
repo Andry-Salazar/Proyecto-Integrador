@@ -19,19 +19,92 @@
                     <h2>Productos Destacadas</h2>
                 </div>
                 <section class="productsWrapper">
-                    <% for (const product of products) { %>
+                    <% for (const products of destacado) { %>
                         <article class="products">
-                            <img class="imgProducts" src="<%= product.img %>" alt="products Set Body Pump" />
+                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
                             <p>
-                                <%= product.name %>
+                                <%= products.name %>
                             </p>
                             <p>
                                 <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(product.price) %>
+                                    }).format(products.price) %>
                             </p>
                         </article>
                         <% } %>
                 </section>
+
+                <div class="subir">
+                    <h2>Deportes</h2>
+                </div>
+                <section class="productsWrapper">
+                    <% for (const products of deporte) { %>
+                        <article class="products">
+                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <p>
+                                <%= products.name %>
+                            </p>
+                            <p>
+                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                    }).format(products.price) %>
+                            </p>
+                        </article>
+                        <% } %>
+                </section>
+
+                <div class="subir">
+                    <h2>Hombre</h2>
+                </div>
+                <section class="productsWrapper">
+                    <% for (const products of hombre) { %>
+                        <article class="products">
+                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <p>
+                                <%= products.name %>
+                            </p>
+                            <p>
+                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                    }).format(products.price) %>
+                            </p>
+                        </article>
+                        <% } %>
+                </section>
+
+                <div class="subir">
+                    <h2>Mujer</h2>
+                </div>
+                <section class="productsWrapper">
+                    <% for (const products of mujer) { %>
+                        <article class="products">
+                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <p>
+                                <%= products.name %>
+                            </p>
+                            <p>
+                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                    }).format(products.price) %>
+                            </p>
+                        </article>
+                        <% } %>
+                </section>
+
+                <div class="subir">
+                    <h2>Niño</h2>
+                </div>
+                <section class="productsWrapper">
+                    <% for (const products of niño) { %>
+                        <article class="products">
+                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <p>
+                                <%= products.name %>
+                            </p>
+                            <p>
+                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                    }).format(products.price) %>
+                            </p>
+                        </article>
+                        <% } %>
+                </section>
+                
                 <section class="bannerFoot">
                     <img class="imgFoot" src="images/logo-banner/bannerHomeFoot.png" alt="">
                 </section>
