@@ -23,6 +23,12 @@
     left: 25px;
 }
 
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+  }
+
 main div h3 {
     background-color: #FBFBFF;
     opacity: 60%;
