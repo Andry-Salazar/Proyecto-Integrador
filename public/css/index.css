@@ -85,10 +85,21 @@ main div form button {
     transition: all .4s;
 }
 
+.products:hover{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.products:hover p{
+    height: 30px;
+    margin-top: 15px;
+    color: #ff007b;
+}
+
 /* Footer Banner*/
 .bannerFoot {
     display: flex;
     height: 250px;
+    box-shadow: 0 0 5px ;
 }
 
 .imgFoot {
