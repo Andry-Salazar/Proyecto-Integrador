@@ -51,7 +51,7 @@ main div form div input:hover{
 .inicio-con-red {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -88,6 +88,13 @@ main form div a:hover{
     opacity: 100%;
 }
 
+@media (min-width:768px) {
+    .inicio-con-red{
+        width: 68%;
+        margin: auto;
+    }
+}
+
 @media (min-width:1000px) {
     main:hover {
         box-shadow: 0px 0px 3px rgb(100, 100, 100);
@@ -95,7 +102,7 @@ main form div a:hover{
     }
 
     .inicio-con-red {
-        width: 75%;
+        width: 55%;
         margin: auto;
     }
 }
