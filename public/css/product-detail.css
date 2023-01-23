@@ -35,13 +35,8 @@ h2 {
   /* font-weight: bold; */
 }
 
-.products-wrapper {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
 .products-title {
-  font-size: 2.4em;
+  font-size: 20px;
   font-weight: 400;
   color: gray;
 }
@@ -55,7 +50,7 @@ h2 {
 .product-detail-img {
   width: 70%;
   display: block;
-  margin: auto;
+  margin: 12% 16%;
 }
 
 .product-detail-info {
@@ -70,18 +65,20 @@ h2 {
 
 .product-detail-title {
   font-weight: 400;
-  font-size: 2.8em;
+  font-size: 30px;
+  margin: 50px 36px 8px;
 }
 
 .product-detail-description {
-  padding: 15px;
-  font-size: 1.8em;
+  margin: 3rem 3rem;
+  font-size: 16px;
   line-height: 1.5;
+  text-align: justify;
 }
 
 .product-detail-price {
-  font-size: 2.5em;
-  margin: 10px 0;
+  font-size: 22px;
+  margin-left: 36px;
 }
 
 .small {
@@ -100,19 +97,18 @@ h2 {
 .actions-list li {
   display: flex;
   align-items: center;
-  margin: 20px 0;
-  padding: 20px 0;
-}
+  margin: 1rem 0;
+  }
 
 .actions-list i {
   color: #ff007b;
-  font-size: 2em;
+  font-size: 20px;
   margin-right: 15px;
 }
 
 .actions-list p {
   color: gray;
-  font-size: 1.7em;
+  font-size: 20px;
   margin: 0;
 }
 
@@ -134,23 +130,33 @@ h2 {
   border-radius: 8px;
   border: none;
   margin-bottom: 15px;
+  height: 40px;
+  width: 40%;
+  margin-left: 30%;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .action-button {
   border: none;
   border-radius: 8px;
-  font-size: 1.2em;
+  font-size: 15px;
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 15px 30px;
   margin-top: 15px;
+  text-decoration: none;
+  margin-right: 8%;
 }
 
 .action-button.edit {
   background-color: #ff007b;
+  width: 35%;
+  margin-left: 10%;
 }
 .action-button.delete {
   background-color: #01baefe6;
+  width: 220px;
 }
