@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require("path");
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const app = express();
 const port = 3000;
 
@@ -12,7 +13,9 @@ const routesMain = require('./routes/main');
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.json());
+app.use(methodOverride("_method"))
 
 app.listen(port, () => console.log('Servidor de PlaySport funcionando'));
 

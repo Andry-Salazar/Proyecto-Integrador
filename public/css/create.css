@@ -60,6 +60,23 @@ main div form input:hover{
     border: solid 1px #01BAEF;
 }
 
+main div form textarea{
+    color: #757575;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+    border: solid 1px #757575;
+    border-radius: 8px;
+    transition: .5s;
+    width: 65%;
+    margin: auto;
+}
+
+main div form textarea:hover{
+    color: #000000;
+    border: solid 1px #01BAEF;
+}
+
 .boton-imagen{
     border: none;
 }

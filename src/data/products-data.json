@@ -1,92 +1,92 @@
 [
-    {
-      "id": "sudadera-deportiva",
-      "name": "Sudadera Deportiva",
-      "descripcion":"Conjunto deportivo de 2 piezas para hombre, sudadera: manga larga plisada, color sólido, capucha con cordón, bolsillo canguro, ajuste entallado.",
-      "img": "/images/ropa-deportiva/conj-dep-gris.jpg",
-      "price": 119000,
-      "color":"gris",
-      "category":"Hombre"
-    },
-    {
-      "id": "bascula-digital",
-      "name": "Báscula Digital",
-      "descripcion":"Báscula de 50cm x 50cm, de uso: domestico, institucional y profesional",
-      "img": "/images/ropa-deportiva/bascula.jpeg",
-      "price": 68000,
-      "color":"negro",
-      "category":"Destacado"
-    },
-    {
-      "id": "mat-de-yoga-doble-fax",
-      "name": "Mat de Yoga Doble Fax",
-      "descripcion":"Las mat de yoga Sportfitness son un implemento esencial para un entrenamiento de yoga y pilates. Los tapetes de yoga están diseñados para brindar seguridad, soporte y una tracción adecuada. Longitud: 1.73cm Ancho: 61cm Espesor: 0.6cm",
-      "img": "/images/ropa-deportiva/colchoneta-yoga.jpg",
-      "price": 72000,
-      "color":"morado, azul, verde, rosa",
-      "category":"Destacado"
-    },
-    {
-      "id": "mancuerna-encauchetada",
-      "name": "Mancuerna Encauchetada",
-      "descripcion":"Mancuernas Sportfitness ideales para ejercicios de fuerza. Variedad de pesos que se ajustan a tu nivel de entrenamiento. Las pesas Sportfitness encauchadas tienen recubrimiento que protegen las superficies.",
-      "img": "/images/ropa-deportiva/mancuerna-encauchetada-sportfitness.jpg",
-      "price": 125000,
-      "color":"plateado con negro",
-      "category":"Deporte"
-    },
-    {
-      "id": "saco-de-boxeo-23-kg",
-      "name": "Saco de Boxeo 23 KG",
-      "descripcion":"Mancuernas Sportfitness ideales para ejercicios de fuerza. Variedad de pesos que se ajustan a tu nivel de entrenamiento. Las pesas Sportfitness encauchadas tienen recubrimiento que protegen las superficies. Material en cuero sintético (PVC)",
-      "img": "/images/ropa-deportiva/saco-de-boxeo-23-kg-sportfitness.jpg",
-      "price": 376000,
-      "color":"negro con azul",
-      "category":"Deporte"
-    },
-    {
-      "id": "set-body-pump",
-      "name": "Set Body Pump",
-      "descripcion":"El set body pump Sportfitness es un implemento para levantamiento de peso y entrenamiento de fuerza. El set body pump es ideal para aumentar masa muscular, tonificar y para bajar de peso. Es un implemento versatil que tiene recubrimiento en los discos lo cual protege los suelos y aumenta su resistencia.",
-      "img": "/images/ropa-deportiva/set-body-pump-sportfitness.jpg",
-      "price": 450000,
-      "color":"negro, amarillo, rosa, morado",
-      "category":"Deporte"
-    },
-    {
-      "id": "colchoneta",
-      "name": "Colchoneta Pofesional",
-      "descripcion":"Las Colchonetas Sportfitness son un implemento esencial para un entrenamiento en el piso. La Colchoneta Profesional esta diseñada para proporcionar una absorción de impactos reduciendo la probabilidad de lesiones deportivas. Medidas 100cm x 47cm Espesor 3cm.",
-      "img": "/images/ropa-deportiva/colchoneta.jpg",
-      "price": 90000,
-      "color":"negra",
-      "category":"Destacado"
-    },
-    {
-      "id": "step-arepbico",
-      "name": "Steps Aeróbico",
-      "descripcion":"Steps Sportfitness ideal para entrenamiento funcional y cardiovascular. Los beneficios del steps aeróbicos incluyen quema de calorías y tonificación muscular, especialmente glúteos y piernas. Medidas: Largo 70 cm, ancho 27 cm.",
-      "img": "/images/ropa-deportiva/steps-aerobicos-sportfitness.jpg",
-      "price": 120000,
-      "color":"negro con blanco",
-      "category":"Deporte"
-    },
-    {
-      "id": "sudadera-deportiva-gris",
-      "name": "Sudadera Deportiva",
-      "descripcion":"Perfecta para ir al gimnasio, hacer ejercicio, entrenamiento de pesas, culturismo, salir a correr",
-      "img": "/images/ropa-deportiva/conjunto.png",
-      "price": 130000,
-      "color":"negra con blanco",
-      "category":"Mujer"
-    },
-    {
-      "id": "set-de-bandas-eslasticas-x5",
-      "name": "Set de Bandas Elasticas x5",
-      "descripcion":"Bandas elásticas sportfitness para ejercicios en casa o gym. Ideal para trabajo funcional. Set de bandas con cinco resistencias.",
-      "img": "/images/ropa-deportiva/bandas.png",
-      "price": 32000,
-      "color":"azul, negra, amarillo, rojo, verde",
-      "category":"Niño"
-    }
-  ]
+ {
+  "id": 1,
+  "name": "Sudadera Deportiva",
+  "descripcion": "Conjunto deportivo de 2 piezas para hombre, sudadera: manga larga plisada, color sólido, capucha con cordón, bolsillo canguro, ajuste entallado.",
+  "img": "/images/ropa-deportiva/conj-dep-gris.jpg",
+  "price": 119000,
+  "color": "gris",
+  "category": "Hombre"
+ },
+ {
+  "id": 2,
+  "name": "Báscula Digital",
+  "descripcion": "Báscula de 50cm x 50cm, de uso: domestico, institucional y profesional",
+  "img": "/images/ropa-deportiva/bascula.jpeg",
+  "price": 68000,
+  "color": "negro",
+  "category": "Destacado"
+ },
+ {
+  "id": 3,
+  "name": "Mat de Yoga Doble Fax",
+  "descripcion": "Las mat de yoga Sportfitness son un implemento esencial para un entrenamiento de yoga y pilates. Los tapetes de yoga están diseñados para brindar seguridad, soporte y una tracción adecuada. Longitud: 1.73cm Ancho: 61cm Espesor: 0.6cm",
+  "img": "/images/ropa-deportiva/colchoneta-yoga.jpg",
+  "price": 72000,
+  "color": "morado, azul, verde, rosa",
+  "category": "Destacado"
+ },
+ {
+  "id": 4,
+  "name": "Mancuerna Encauchetada",
+  "descripcion": "Mancuernas Sportfitness ideales para ejercicios de fuerza. Variedad de pesos que se ajustan a tu nivel de entrenamiento. Las pesas Sportfitness encauchadas tienen recubrimiento que protegen las superficies.",
+  "img": "/images/ropa-deportiva/mancuerna-encauchetada-sportfitness.jpg",
+  "price": 125000,
+  "color": "plateado con negro",
+  "category": "Deporte"
+ },
+ {
+  "id": 5,
+  "name": "Saco de Boxeo 23 KG",
+  "descripcion": "Mancuernas Sportfitness ideales para ejercicios de fuerza. Variedad de pesos que se ajustan a tu nivel de entrenamiento. Las pesas Sportfitness encauchadas tienen recubrimiento que protegen las superficies. Material en cuero sintético (PVC)",
+  "img": "/images/ropa-deportiva/saco-de-boxeo-23-kg-sportfitness.jpg",
+  "price": 376000,
+  "color": "negro con azul",
+  "category": "Deporte"
+ },
+ {
+  "id": 6,
+  "name": "Set Body Pump",
+  "descripcion": "El set body pump Sportfitness es un implemento para levantamiento de peso y entrenamiento de fuerza. El set body pump es ideal para aumentar masa muscular, tonificar y para bajar de peso. Es un implemento versatil que tiene recubrimiento en los discos lo cual protege los suelos y aumenta su resistencia.",
+  "img": "/images/ropa-deportiva/set-body-pump-sportfitness.jpg",
+  "price": 450000,
+  "color": "negro, amarillo, rosa, morado",
+  "category": "Deporte"
+ },
+ {
+  "id": 7,
+  "name": "Colchoneta Pofesional",
+  "descripcion": "Las Colchonetas Sportfitness son un implemento esencial para un entrenamiento en el piso. La Colchoneta Profesional esta diseñada para proporcionar una absorción de impactos reduciendo la probabilidad de lesiones deportivas. Medidas 100cm x 47cm Espesor 3cm.",
+  "img": "/images/ropa-deportiva/colchoneta.jpg",
+  "price": 90000,
+  "color": "negra",
+  "category": "Destacado"
+ },
+ {
+  "id": 8,
+  "name": "Steps Aeróbico",
+  "descripcion": "Steps Sportfitness ideal para entrenamiento funcional y cardiovascular. Los beneficios del steps aeróbicos incluyen quema de calorías y tonificación muscular, especialmente glúteos y piernas. Medidas: Largo 70 cm, ancho 27 cm.",
+  "img": "/images/ropa-deportiva/steps-aerobicos-sportfitness.jpg",
+  "price": 120000,
+  "color": "negro con blanco",
+  "category": "Deporte"
+ },
+ {
+  "id": 9,
+  "name": "Sudadera Deportiva",
+  "descripcion": "Perfecta para ir al gimnasio, hacer ejercicio, entrenamiento de pesas, culturismo, salir a correr",
+  "img": "/images/ropa-deportiva/conjunto.png",
+  "price": 130000,
+  "color": "negra con blanco",
+  "category": "Mujer"
+ },
+ {
+  "id": 10,
+  "name": "Set de Bandas Elasticas x5",
+  "descripcion": "Bandas elásticas sportfitness para ejercicios en casa o gym. Ideal para trabajo funcional. Set de bandas con cinco resistencias.",
+  "img": "/images/ropa-deportiva/bandas.png",
+  "price": 32000,
+  "color": "azul, negra, amarillo, rojo, verde",
+  "category": "Niño"
+ }
+]
