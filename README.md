@@ -43,6 +43,14 @@ ciclismo, fitness, cardio, fuerza, yoga/ pilates, tenis, entre otros.
 
 https://www.figma.com/file/6v4fzGvfRY3wfoJziHN2Fa/Ecommerce---PlaySports?node-id=75%3A559&t=2fKnu5XWTo3POack-1
 
+## Trello
+
+https://trello.com/b/GuPhVuel/play-sports
+
+## Repositorio
+
+https://github.com/Andry-Salazar/grupo_1_playsport
+
 ## Colaboradores
 
 - Gabriel Gaitán

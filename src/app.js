@@ -13,7 +13,7 @@ const routesMain = require('./routes/main');
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 app.use(methodOverride("_method"))
 

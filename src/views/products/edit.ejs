@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('../partials/head',{url:"/css/create.css"}) %>
+<%- include('../partials/head',{url:"/css/edit.css"}) %>
 
-  <body>
+<body>
     <%- include('../partials/nav-bar') %>
         <main>
             <div>
-                <h2 class="titulos">Crea tu producto</h2>
+                <h2 class="titulos">Edita tu producto: <i><%= product.name %></i></h2>
                 <h3 class="titulos">Informacion Del Producto</h3>
-                <form class="cuestionario" action="/products/create" method="POST" enctype="multipart/form-data">
+                <form class="cuestionario" action="/products/edit/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
                     <label class="titulos">Categoria del producto:</label>
                     <br>
                     <select name="category">
@@ -22,19 +22,19 @@
                     <br>
                     <label class="titulos">Nombre Del producto:</label>
                     <br>
-                    <input name="name" placeholder="Nombre" type="text" >
+                    <input name="name" type="text" value="<%= product.name %>" >
                     <br>
                     <label class="titulos">Descripcion del producto</label>
                     <br>
-                    <textarea name="descripcion"></textarea>
+                    <textarea name="descripcion" ><%=product.descripcion %></textarea>
                     <br>
                     <label class="titulos">Precio Del producto:</label>
                     <br>
-                    <input name="price" placeholder="Precio" type="text" >
+                    <input name="price"  type="text" value="<%=product.price %>">
                     <br>
                     <label class="titulos">Imagen del producto:</label>
                     <br>
-                    <input class="boton-imagen" type="file" name="imgProduct">
+                    <input class="boton-imagen" type="file" name="imgProduct" value="<%=product.img %>">
                     <br>
                     <input class="guardar" value="Guardar" type="submit">
                 </form>

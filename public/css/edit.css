@@ -1,0 +1,110 @@
+main{
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    transition: .5s;
+}
+
+div h2 i{
+    font-style: normal;
+}
+
+.titulos{
+    padding-top: 4px;
+    color: #757575;
+    text-align: center;
+    transition: .5s;
+    font-weight: bold;
+}
+
+.titulos:hover{
+    color: #000000;
+}
+
+.cuestionario{
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+main div form select {
+    color: #757575;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+    border: solid 1px #757575;
+    border-radius: 10px;
+    transition: .5s;
+    width: 65%;
+    margin: auto;
+}
+
+main div form select:hover{
+    color: #000000;
+    border: solid 1px #01BAEF;
+}
+
+main div form input{
+    color: #757575;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+    border: solid 1px #757575;
+    border-radius: 8px;
+    transition: .5s;
+    width: 65%;
+    margin: auto;
+}
+
+main div form input:hover{
+    color: #000000;
+    border: solid 1px #01BAEF;
+}
+
+main div form textarea{
+    color: #757575;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 5px;
+    border: solid 1px #757575;
+    border-radius: 8px;
+    transition: .5s;
+    width: 65%;
+    margin: auto;
+}
+
+main div form textarea:hover{
+    color: #000000;
+    border: solid 1px #01BAEF;
+}
+
+.boton-imagen{
+    border: none;
+}
+.boton-imagen:hover{
+    border: none;
+}
+
+.guardar{
+    width: 40%;
+    color: #FBFBFF;
+    background-color: #FF007B;
+    border: solid 1px #FF007B;
+    border-radius: 8px;
+    opacity: 70%;
+    transition: .5s;
+}
+.guardar:hover{
+    border: solid 1px #FF007B;
+    color: #FBFBFF;
+    opacity: 100%;
+}
+
+@media (min-width:1000px){
+    main:hover{
+        box-shadow: 0px 0px 3px rgb(100, 100, 100);
+    }
+}

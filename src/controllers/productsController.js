@@ -1,3 +1,4 @@
+const { Console } = require('console');
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products-data.json');
@@ -34,6 +35,44 @@ store: (req, res) => {
   const data = JSON.stringify(products, null, " ");
   fs.writeFileSync(productsFilePath, data);
   res.redirect("/");
+  },
+
+  //edit - Views
+  edit: (req, res) => {
+    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    const ID = products.find(product => product.id  == req.params.id);
+    res.render('products/edit', {product: ID});
+  },
+
+  //edid - Update
+  update: (req, res) => {
+    const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"))
+    const ID = products.find(product => product.id  == req.params.id);
+    const id = req.params.id
+
+    const productUpdate ={
+      id: id,
+      name: req.body.name,
+      descripcion: req.body.descripcion,
+      img: "/images/ropa-deportiva/"+"image-default.png",
+      price: req.body.price,
+      category: req.body.category
+    }
+    if(req.file){
+    productUpdate.img = "/images/ropa-deportiva/"+req.file.filename
+    }
+
+    //proceso de reemplazo o de edicion de producto
+    let editProduct = products.map(products => {
+      if(products.id == id) {
+         return products = {...productUpdate}
+      }
+      return products
+    })
+
+    const data = JSON.stringify(editProduct, null, " ");
+    fs.writeFileSync(productsFilePath, data);
+    res.redirect("/");
   },
   
   destroy: (req, res) => {

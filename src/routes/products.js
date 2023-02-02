@@ -22,4 +22,8 @@ router.get('/create', productsController.create);//vistas formulario de creacion
 
 router.post('/create', uploadFile.single('imgProduct'), productsController.store);//funcionalidad de creacion de producto
 
+router.get('/edit/:id', productsController.edit);//vistas formulario de edicion
+
+router.put('/edit/:id', uploadFile.single('imgProduct'), productsController.update);//funcionalidad edicion de producto
+
 module.exports = router;
