@@ -88,5 +88,14 @@
     "password": "2kAr9yuS",
     "category": "Admin",
     "image": "/images/avatars/pletzale.jpg"
+  },
+  {
+    "id": 11,
+    "firstName": "Alfonso",
+    "lastName": "López",
+    "email": "osnose3@hotmail.com",
+    "password": "contrasena",
+    "category": "Customer",
+    "image": ""
   }
 ]
