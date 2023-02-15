@@ -5,28 +5,34 @@
     <body>
         <%- include('../partials/nav-bar') %>
             <main>
-                <form action="/auth/create" method="post" class="formGroup">
+                <form action="/auth/create" method="post" class="formGroup" enctype="multipart/form-data">
                     <h2>Formulario de Registro</h2>
                     <div class="inputContainer">
                         <label for="">Nombres:</label>
-                        <input class="inputRegister" type="text" name="name" value="<%= name %>">
+                        <input class="inputRegister" autocomplete="off" type="text" name="name" value="<%= name %>">
                     </div>
                     <div class="inputContainer">
                         <label for="">Apellidos:</label>
-                        <input class="inputRegister" type="text" name="lastName" value="<%= lastName %>">
+                        <input class="inputRegister" autocomplete="off" type="text" name="lastName"
+                            value="<%= lastName %>">
                     </div>
                     <div class="inputContainer">
                         <label for="">Email:</label>
-                        <input class="inputRegister" type="email" name="email" value="<%= email %>">
+                        <input class="inputRegister" autocomplete="off" type="email" name="email" value="<%= email %>">
                     </div>
                     <div class="inputContainer">
                         <label for="">Contraseña:</label>
-                        <input class="inputRegister" type="password" name="password" value="<%= password %>">
+                        <input class="inputRegister" autocomplete="off" type="password" name="password"
+                            value="<%= password %>">
                     </div>
                     <div class="inputContainer">
                         <label for="">Confirmar Contraseña:</label>
-                        <input class="inputRegister" type="password" name="passwordRepeat"
+                        <input class="inputRegister" autocomplete="off" type="password" name="passwordRepeat"
                             value="<%= passwordRepeat %>">
+                    </div>
+                    <div class="inputContainer">
+                        <label>Imagen de Perfil:</label>
+                        <input class="inputRegister" type="file" name="userImage" id="userImage" />
                     </div>
                     <input type="submit" class="btn-register" value="Registrar">
                 </form>

@@ -5,17 +5,17 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const controller = {
   login: (req, res) => res.render("users/login"),
-  
+
   postLogin: (req, res) => {
     const { email, password } = req.body
-    
+
     const loggedUser = users.find(user => user.email === email && user.password === password)
     console.log(loggedUser, email, password);
 
     if (!loggedUser) {
-      return res.redirect('/auth/login'); 
+      return res.redirect('/auth/login');
     }
-    console.log('usuario logueado') 
+    console.log('usuario logueado')
     return res.redirect('/');
   },
 
@@ -28,6 +28,7 @@ const controller = {
       password: "",
       passwordRepeat: "",
     }),
+
   create: (req, res) => {
     const { name, lastName, email, password, passwordRepeat } = req.body;
 
@@ -49,7 +50,7 @@ const controller = {
         email,
         password,
         category: "Customer",
-        image: "",
+        image: req.file ? `/images/user/${req.file.filename}` : '',
       };
       users.push(newUser);
       fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ""));
@@ -58,8 +59,8 @@ const controller = {
       const errorMessage = !completedFields
         ? "Formulario incompleto"
         : !validPassword
-        ? "Las contraseñas no coinciden"
-        : "El usuario ya se encuentra registrado";
+          ? "Las contraseñas no coinciden"
+          : "El usuario ya se encuentra registrado";
 
       res.render("users/register", {
         errorMessage,
