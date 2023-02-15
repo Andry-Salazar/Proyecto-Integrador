@@ -50,7 +50,7 @@ const controller = {
         email,
         password,
         category: "Customer",
-        image: req.file ? `/images/user/${req.file.filename}` : '',
+        image: req.file ? `/images/user/${req.file.filename}` : '/images/user/img_user_default.png',
       };
       users.push(newUser);
       fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ""));
