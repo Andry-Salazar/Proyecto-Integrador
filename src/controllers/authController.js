@@ -5,6 +5,20 @@ const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 
 const controller = {
   login: (req, res) => res.render("users/login"),
+  
+  postLogin: (req, res) => {
+    const { email, password } = req.body
+    
+    const loggedUser = users.find(user => user.email === email && user.password === password)
+    console.log(loggedUser, email, password);
+
+    if (!loggedUser) {
+      return res.redirect('/auth/login'); 
+    }
+    console.log('usuario logueado') 
+    return res.redirect('/');
+  },
+
   register: (req, res) =>
     res.render("users/register", {
       errorMessage: undefined,

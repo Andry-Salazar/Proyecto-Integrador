@@ -8,12 +8,12 @@
             <main>
                 <h2 class="cuestionario">INICIAR SESIÓN</h2>
                 <div>
-                    <form action="/index.html">
+                    <form action="/auth/login" method="POST">
                         <div class="botones">
-                            <input placeholder="correo electronico" type="email" required><br>
-                            <input placeholder="contraseña" type="password" required><br><br>
+                            <input type="email" name="email" placeholder="correo electronico" required><br>
+                            <input  type="password" name="password" placeholder="contraseña" required><br><br>
                             <div>
-                                <button class="continuar" type="submit">CONTINUAR</button>
+                                <button class="continuar" type="submit">INGRESAR</button>
                             </div>
                         </div>
                     </form>
