@@ -2,22 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/users-data.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+const bcrypt = require('bcryptjs');
 
 const controller = {
-  login: (req, res) => res.render("users/login"),
-  
-  postLogin: (req, res) => {
-    const { email, password } = req.body
-    
-    const loggedUser = users.find(user => user.email === email && user.password === password)
-    console.log(loggedUser, email, password);
-
-    if (!loggedUser) {
-      return res.redirect('/auth/login'); 
-    }
-    console.log('usuario logueado') 
-    return res.redirect('/');
-  },
 
   register: (req, res) =>
     res.render("users/register", {
@@ -28,6 +15,7 @@ const controller = {
       password: "",
       passwordRepeat: "",
     }),
+    
   create: (req, res) => {
     const { name, lastName, email, password, passwordRepeat } = req.body;
 
@@ -47,7 +35,7 @@ const controller = {
         firstName: name,
         lastName,
         email,
-        password,
+        password: bcrypt.hashSync(password, 10),
         category: "Customer",
         image: "",
       };
@@ -70,6 +58,21 @@ const controller = {
         passwordRepeat,
       });
     }
+  },
+
+  login: (req, res) => res.render("users/login"),
+  
+  postLogin: (req, res) => {
+    const { email, password } = req.body
+    
+    const loggedUser = users.find(user => user.email === email && bcrypt.compareSync(password, user.password));
+    console.log(loggedUser, email, password);
+
+    if (!loggedUser) {
+      return res.redirect('/auth/login'); 
+    }
+    console.log('usuario logueado') 
+    return res.redirect('/');
   },
 };
 
