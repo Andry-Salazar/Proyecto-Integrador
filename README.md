@@ -51,6 +51,9 @@ https://trello.com/b/GuPhVuel/play-sports
 
 https://github.com/Andry-Salazar/grupo_1_playsport
 
+## Actas Weekly Scrum
+https://github.com/Andry-Salazar/grupo_1_playsport/Actas
+
 ## Colaboradores
 
 - Gabriel Gaitán
