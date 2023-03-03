@@ -20,4 +20,7 @@ router.post("/login", authController.postLogin);
 router.get("/register", authController.register);
 router.post("/create", upload.single('userImage'), authController.create);
 
+router.get("/profile", authController.profile);
+router.get('/logout', authController.logout)
+
 module.exports = router;

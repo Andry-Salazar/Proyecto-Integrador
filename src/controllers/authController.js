@@ -3,6 +3,7 @@ const path = require("path");
 const usersFilePath = path.join(__dirname, "../data/users-data.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 const bcrypt = require('bcryptjs');
+const session = require("express-session");
 
 const controller = {
 
@@ -65,15 +66,38 @@ const controller = {
   postLogin: (req, res) => {
     const { email, password } = req.body
     
-    const loggedUser = users.find(user => user.email === email && bcrypt.compareSync(password, user.password));
+    const loggedUser = users.find(users => users.email == email && bcrypt.compareSync(password, users.password));
     console.log(loggedUser, email, password);
 
     if (!loggedUser) {
       return res.redirect('/auth/login'); 
     }
-    console.log('usuario logueado') 
-    return res.redirect('/');
+    console.log('usuario logueado')
+
+    delete loggedUser.password
+    req.session.userProfile = loggedUser
+  
+    if(req.body.remember) {
+      res.cookie('userEmail', req.body.email, {maxAge: 90000})
+    }
+
+    return res.redirect('/auth/profile');
   },
+
+  profile: (req, res) => {
+    
+    console.log(req.cookies.userEmail);
+    
+    return res.render('users/profile'  , {
+      user: req.session.userProfile
+    });
+  },
+
+  logout: (req, res) => {
+    res.clearCookie('remember')
+    req.session.destroy();
+    return res.redirect('/');
+  }
 };
 
 module.exports = controller;

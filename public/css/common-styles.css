@@ -65,9 +65,9 @@
   
   .icono {
     display: flex;
-    font-size: 0.8em;
+    font-size: 1em;
     position: relative;
-    top: 4px;
+    bottom: 1px;
     right: 11px;
     max-width: fit-content;
     width: auto;
@@ -125,7 +125,7 @@
     list-style: none;
     padding-bottom: 7px;
   }
-  
+
   /*FOOTER*/
   
   footer {

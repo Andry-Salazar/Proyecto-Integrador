@@ -13,7 +13,6 @@ main {
 }
 
 .botones {
-
     text-align: center;
 }
 
@@ -71,6 +70,47 @@ main form div a:hover{
     border:solid 1px #01BAEF;
 }
 
+main div form div label{
+    display: flex;
+    width: 25px;
+    height: 15px;
+    cursor: pointer;
+    width: 55%;
+    color:#757575;
+    align-items: center;
+    margin: auto;
+}
+
+main div form div label input{
+    position: absolute;
+    transform: scale(0);
+}
+
+main div form div label input:checked~.checkbox{
+    transform: rotate(30deg);
+    width: 12px;
+    margin-left: 1px;
+    border-color: #FF007B;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 0;
+    position: relative;
+    bottom:5px;
+    margin: auto;
+}
+
+.checkbox{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #01BAEF;
+    border-radius: 4px;
+    transition: all 0.375s;
+    position: relative;
+    bottom: 2px;
+    margin: auto;
+}
+
 .registro {
     color: #FBFBFF;
     background-color: #FF007B;
@@ -89,9 +129,14 @@ main form div a:hover{
 }
 
 @media (min-width:768px) {
+
     .inicio-con-red{
         width: 68%;
         margin: auto;
+    }
+
+    main div form div label{
+        width: 22%;
     }
 }
 
@@ -104,5 +149,9 @@ main form div a:hover{
     .inicio-con-red {
         width: 55%;
         margin: auto;
+    }
+
+    main div form div label{
+        width: 13%;
     }
 }
