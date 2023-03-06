@@ -66,16 +66,21 @@ const controller = {
   postLogin: (req, res) => {
     const { email, password } = req.body
     
-    const loggedUser = users.find(users => users.email == email && bcrypt.compareSync(password, users.password));
-    console.log(loggedUser, email, password);
+    const loggedUser = users.find(users => users.email == email);
+    const passwordUser = bcrypt.compareSync(password, loggedUser.password);
+    console.log("usuario logeado",loggedUser);
 
     if (!loggedUser) {
-      return res.redirect('/auth/login'); 
+      return res.render('/auth/login'); 
+      // ver video para los errores ! 
+    }else if(!passwordUser){
+      return res.render('/auth/login');
+      //ver video para los errores
     }
-    console.log('usuario logueado')
 
     delete loggedUser.password
     req.session.userProfile = loggedUser
+    console.log('usuario logueado')
   
     if(req.body.remember) {
       res.cookie('userEmail', req.body.email, {maxAge: 90000})
