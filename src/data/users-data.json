@@ -1,1 +1,119 @@
-[{"id":1,"firstName":"curabitur","lastName":"non mauris","email":"tbravery0@telegraph.co.uk","password":"Gi6XWbb","category":"Customer","image":"/images/avatars/pletzale.jpg"},{"id":2,"firstName":"ligula nec","lastName":"tristique","email":"lshakesby1@php.net","password":"jFqNA6","category":"Admin","image":"/images/avatars/pletzale.jpg"},{"id":3,"firstName":"iaculis justo","lastName":"a","email":"mhearst2@eventbrite.com","password":"lTwmBW8itrTK","category":"Customer","image":"/images/avatars/pletzale.jpg"},{"id":4,"firstName":"phasellus sit","lastName":"tincidunt in","email":"ogould3@utexas.edu","password":"1wb8fz","category":"Admin","image":"/images/avatars/polloCorazon.jpg"},{"id":5,"firstName":"ac","lastName":"nisl","email":"vgammon4@privacy.gov.au","password":"om7wRCYTszw","category":"Admin","image":"/images/avatars/polloCorazon.jpg"},{"id":6,"firstName":"id","lastName":"curabitur convallis","email":"rbramwich5@wp.com","password":"rklPRcWiK","category":"Customer","image":"/images/avatars/kipa.jpg"},{"id":7,"firstName":"magna","lastName":"donec","email":"daffuso6@google.fr","password":"8oLoBNxFuIm","category":"Admin","image":"/images/avatars/pretzel.jpg"},{"id":8,"firstName":"id","lastName":"ut massa","email":"ahonywill7@simplemachines.org","password":"xe5c0MvmF","category":"Admin","image":""},{"id":9,"firstName":"fermentum","lastName":"blandit mi","email":"pfilson8@php.net","password":"akhMandzOX1","category":"Admin","image":""},{"id":10,"firstName":"eget eleifend","lastName":"ut odio","email":"babba9@bluehost.com","password":"2kAr9yuS","category":"Admin","image":"/images/avatars/pletzale.jpg"},{"id":11,"firstName":"Alfonso","lastName":"López","email":"osnoser3@hotmail.com","password":"$2a$10$o4MYLjdGmAKrU4mYJFwueOCN0fKk7bDyz65ol/efnvYrRgoeYKZjG","category":"Customer","image":""},{"id":12,"firstName":"Gabriel","lastName":"Gaitan Vengoechea","email":"gabo13gabrielo@gmail.com","password":"$2a$10$pJVL5YfLpZsre3Q03jzUEebX5Wvs4FGlHcl8IEP01UViPqFjA/GDy","category":"Customer","image":"/images/user/xd.jpg"},{"id":13,"firstName":"JULIAN ANDRES","lastName":"MENDEZ MORA","email":"juliandresmm@hotmail.com","password":"$2a$10$xszt/bydIk.7MsZ7kG2pf.M5yZpPokA.srMnw9yIrI9dBcJGw100S","category":"Customer","image":"/images/user/img_user_default.png"}]
+[
+    {
+        "id": 1,
+        "firstName": "curabitur",
+        "lastName": "non mauris",
+        "email": "tbravery0@telegraph.co.uk",
+        "password": "Gi6XWbb",
+        "category": "Customer",
+        "image": "/images/avatars/pletzale.jpg"
+    },
+    {
+        "id": 2,
+        "firstName": "ligula nec",
+        "lastName": "tristique",
+        "email": "lshakesby1@php.net",
+        "password": "jFqNA6",
+        "category": "Admin",
+        "image": "/images/avatars/pletzale.jpg"
+    },
+    {
+        "id": 3,
+        "firstName": "iaculis justo",
+        "lastName": "a",
+        "email": "mhearst2@eventbrite.com",
+        "password": "lTwmBW8itrTK",
+        "category": "Customer",
+        "image": "/images/avatars/pletzale.jpg"
+    },
+    {
+        "id": 4,
+        "firstName": "phasellus sit",
+        "lastName": "tincidunt in",
+        "email": "ogould3@utexas.edu",
+        "password": "1wb8fz",
+        "category": "Admin",
+        "image": "/images/avatars/polloCorazon.jpg"
+    },
+    {
+        "id": 5,
+        "firstName": "ac",
+        "lastName": "nisl",
+        "email": "vgammon4@privacy.gov.au",
+        "password": "om7wRCYTszw",
+        "category": "Admin",
+        "image": "/images/avatars/polloCorazon.jpg"
+    },
+    {
+        "id": 6,
+        "firstName": "id",
+        "lastName": "curabitur convallis",
+        "email": "rbramwich5@wp.com",
+        "password": "rklPRcWiK",
+        "category": "Customer",
+        "image": "/images/avatars/kipa.jpg"
+    },
+    {
+        "id": 7,
+        "firstName": "magna",
+        "lastName": "donec",
+        "email": "daffuso6@google.fr",
+        "password": "8oLoBNxFuIm",
+        "category": "Admin",
+        "image": "/images/avatars/pretzel.jpg"
+    },
+    {
+        "id": 8,
+        "firstName": "id",
+        "lastName": "ut massa",
+        "email": "ahonywill7@simplemachines.org",
+        "password": "xe5c0MvmF",
+        "category": "Admin",
+        "image": ""
+    },
+    {
+        "id": 9,
+        "firstName": "fermentum",
+        "lastName": "blandit mi",
+        "email": "pfilson8@php.net",
+        "password": "akhMandzOX1",
+        "category": "Admin",
+        "image": ""
+    },
+    {
+        "id": 10,
+        "firstName": "eget eleifend",
+        "lastName": "ut odio",
+        "email": "babba9@bluehost.com",
+        "password": "2kAr9yuS",
+        "category": "Admin",
+        "image": "/images/avatars/pletzale.jpg"
+    },
+    {
+        "id": 11,
+        "firstName": "Alfonso",
+        "lastName": "López",
+        "email": "osnoser3@hotmail.com",
+        "password": "$2a$10$o4MYLjdGmAKrU4mYJFwueOCN0fKk7bDyz65ol/efnvYrRgoeYKZjG",
+        "category": "Customer",
+        "image": ""
+    },
+    {
+        "id": 12,
+        "firstName": "Gabriel",
+        "lastName": "Gaitan Vengoechea",
+        "email": "gabo13gabrielo@gmail.com",
+        "password": "$2a$10$pJVL5YfLpZsre3Q03jzUEebX5Wvs4FGlHcl8IEP01UViPqFjA/GDy",
+        "category": "Customer",
+        "image": "/images/user/xd.jpg"
+    },
+    {
+        "id": 13,
+        "firstName": "JULIAN ANDRES",
+        "lastName": "MENDEZ MORA",
+        "email": "juliandresmm@hotmail.com",
+        "password": "$2a$10$xszt/bydIk.7MsZ7kG2pf.M5yZpPokA.srMnw9yIrI9dBcJGw100S",
+        "category": "Customer",
+        "image": "/images/user/img_user_default.png"
+    }
+]
