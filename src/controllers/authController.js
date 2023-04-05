@@ -4,6 +4,7 @@ const usersFilePath = path.join(__dirname, "../data/users-data.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
 const bcrypt = require('bcryptjs');
 const session = require("express-session");
+const db = require("../database/models");
 
 const controller = {
 
@@ -89,13 +90,11 @@ const controller = {
     return res.redirect('/auth/profile');
   },
 
-  profile: (req, res) => {
-    
-    console.log(req.cookies.userEmail);
-    
-    return res.render('users/profile'  , {
-      user: req.session.userProfile
-    });
+  profile: async function (req, res) {
+    db.user.findByPk(req.params.user_id)
+      .then(function(user){
+        res.render("auth/profile", {user:user})
+      });
   },
 
   logout: (req, res) => {

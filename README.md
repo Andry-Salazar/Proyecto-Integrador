@@ -6,38 +6,9 @@ Además es importante para nosotros conocer cuáles son las necesidades de cada
 
 Algunos de los productos en ropa deportiva que ofrecemos son:
 
-### Camisetas de poliéster
+## PRODUCTOS ##
 
-Las camisetas de poliéster son las idóneas para practicar cualquier tipo de deporte, especialmente aquellos que impliquen mucho cardio: correr, ir al gimnasio, fútbol…
-
-### Polos
-
-Si, por el contrario, tu preferencia en deporte se centra exclusivamente en algo más tranquilo como el golf ¡los polos son tu mejor aliado!
-
-### Camisetas oversize
-
-¿Si les gusta la música hip-hop o el arte del graffiti? ¿O igual no se separan de su tabla de skate? En cualquier caso, ofrecemos colecciones de ropa urbana exclusivas.
-
-### Leggins
-
-Son el producto indispensable de la ropa deportiva o activewear. Además de ser muy cómodos, estilizan la silueta ¡y se pueden combinar con prácticamente cualquier look!
-
-### Sudaderas
-
-Las hay de muchas clases: sudaderas all over unisex, sudaderas con capucha, sudaderas sin capucha, sudaderas unisex, sudaderas con cremallera, sudaderas más cortas… ¡Si hay un producto versátil, esas son las sudaderas!
-
-### Pantalón de chandal
-
-Los pantalones deportivos o joggers en inglés, son más que una prenda para el gimnasio.
-
-Los joggers son el pantalón ideal para ir a dar un paseo, para ir cómodo a la oficina o incluso para salir de fiesta. ¡Todo depende del look que le des!
-
-### Gorras
-
-Son un clásico disponible desde los colores más llamativos hasta los vintage, perfectas para completar los outfits más urbanos.
-
-También ofrecemos artículos deportivos para diferente categorías como:
-ciclismo, fitness, cardio, fuerza, yoga/ pilates, tenis, entre otros.
+Todos los productos de PlaySport son enfoncados a la vida deportiva del cliente, tanto como ropa y herramientas u objetos que ayudaran a la realizacion de distintas actividades fisicas y ejercitamiento como las siguientes: Sudaderas, bandas elasticas, sacos de boxeo, mancuernas y mas! 
 
 ## Wireframe
 

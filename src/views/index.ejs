@@ -18,16 +18,16 @@
                     <h2>Productos Destacados</h2>
                 </div>
                 <section class="productsWrapper">
-                    <% for (const products of destacado) { %>
-                        <a href="/products/products/<%= products.id %>">
+                    <% for (const p of destacado) { %>
+                        <a href="/products/products/<%= p.product_id%>">
                         <article class="products">
-                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
                             <p>
-                                <%= products.name %>
+                                <%= p.product_name %>
                             </p>
                             <p>
                                 <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(products.price) %>
+                                    }).format(p.product_price) %>
                             </p>
                         </article>
                     </a>
@@ -38,16 +38,16 @@
                     <h2 id="DEPORTES">Deportes</h2>
                 </div>
                 <section class="productsWrapper">
-                    <% for (const products of deporte) { %>
-                        <a href="/products/products/<%= products.id %>">
+                    <% for (const p of deporte) { %>
+                        <a href="/products/products/<%= p.product_id %>">
                         <article class="products">
-                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
                             <p>
-                                <%= products.name %>
+                                <%= p.product_name %>
                             </p>
                             <p>
                                 <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(products.price) %>
+                                    }).format(p.product_price) %>
                             </p>
                         </article>
                     </a>
@@ -58,16 +58,16 @@
                     <h2 id="HOMBRE">Hombre</h2>
                 </div>
                 <section class="productsWrapper">
-                    <% for (const products of hombre) { %>
-                        <a href="/products/products/<%= products.id %>">
+                    <% for (const p of hombre) { %>
+                        <a href="/products/products/<%= p.product_id %>">
                         <article class="products">
-                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
                             <p>
-                                <%= products.name %>
+                                <%= p.product_name %>
                             </p>
                             <p>
                                 <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(products.price) %>
+                                    }).format(p.product_price) %>
                             </p>
                         </article>
                     </a>
@@ -78,16 +78,16 @@
                     <h2 id="MUJER">Mujer</h2>
                 </div>
                 <section class="productsWrapper">
-                    <% for (const products of mujer) { %>
-                        <a href="/products/products/<%= products.id %>">
+                    <% for (const p of mujer) { %>
+                        <a href="/products/products/<%= p.product_id %>">
                         <article class="products">
-                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
                             <p>
-                                <%= products.name %>
+                                <%= p.product_name %>
                             </p>
                             <p>
                                 <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(products.price) %>
+                                    }).format(p.product_price) %>
                             </p>
                         </article>
                     </a>
@@ -98,16 +98,16 @@
                     <h2 id="NIÑO">Niño</h2>
                 </div>
                 <section class="productsWrapper">
-                    <% for (const products of niño) { %>
-                        <a href="/products/products/<%= products.id %>">
+                    <% for (const p of niño) { %>
+                        <a href="/products/products/<%= p.product_id %>">
                         <article class="products">
-                            <img class="imgProducts" src="<%= products.img %>" alt="products Set Body Pump" />
+                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
                             <p>
-                                <%= products.name %>
+                                <%=  p.product_name %>
                             </p>
                             <p>
                                 <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(products.price) %>
+                                    }).format(p.product_price) %>
                             </p>
                         </article>
                     </a>
