@@ -1,3 +1,36 @@
+.bord{
+    margin: auto;
+    width: 90%;
+    padding: 1rem;
+    padding: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: .5s;
+    border-radius: 6px;
+    box-shadow: 0px 0px 3px rgb(100, 100, 100);
+}
+
+.bord:hover{
+    margin: auto;
+    width: 90%;
+    padding: 1rem;
+    position: relative;
+    background: linear-gradient(to right, #01BAEF, #FF007B);
+    padding: 3px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    opacity: 90%;
+    border-radius: 6px;
+  }
+  
+  .card{
+    background-color:#FBFBFF ;
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 6px;
+    text-align: center;
+  }
+
 .userName {
     display: flex;
     justify-content: space-around;
@@ -11,13 +44,25 @@
 
 
 .inputRegister {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    color: #757575;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    border: solid 1px #757575;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    caret-color: #FF007B;
+    margin-top: 10px;
+}
+
+.inputRegister:hover{
+    color: #000000;
+    border: solid 1px #01BAEF;
+}
+
+.inputImage{
+    border: none;
+    padding: 10px;
 }
 
 .inputContainer {
@@ -26,15 +71,24 @@
 }
 
 .btn-register {
-    background-color: #FF007B;
+    position: relative;
+    color: #FBFBFF;
+    background-color: #01BAEF;
+    border: solid 1px #01BAEF;
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 6.7%;
+    padding-right: 6.7%;
     border-radius: 10px;
-    border: #FF007B;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    height: 40px;
-    margin: 1rem 0;
-    width: 10%;
+    opacity: 70%;
+    transition: .5s;
+    margin-top: 20px;
+}
+
+.btn-register:hover{
+    background-color: #FF007B;
+    border: solid 1px #FF007B;
+    opacity: 100%;
 }
 
 .errorBanner{

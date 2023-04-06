@@ -7,9 +7,16 @@ const db = require("../database/models");
 
 const controller = {
   detail: (req, res) => {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"))
-    const ID = products.find(product => product.id  == req.params.id);
-    res.render("products/product-detail", {product: ID});
+
+    let resultado = db.product.findOne({
+        where:{
+            product_id: req.params.id
+        }
+    })
+  .then((resultado)=>{
+    return res.render("products/product-detail",{ resultado })
+    })
+
   },
 
   // Create - Form to create
@@ -18,73 +25,83 @@ const controller = {
   },
 
 // Create - Save
-store: (req, res) => {
-  const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-  const newProduct = {
-    id: Date.now(),
-    name: req.body.name,
-    descripcion: req.body.descripcion,
-    img: "/images/ropa-deportiva/"+"image-default.png",
-    price: req.body.price,
-    category: req.body.category
-  }
+store: async function (req, res) {
+  
+  try{
+    const newProduct = {
+      product_name: req.body.product_name,
+      product_description: req.body.product_description,
+      product_price: req.body.product_price,
+      product_image: "image-default.png",
+      category_id: req.body.category_id
+    }
+  //preguntar si el usuario subo una imagen
   if(req.file){
-    newProduct.img = "/images/ropa-deportiva/"+req.file.filename
-  }
-  products.push(newProduct)
 
-  const data = JSON.stringify(products, null, " ");
-  fs.writeFileSync(productsFilePath, data);
-  res.redirect("/");
+    newProduct.product_image= req.file.filename
+  }
+  await db.product.create(newProduct)
+    .then(function(){
+      res.redirect('/');
+    })
+    
+    }catch (error){
+      console.log(error);
+    }
   },
 
   //edit - Views
   edit: (req, res) => {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    const ID = products.find(product => product.id  == req.params.id);
-    res.render('products/edit', {product: ID});
+
+    let toEdit = db.product.findOne({
+      where:{
+          product_id: req.params.id
+      }
+      })
+        .then((toEdit)=>{
+          return res.render('products/edit',{ toEdit })
+         })
   },
 
   //edid - Update
-  update: (req, res) => {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"))
-    const ID = products.find(product => product.id  == req.params.id);
-    const id = req.params.id
+  update: async function (req, res) {
 
+    try {
     const productUpdate ={
-      id: id,
-      name: req.body.name,
-      descripcion: req.body.descripcion,
-      img: "/images/ropa-deportiva/"+"image-default.png",
-      price: req.body.price,
-      category: req.body.category
+      product_name: req.body.product_name,
+      product_description: req.body.product_description,
+      product_price: req.body.product_price,
+      product_image: "image-default.png",
+      category_id: req.body.category_id
     }
     if(req.file){
-    productUpdate.img = "/images/ropa-deportiva/"+req.file.filename
+    productUpdate.product_image = req.file.filename
     }
 
     //proceso de reemplazo o de edicion de producto
-    let editProduct = products.map(products => {
-      if(products.id == id) {
-         return products = {...productUpdate}
+    await db.product.update(productUpdate,{
+      where: {
+        product_id : req.params.id
       }
-      return products
+    })
+    .then(function(){
+      res.redirect('/');
     })
 
-    const data = JSON.stringify(editProduct, null, " ");
-    fs.writeFileSync(productsFilePath, data);
-    res.redirect("/");
+   }catch(error){
+    console.log(error);
+  }
   },
   
   destroy: (req, res) => {
-    let id = req.params.id;
-
-    let productToDelete = products.filter(product => product.id != id);
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(productToDelete));
-
+    
+    db.product.destroy({
+      where:{
+        product_id: req.params.id
+      }
+    })
     res.redirect('/');
-  },
+  }
 };
 
 module.exports = controller;

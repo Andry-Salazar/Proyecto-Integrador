@@ -7,34 +7,34 @@
     <%- include('../partials/nav-bar') %>
         <main>
             <div>
-                <h2 class="titulos">Edita tu producto: <i><%= product.name %></i></h2>
+                <h2 class="titulos">Edita tu producto: <i><%= toEdit.product_name %></i></h2>
                 <h3 class="titulos">Informacion Del Producto</h3>
-                <form class="cuestionario" action="/products/edit/<%=product.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <form class="cuestionario" action="/products/edit/<%=toEdit.product_id%>" method="POST" nctype="multipart/form-data">
                     <label class="titulos">Categoria del producto:</label>
                     <br>
-                    <select name="category">
-                        <option value="Destacado">Destacado</option>
-                        <option value="Deporte">Deporte</option>
-                        <option value="Hombre">Hombre</option>
-                        <option value="Mujer">Mujer</option>
-                        <option value="Niño">Niño</option>
+                    <select name="category_id">
+                        <option value="1">Destacado</option>
+                        <option value="2">Deporte</option>
+                        <option value="3">Hombre</option>
+                        <option value="4">Mujer</option>
+                        <option value="5">Niño</option>
                     </select>
                     <br>
                     <label class="titulos">Nombre Del producto:</label>
                     <br>
-                    <input name="name" type="text" value="<%= product.name %>" >
+                    <input name="product_name" type="text" value="<%= toEdit.product_name %>" >
                     <br>
                     <label class="titulos">Descripcion del producto</label>
                     <br>
-                    <textarea name="descripcion" ><%=product.descripcion %></textarea>
+                    <textarea name="product_description" ><%=toEdit.product_descripcion %></textarea>
                     <br>
                     <label class="titulos">Precio Del producto:</label>
                     <br>
-                    <input name="price"  type="text" value="<%=product.price %>">
+                    <input name="product_price"  type="text" value="<%=toEdit.product_price %>">
                     <br>
                     <label class="titulos">Imagen del producto:</label>
                     <br>
-                    <input class="boton-imagen" type="file" name="imgProduct" value="<%=product.img %>">
+                    <input class="boton-imagen" type="file" name="product_image" value="<%=toEdit.product_image %>">
                     <br>
                     <input class="guardar" value="Guardar" type="submit">
                 </form>

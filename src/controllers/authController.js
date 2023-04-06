@@ -18,47 +18,56 @@ const controller = {
       passwordRepeat: "",
     }),
     
-  create: (req, res) => {
-    const { name, lastName, email, password, passwordRepeat } = req.body;
+  create: async function(req, res) {
+    
+    const userRegister = {
+      first_name: req.body.name,
+      last_name: req.body.lastName,
+      user_email: req.body.email,
+      user_password: req.body.password,
+      passwordRepeat: req.body.passwordRepeat, 
+      user_image: "img_user_default.png"
+    }
 
-    /* Si todos los campos estan completos*/
     const completedFields =
-      name && lastName && email && password && passwordRepeat;
+        userRegister.first_name && userRegister.last_name && userRegister.user_email && userRegister.user_password && userRegister.passwordRepeat
+    
+    const validPassword = userRegister.user_password === userRegister.passwordRepeat
 
-    /* Si la contraseña es igual a la validacion de contraseña*/
-    const validPassword = password === passwordRepeat;
+    const emailValid = db.user.findOne({
+      where :{
+         user_email : userRegister.user_email
+      }
+    })
 
-    /* Si el email no esta registrado */
-    const emailValid = users.findIndex((user) => user.email === email) === -1;
+    if(emailValid){
+      res.render('users/register', {
+        errors:{
+          user_email:{
+            msg: "Este email ya esta regustrado"
+          }
+        }
+      })
+    }
 
-    if (completedFields && validPassword && emailValid) {
-      const newUser = {
-        id: users.length + 1,
-        firstName: name,
-        lastName,
-        email,
-        password: bcrypt.hashSync(password, 10),
-        category: "Customer",
-        image: req.file ? `/images/user/${req.file.filename}` : '/images/user/img_user_default.png',
-      };
-      users.push(newUser);
-      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ""));
-      res.render("users/login");
-    } else {
+    if(req.file){
+
+      userRegister.user_image= req.file.filename
+    }
+
+    if(completedFields && validPassword  && emailValid)  {
+      await db.user.create(userRegister)
+        .then(function(){
+          res.redirect('users/login')
+        })
+    }else{
       const errorMessage = !completedFields
         ? "Formulario incompleto"
         : !validPassword
-          ? "Las contraseñas no coinciden"
-          : "El usuario ya se encuentra registrado";
+        ? "Las contraseñas no coinciden"
+        : "El usuario ya se encuentra registrado";
 
-      res.render("users/register", {
-        errorMessage,
-        name,
-        lastName,
-        email,
-        password,
-        passwordRepeat,
-      });
+        res.redirect("users/register")
     }
   },
 
@@ -91,11 +100,17 @@ const controller = {
   },
 
   profile: async function (req, res) {
-    db.user.findByPk(req.params.user_id)
-      .then(function(user){
-        res.render("auth/profile", {user:user})
-      });
-  },
+
+      let perfil = db.user.findOne({
+          where:{
+              user_id: req.params.id
+          }
+      })
+    .then((perfil)=>{
+      return res.render("/auth/profile",{ perfil })
+      })
+  
+    },
 
   logout: (req, res) => {
     res.clearCookie('remember')

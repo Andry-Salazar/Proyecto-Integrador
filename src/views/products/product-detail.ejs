@@ -9,24 +9,21 @@
               <div class="row">
                 <div class="col-12 col-lg-8">
                   <img
-                    src="<%= product.img %>"
-                    alt="product image"
+                    src="/images/ropa-deportiva/<%= resultado.product_image %>"
+                    alt="product images"
                     class="product-detail-img"
                   />
-                  
                 </div>
                 <div class="col-12 col-lg-4">
                   <article class="product-detail-info">
-                    <h2 class="product-detail-title"><%= product.name %></h2>
+                    <h2 class="product-detail-title"><%= resultado.product_name %></h2>
                     <!-- <p class="product-detail-price small">
                       <span>$PRICE</span>
                       /
                       <b>DISCOUNT % OFF</b>
                     </p>-->
-                    <p class="product-detail-price">$<%= product.price%></p>
-                    <!-- <p class="product-detail-price small">
-                      <span>$<%= product.price %></span>
-                    </p> -->
+                    <p class="product-detail-price">$<%= resultado.product_price%></p>
+                    
 
                     <ul class="actions-list">
                       <li>
@@ -46,20 +43,20 @@
                     <hr />
 
                     <a
-                      href="/products/edit/<%= product.id %>"
+                      href="/products/edit/<%= resultado.product_id %>"
                       class="action-button edit"
                       >EDITAR PRODUCTO</a
                     >
                     <form
-                      action="/products/delete/<%= product.id %>?_method=DELETE"
+                      action="/products/delete/<%= resultado.product_id %>"
                       method="POST"
                       style="display: inline-flex"
                     >
-                      <button class="action-button delete">ELIMINAR</button>
+                      <button type="submit" class="action-button delete">ELIMINAR</button>
                       
                     </form>
                     <p class="product-detail-description">
-                      <%= product.descripcion %>
+                      <%= resultado.product_description %>
                     </p>
                   </article>
                 </div>

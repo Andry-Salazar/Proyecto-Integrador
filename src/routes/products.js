@@ -21,11 +21,12 @@ router.get('/products/:id', productsController.detail);
 
 router.get('/create', authMiddleware, productsController.create);//vistas formulario de creacion
 
-router.post('/create', uploadFile.single('imgProduct'), productsController.store);//funcionalidad de creacion de producto
+router.post('/create', uploadFile.single('product_image'), productsController.store);//funcionalidad de creacion de producto
 
 router.get('/edit/:id', authMiddleware, productsController.edit);//vistas formulario de edicion
 
-router.put('/edit/:id', uploadFile.single('imgProduct'), productsController.update);//funcionalidad edicion de producto
+router.put('/edit/:id', uploadFile.single('product_image'), productsController.update);//funcionalidad edicion de producto
 
+router.post('/delete/:id', authMiddleware, productsController.destroy)
 module.exports = router;
   
