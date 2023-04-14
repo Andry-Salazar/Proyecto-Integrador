@@ -35,7 +35,7 @@
 
   .bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
   }
 
@@ -43,7 +43,7 @@
   .logo {
     display: flex;
     position: relative;
-    bottom: 4.5px;
+    bottom:4.5px;
   }
   
   header div img {

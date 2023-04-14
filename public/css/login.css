@@ -73,6 +73,8 @@ main div form div input:hover{
 }
 .continuar:hover{
     opacity: 100%;
+    background-color: #FF007B;
+    border: solid 1px #FF007B;
 }
 
 .inicio-con-red {
@@ -154,6 +156,8 @@ main div form div label input:checked~.checkbox{
 }
 .registro:hover{
     opacity: 100%;
+    background-color: #01BAEF;
+    border: solid 1px #01BAEF;
 }
 
 @media (min-width:768px) {

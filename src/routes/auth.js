@@ -22,7 +22,7 @@ router.post("/login", authController.postLogin);
 router.get("/register", guestMiddleware, authController.register);
 router.post("/create", upload.single('userImage'), authController.create);
 
-router.get("/profile", authMiddleware, authController.profile);
+router.get("/profile/:id", authMiddleware, authController.profile);
 router.get('/logout', authMiddleware, authController.logout)
 
 module.exports = router;

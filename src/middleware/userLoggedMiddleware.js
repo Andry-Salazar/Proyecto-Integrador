@@ -1,28 +1,26 @@
-const fs = require("fs");
-const path = require("path");
-const usersFilePath = path.join(__dirname, "../data/users-data.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+const UserModel = require("../models/UserModel.js");
 
-let  userLoggedMiddleware = (req, res, next) => {
-        res.locals.isLogged = false;
+// const usersFilePath = path.join(__dirname, '../data/usersData.json');
 
-        const {email} = req.body
 
-        const emailInCookie = req.cookies.userEmail;
-        const userCookie = users.find(users => users.email == email, emailInCookie)
+function userLoggedMiddleware(req, res, next) {
+    //mostrar elementos al usuario logeado
 
-        console.log(userCookie);
+    res.locals.isLogged = false;
 
-        if (userCookie) {
-            req.session.userProfile = userCookie;
-        }
+    let emailInCookie = req.cookies.recordarEmail;
+    let userFromCookie = UserModel.findByField('email', emailInCookie);
 
-        if(req.session.userProfile){
-            res.locals.isLogged = true;
-            res.locals.userProfile = req.session.userProfile
-        }
+    if (userFromCookie) {
+        req.session.userLogged = userFromCookie;
+    }
 
-        next();
+    if (req.session.userLogged) {
+        res.locals.isLogged = true;
+        res.locals.userLogged = req.session.userLogged;
+    }
+
+    next();
 }
 
 module.exports = userLoggedMiddleware
