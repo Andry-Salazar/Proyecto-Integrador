@@ -2,7 +2,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": null,
-    "database": "PlaySport",
+    "database": "playsport",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsALiases": false

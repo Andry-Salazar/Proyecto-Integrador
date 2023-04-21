@@ -12,8 +12,18 @@
                         <div>
                         <form action="/auth/login" method="POST">
                             <div class="botones">
-                                <input type="email" name="email" placeholder="correo electronico" required><br>
-                            <input  type="password" name="password" placeholder="contraseña" required><br><br>
+                                <input type="email" name="email" placeholder="correo electronico" value="<%= locals.old && old.email ? old.email:'' %>" required><br>
+                                <% if (locals.errors && errors.email){%>
+                                <div class="errores">
+                                    <%= errors.email.msg%>
+                                </div>
+                                <% } %>
+                                <input  type="password" name="password" placeholder="contraseña" required><br><br>
+                                <% if (locals.errrors && errors.password){%>
+                                <div class="errores">
+                                    <%= errors.password.msg%>
+                                </div>
+                                <% } %>
                             <label>
                                 <input type="checkbox" name="remember">
                                 <span class="checkbox"></span>
