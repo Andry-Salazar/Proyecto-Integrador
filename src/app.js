@@ -12,6 +12,8 @@ const routesCart = require('./routes/cart');
 const routesAuth = require('./routes/auth');
 const routesMain = require('./routes/main');
 
+const productsApi = require('./api/products');
+
 //middlewares
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
 
@@ -37,5 +39,7 @@ app.use('/', routesMain);
 app.use('/products', routesProduct);
 app.use('/cart', routesCart);
 app.use('/auth', routesAuth);
+
+app.use('/api', productsApi);
 
 app.use(express.static(path.join(__dirname,'/public')));
