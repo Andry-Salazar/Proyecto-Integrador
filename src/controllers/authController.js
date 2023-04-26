@@ -1,123 +1,131 @@
-const path = require("path");
-const fs = require("fs");
-const usersFilePath = path.join(__dirname, "../data/users-data.json");
-const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+const fs = require('fs');
+const path = require('path');
+const usersFilePath = path.join(__dirname, '../data/users-data.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const bcrypt = require('bcryptjs');
-const session = require("express-session");
-const db = require("../database/models");
-const { validationResult } = require("express-validator")
-const Op = db.Sequelize.Op
-const UserModel = require("../models/UserModel.js");
+const session = require('express-session');
+const db = require('../database/models');
+const { validationResult } = require('express-validator');
 
 const controller = {
-
   register: (req, res) =>
-    res.render("users/register"),
+    res.render(
+      'users/register'
+      // errorMessage: undefined,
+      // name: "",
+      // lastName: "",
+      // email: "",
+      // password: "",
+      // passwordRepeat: "",
+    ),
 
-  create: async function (req, res) {
-    let db = require("../database/models")
-    let errors = validationResult(req)
+  createRegister: async function (req, res) {
+    const errors = validationResult(req);
 
-    try {
-      const userRegister = {
-        first_name: req.body.name,
-        last_name: req.body.lastName,
-        user_email: req.body.email,
-        user_password: bcrypt.hashSync(req.body.password, 10),
-        passwordRepeat: req.body.passwordRepeat,
-        user_image: "img_user_default.png"
-      }
+    if (errors.errors.length > 0) {
+      res.render('./users/register', {
+        errors: errors.mapped(),
+        oldData: req.body,
+      });
+    } else {
+      const completedFields =
+        userRegister.first_name &&
+        userRegister.last_name &&
+        userRegister.user_email &&
+        userRegister.user_password &&
+        userRegister.passwordRepeat;
+
+      const validPassword =
+        userRegister.user_password === userRegister.passwordRepeat;
 
       const emailValid = db.user.findOne({
         where: {
-          user_email: userRegister.user_email
-        }
-      })
-      //AYUDA PARA LAS VALIDACIONES :D
-      if (!emailValid) {
+          user_email: userRegister.user_email,
+        },
+      });
+
+      if (emailValid) {
         res.render('users/register', {
           errors: {
             user_email: {
-              msg: "Este email ya esta regustrado"
-            }
-          }
-        })
+              msg: 'Este email ya esta registrado',
+            },
+          },
+        });
       }
 
       if (req.file) {
-
-        userRegister.user_image = req.file.filename
+        userRegister.user_image = req.file.filename;
       }
 
-      await db.user.create(userRegister)
-        .then(function () {
-          res.redirect('/auth/login');
-        })
+      if (completedFields && validPassword && emailValid) {
+        await db.user.create(userRegister).then(function () {
+          res.redirect('users/login');
+        });
+      } else {
+        const errorMessage = !completedFields
+          ? 'Formulario incompleto'
+          : !validPassword
+            ? 'Las contraseñas no coinciden'
+            : 'El usuario ya se encuentra registrado';
 
-    } catch (error) {
-      console.log(error);
+        res.redirect('users/register');
+      }
     }
+    // const userRegister = {
+    //   first_name: req.body.name,
+    //   last_name: req.body.lastName,
+    //   user_email: req.body.email,
+    //   user_password: req.body.password,
+    //   passwordRepeat: req.body.passwordRepeat,
+    //   user_image: "img_user_default.png"
+    // }
   },
 
-  login: (req, res) => res.render("users/login"),
+  login: (req, res) => res.render('users/login'),
 
-  postLogin: async function (req, res) {
+  postLogin: (req, res) => {
+    const { email, password } = req.body;
 
-    let db = require("../database/models")
-    let errors = validationResult(req)
+    const loggedUser = users.find((users) => users.email == email);
+    const passwordUser = bcrypt.compareSync(password, loggedUser.password);
+    console.log('usuario logeado', loggedUser);
 
-    try {
-      if (errors.isEmpty()) {
-
-        let loggedUser = await db.user.findOne({
-          where: {
-            user_email: req.body.email
-          }
-        })
-
-        if (loggedUser) {
-          let passwordUser = bcrypt.compareSync(req.body.password, loggedUser.user_password)
-
-          if (passwordUser) {
-            delete loggedUser.password;
-            req.session.userLogged = loggedUser;
-
-            if (req.body.remember) {
-              res.cookie('recordarEmail', req.body.email, { maxAge: 90000 })
-            }
-
-            return res.redirect('profile/' + loggedUser.user_id);
-
-          } else {
-            res.render('login', {
-              errors: {
-                user_email: {
-                  msg: "Este email no esta registrado"
-                }
-              }
-            })
-          }
-        } else {
-          res.render('login', {
-            errors: errors.mapped(),
-            old: req, body
-          })
-        }
-      }
-    } catch (error) {
-      console.log(error);
+    if (!loggedUser) {
+      return res.render('/auth/login');
+      // ver video para los errores !
+    } else if (!passwordUser) {
+      return res.render('/auth/login');
+      //ver video para los errores
     }
+
+    delete loggedUser.password;
+    req.session.userProfile = loggedUser;
+    console.log('usuario logueado');
+
+    if (req.body.remember) {
+      res.cookie('userEmail', req.body.email, { maxAge: 90000 });
+    }
+
+    return res.redirect('/auth/profile');
   },
 
-  profile: async (req, res) => {
-    let loggedUser = await db.user.findOne({
-      where: {
-        user_id: req.params.id
-      }
-    })
-    return res.render('users/profile', {
-      user: loggedUser
-    })
+  profile: async function (req, res) {
+    let perfil = db.user
+      .findOne({
+        where: {
+          user_id: req.params.id,
+        },
+      })
+      .then((perfil) => {
+        return res.render('/auth/profile', { perfil });
+      });
+  },
+
+  logout: (req, res) => {
+    res.clearCookie('remember');
+    req.session.destroy();
+    return res.redirect('/');
   },
 
   updateUser: async function (req, res) {
@@ -140,12 +148,6 @@ const controller = {
     } catch (error) {
       console.log(error);
     }
-  },
-
-  logout: (req, res) => {
-    res.clearCookie('remember')
-    req.session.destroy();
-    return res.redirect('/');
   }
 };
 
