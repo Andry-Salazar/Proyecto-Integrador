@@ -1,58 +1,49 @@
-.bord{
-    margin: auto;
-    width: 80%;
-    padding: 1rem;
-    padding: 3px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    transition: .5s;
-    border-radius: 6px;
-    box-shadow: 0px 0px 3px rgb(100, 100, 100);
+.custom {
+  height: 38px;
+  background-color: transparent !important;
+  border: none !important;
 }
 
-.bord:hover{
-    margin: auto;
-    width: 80%;
-    padding: 1rem;
-    position: relative;
-    background: linear-gradient(to right, #01BAEF, #FF007B);
-    padding: 3px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    opacity: 90%;
-    border-radius: 6px;
-  }
-  
-  .card{
-    background-color:#FBFBFF ;
-    color: #000000;
-    padding: 0.5rem;
-    font-weight: bold;
-    border-radius: 6px;
-    text-align: center;
-  }
+.custom-container {
+  margin-top: 3rem !important;
+  margin-bottom: 14rem !important;
+}
 
-  .info{
-    font-style: normal;
-    justify-items: center;
-    text-align:center;
+.image-user {
+  width: 80%;
+  border-radius: 15px;
+}
 
-  }
 
-  .image-user{
-    width: 80%;
-    border-radius: 15px;
-  
-  }
+.btn-register {
+  position: relative;
+  color: #FBFBFF;
+  background-color: #01BAEF;
+  border: solid 1px #01BAEF;
+  font-size: 20px;
+  padding: 10px;
+  padding-left: 6.7%;
+  padding-right: 6.7%;
+  border-radius: 10px;
+  opacity: 70%;
+  transition: .5s;
+  margin-top: 20px;
+}
 
-  @media (min-width:1000px){
-    .image-user{
-      width: 75%;
-    }
-  }
+.btn-register:hover {
+  background-color: #FF007B;
+  border: solid 1px #FF007B;
+  opacity: 100%;
+}
 
-  @media (min-width:1000px){
-    .image-user{
-      width: 70%;
-    }
+@media (min-width:1000px) {
+  .image-user {
+    width: 75%;
   }
+}
+
+@media (min-width:1000px) {
+  .image-user {
+    width: 70%;
+  }
+}

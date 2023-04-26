@@ -66,8 +66,8 @@ const controller = {
         const errorMessage = !completedFields
           ? 'Formulario incompleto'
           : !validPassword
-          ? 'Las contraseñas no coinciden'
-          : 'El usuario ya se encuentra registrado';
+            ? 'Las contraseñas no coinciden'
+            : 'El usuario ya se encuentra registrado';
 
         res.redirect('users/register');
       }
@@ -127,6 +127,28 @@ const controller = {
     req.session.destroy();
     return res.redirect('/');
   },
+
+  updateUser: async function (req, res) {
+    try {
+      const userUpdate = {
+        first_name: req.body.name,
+        last_name: req.body.lastName,
+        user_email: req.body.email,
+        //user_password: bcrypt.hashSync(req.body.password, 10),
+      }
+
+      await db.user.update(userUpdate, {
+        where: {
+          user_id: req.params.id
+        }
+      }).then(function () {
+        res.redirect('/');
+      })
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };
 
 module.exports = controller;

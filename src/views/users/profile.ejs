@@ -6,11 +6,45 @@
     <body>
         <%- include('../partials/nav-bar') %>
             <main>
-                <div class="bord">
-                    <div class="card">
-                        <h2>Hola este es tu Perfil: <i class="info"><%=user.first_name%></i></h2><br>
-                        <img src="/images/user/<%=user.user_image%>" alt="" class="image-user"><br>
-                        <h3>Tu email: <i class="info"><%=user.user_email%></i></h3>
+                <div class="container  custom-container">
+                    <h2 class="text-center mb-5">Perfil de usuario</h2>
+                    <div class="row d-flex align-items-center">
+                        <div class="col-4 text-center">
+                            <img src="/images/user/<%=user.user_image%>" alt="" class="image-user"><br>
+                        </div>
+                        <div class="col-8">
+                            <form action="/auth/update/<%=user.user_id%>" method="post" class="formGroup">
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text custom" id="basic-addon1">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" autocomplete="off" class="form-control" id="full_name_id"
+                                        name="name" required placeholder="Nombres" value="<%=user.first_name%>">
+                                </div>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text custom" id="basic-addon1">
+                                            <i class="fas fa-user"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" autocomplete="off" class="form-control" id="lastName"
+                                        name="lastName" required placeholder="Apellidos" value="<%=user.last_name%>">
+                                </div>
+                                <div class="input-group mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text custom" id="basic-addon1"><i
+                                                class="far fa-envelope"></i></span>
+                                    </div>
+                                    <input type="text" autocomplete="off" type="email" class="form-control" id="email"
+                                        name="email" required placeholder="Email" value="<%=user.user_email%>">
+                                </div>
+                                <div class="text-center">
+                                    <input type="submit" class="btn-register mt-4" value="Actualizar">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </main>

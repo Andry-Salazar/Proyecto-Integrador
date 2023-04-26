@@ -1,64 +1,14 @@
-/*MAIN*/
-.bord{
-    margin: auto;
-    width: 90%;
-    padding: 1rem;
-    padding: 3px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    transition: .5s;
-    border-radius: 6px;
-    box-shadow: 0px 0px 3px rgb(100, 100, 100);
+.login-container {
+    padding: 0 30%;
+    margin-bottom: 10rem;
+    margin-top: 3rem;
 }
 
-.bord:hover{
-    margin: auto;
-    width: 90%;
-    padding: 1rem;
-    position: relative;
-    background: linear-gradient(to right, #01BAEF, #FF007B);
-    padding: 3px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    opacity: 90%;
-    border-radius: 6px;
-  }
-  
-  .card{
-    background-color:#FBFBFF ;
-    padding: 0.5rem;
-    font-weight: bold;
-    border-radius: 6px;
-  }
-
-.cuestionario {
-    text-align: center;
-    color: #757575;
-    font-weight: bold;
-    padding-top: 10px;
-    background-color:#FBFBFF;
+footer {
+    bottom: 0;
 }
 
-.botones {
-    text-align: center;
-}
-
-main div form div input {
-    color: #757575;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 10px;
-    border: solid 1px #757575;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    caret-color: #FF007B;
-}
-main div form div input:hover{
-    color: #000000;
-    border: solid 1px #01BAEF;
-}
-
-.continuar {
+.btn-register {
     position: relative;
     color: #FBFBFF;
     background-color: #01BAEF;
@@ -70,116 +20,60 @@ main div form div input:hover{
     border-radius: 10px;
     opacity: 70%;
     transition: .5s;
+    width: 50%;
 }
-.continuar:hover{
+
+.btn-register:hover {
+    background-color: #FF007B;
+    border: solid 1px #FF007B;
     opacity: 100%;
-    background-color: #FF007B;
-    border: solid 1px #FF007B;
 }
 
-.inicio-con-red {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-main form div a {
-    text-decoration: none;
-    color: #000000;
-    font-size: 2em;
-    border: solid 1px #FF007B;
-    padding: 10px;
-    margin: auto;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-bottom: 10px;
-    transition: .5s;
-}
-main form div a:hover{
-    border:solid 1px #01BAEF;
-}
-
-main div form div label{
-    display: flex;
-    width: 25px;
-    height: 15px;
-    cursor: pointer;
-    width: 55%;
-    color:#757575;
-    align-items: center;
-    margin: auto;
-}
-
-main div form div label input{
-    position: absolute;
-    transform: scale(0);
-}
-
-main div form div label input:checked~.checkbox{
-    transform: rotate(30deg);
-    width: 12px;
-    margin-left: 1px;
-    border-color: #FF007B;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-radius: 0;
+.btn-facebook {
+    background-color: #0a497b;
     position: relative;
-    bottom:5px;
-    margin: auto;
-}
-
-.checkbox{
-    display: block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid #01BAEF;
-    border-radius: 4px;
-    transition: all 0.375s;
-    position: relative;
-    bottom: 2px;
-    margin: auto;
-}
-
-.registro {
     color: #FBFBFF;
-    background-color: #FF007B;
-    border: solid 1px #FF007B;
+    border: solid 1px #0a497b;
     font-size: 20px;
     padding: 10px;
-    padding-left: 6.5%;
-    padding-right: 6.5%;
-    margin-bottom: 10px;
+    padding-left: 6.7%;
+    padding-right: 6.7%;
     border-radius: 10px;
     opacity: 70%;
     transition: .5s;
-}
-.registro:hover{
-    opacity: 100%;
-    background-color: #01BAEF;
-    border: solid 1px #01BAEF;
+    width: 50%;
 }
 
-@media (min-width:768px) {
+.btn-google {
+    background-color: #db4a39;
+    position: relative;
+    color: #FBFBFF;
+    border: solid 1px #db4a39;
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 6.7%;
+    padding-right: 6.7%;
+    border-radius: 10px;
+    opacity: 70%;
+    transition: .5s;
+    width: 50%;
+}
 
-    .inicio-con-red{
-        width: 68%;
-        margin: auto;
-    }
+/* Media Celular*/
+@media screen and (max-width: 599px) {
 
-    main div form div label{
-        width: 22%;
+    .btn-facebook,
+    .btn-google,
+    .btn-register {
+        width: 100%;
     }
 }
 
-@media (min-width:1000px) {
+@media screen and (max-width: 992px) {
 
-    .inicio-con-red {
-        width: 55%;
-        margin: auto;
-    }
-
-    main div form div label{
-        width: 13%;
+    .btn-facebook,
+    .btn-google,
+    .btn-register {
+        width: 100%;
     }
 }

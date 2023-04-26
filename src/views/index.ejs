@@ -2,6 +2,7 @@
 <html lang="en">
 
 <%- include('./partials/head',{url:"/css/index.css"}) %>
+
     <body>
         <%- include('./partials/nav-bar') %>
             <main>
@@ -20,17 +21,20 @@
                 <section class="productsWrapper">
                     <% for (const p of destacado) { %>
                         <a href="/products/products/<%= p.product_id%>">
-                        <article class="products">
-                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
-                            <p>
-                                <%= p.product_name %>
-                            </p>
-                            <p>
-                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(p.product_price) %>
-                            </p>
-                        </article>
-                    </a>
+                            <div class="card product-shadow m-3" style="width: 18rem;">
+                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
+                                    alt="products Set Body Pump" />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= p.product_name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                            }).format(p.product_price) %>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                         <% } %>
                 </section>
 
@@ -40,17 +44,20 @@
                 <section class="productsWrapper">
                     <% for (const p of deporte) { %>
                         <a href="/products/products/<%= p.product_id %>">
-                        <article class="products">
-                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
-                            <p>
-                                <%= p.product_name %>
-                            </p>
-                            <p>
-                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(p.product_price) %>
-                            </p>
-                        </article>
-                    </a>
+                            <div class="card product-shadow m-3" style="width: 18rem;">
+                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
+                                    alt="products Set Body Pump" />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= p.product_name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                            }).format(p.product_price) %>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                         <% } %>
                 </section>
 
@@ -60,17 +67,20 @@
                 <section class="productsWrapper">
                     <% for (const p of hombre) { %>
                         <a href="/products/products/<%= p.product_id %>">
-                        <article class="products">
-                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
-                            <p>
-                                <%= p.product_name %>
-                            </p>
-                            <p>
-                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(p.product_price) %>
-                            </p>
-                        </article>
-                    </a>
+                            <div class="card product-shadow m-3" style="width: 18rem;">
+                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
+                                    alt="products Set Body Pump" />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= p.product_name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                            }).format(p.product_price) %>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                         <% } %>
                 </section>
 
@@ -80,17 +90,20 @@
                 <section class="productsWrapper">
                     <% for (const p of mujer) { %>
                         <a href="/products/products/<%= p.product_id %>">
-                        <article class="products">
-                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
-                            <p>
-                                <%= p.product_name %>
-                            </p>
-                            <p>
-                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(p.product_price) %>
-                            </p>
-                        </article>
-                    </a>
+                            <div class="card product-shadow m-3" style="width: 18rem;">
+                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
+                                    alt="products Set Body Pump" />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= p.product_name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                            }).format(p.product_price) %>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                         <% } %>
                 </section>
 
@@ -98,22 +111,25 @@
                     <h2 id="NIÑO">Niño</h2>
                 </div>
                 <section class="productsWrapper">
-                    <% for (const p of niño) { %>
+                    <% for (const p of nino) { %>
                         <a href="/products/products/<%= p.product_id %>">
-                        <article class="products">
-                            <img class="imgProducts" src="/images/ropa-deportiva/<%= p.product_image %>" alt="products Set Body Pump" />
-                            <p>
-                                <%=  p.product_name %>
-                            </p>
-                            <p>
-                                <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                    }).format(p.product_price) %>
-                            </p>
-                        </article>
-                    </a>
+                            <div class="card product-shadow m-3" style="width: 18rem;">
+                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
+                                    alt="products Set Body Pump" />
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <%= p.product_name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
+                                            }).format(p.product_price) %>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
                         <% } %>
                 </section>
-                
+
                 <section class="bannerFoot">
                     <img class="imgFoot" src="images/logo-banner/bannerHomeFoot.png" alt="">
                 </section>

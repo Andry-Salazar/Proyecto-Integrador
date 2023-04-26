@@ -4,57 +4,69 @@
 <%- include('../partials/head',{url:"/css/login.css"}) %>
 
     <body>
+
         <%- include('../partials/nav-bar') %>
             <main>
-                <div class="bord">
-                    <div class="card">
-                        <h2 class="cuestionario">INICIAR SESIÓN</h2>
-                        <div>
-                        <form action="/auth/login" method="POST">
-                            <div class="botones">
-                                <input type="email" name="email" placeholder="correo electronico" value="<%= locals.old && old.email ? old.email:'' %>" required><br>
+                <div class="login-container">
+                    <h2 class="text-center">Iniciar Sesión</h2>
+                    <form action="/auth/login" method="POST">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <input type="text" autocomplete="off" type="email" class="form-control" id="email"
+                                    name="email" required placeholder="Email"
+                                    value="<%= locals.old && old.email ? old.email:'' %>" required>
                                 <% if (locals.errors && errors.email){%>
-                                <div class="errores">
-                                    <%= errors.email.msg%>
-                                </div>
-                                <% } %>
-                                <input  type="password" name="password" placeholder="contraseña" required><br><br>
+                                    <div class="errores">
+                                        <%= errors.email.msg%>>
+                                    </div>
+                                    <% } %>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <input autocomplete="off" type="password" class="form-control" id="password"
+                                    name="password" required placeholder="Contraseña">
                                 <% if (locals.errrors && errors.password){%>
-                                <div class="errores">
-                                    <%= errors.password.msg%>
+                                    <div class="errores">
+                                        <%= errors.password.msg%>
+                                    </div>
+                                    <% } %>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="remember" type="checkbox" value=""
+                                            id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Recordar usuario
+                                        </label>
+                                    </div>
                                 </div>
-                                <% } %>
-                            <label>
-                                <input type="checkbox" name="remember">
-                                <span class="checkbox"></span>
-                                Recordar usuario</label><br>
-                                <div>
-                                    <button class="continuar" type="submit">INGRESAR</button>
+                                <div class="col text-end">
+                                    <a href="">
+                                        ¿Olvido contraseña?
+                                    </a>
                                 </div>
                             </div>
-                        </form>
-                        <h2 class="cuestionario"> Tambien puedes iniciar sesión con:</h2>
-                        <form action="/auth/login">
-                            <div class="inicio-con-red">
-                                <a
-                                href="https://www.facebook.com/?stype=lo&jlou=AfekAlCjMgtFUGarvZHUOYCJeL1zyN-UrBmfGfSUbXxKtOT92SY-cSyr2qaR5Ao_bvxDkIhm_90YgdPFiYYgSQXyjnSgbMZQn5ztbJJdRgI01Q&smuh=53745&lh=Ac9i6fFuxRY8Q-3Vd18"><i
-                                class="fab fa-facebook"></i></a>
-                                <a
-                                href="https://accounts.google.com/v3/signin/identifier?dsh=S352459982%3A1672939679361549&authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1&ec=GAlAwAE&hl=es_419&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession"><i
-                                class="fab fa-google"></i></a>
+                            <div class="text-center row my-2">
+                                <p>¿No tienes cuenta? <a href="/auth/register">Registro</a></p>
                             </div>
-                        </form>
-                    <h2 class="cuestionario">¿No tienes cuenta?</h2>
-                    <form class="botones" action="/auth/register">
-                        <a href="/auth/register">
-                            <button class="registro" type="submit"> Registrate aqui</button>
-                        </a>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn-register" type="submit">Ingresar</button>
+                        </div>
+                        <p class="text-center my-2">- or -</p>
+                        <div class="text-center">
+                            <button class="btn-facebook mb-3" type="submit"><i class="fab fa-facebook"></i>
+                                Facebook</button>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn-google" type="submit"><i class="fab fa-google"></i> Google</button>
+                        </div>
                     </form>
-                    </div><br>
                 </div>
-            </div>
-        </main>
-        <%- include('../partials/footer') %>
+            </main>
+            <%- include('../partials/footer') %>
     </body>
 
 </html>

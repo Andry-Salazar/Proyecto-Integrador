@@ -131,68 +131,24 @@
   footer {
     background-color: #000000;
     width: 100%;
+    min-height: 29vh;
   }
   
   .contenedor-footer {
     color: #FBFBFF;
     padding-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     text-align: center;
   }
-  
-  .categorias {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    left: 20px;
-    width: 50%;
-    margin-top: 27px;
-  }
-  
-  footer div ul li a {
-    color: #FBFBFF;
-    position: relative;
-    right: 19px;
-    bottom: 25px;
-    opacity: 60%;
-    margin-bottom: 20px;
+
+  .categoria{
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 10px;
   }
   
   .categorias :hover {
     opacity: 100%;
-  }
-  
-  .siguenos {
-    width: 60%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    flex-direction: column;
-    padding-top: 5px;
-    padding-left: 20px;
-    height: fit-content;
-  }
-  
-  .texto {
-    height: fit-content;
-    display: block;
-    margin-top: 42px;
-  }
-  
-  .redes {
-    color: #757575;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    transition: all 400ms;
-    display: flex;
-    flex-direction: column;
-    padding-left: 10px;
-    align-items: center;
-    height: fit-content;
-    width: fit-content;
-    padding-left: 48%;
   }
   
   .redes :hover {
@@ -200,29 +156,10 @@
     font-size: 1.5em;
   }
   
-  .final {
-    display: flex;
-    margin: 0;
-    flex-direction: column;
-    padding-bottom: 12px;
-  }
-  
   .copy {
     color: #FBFBFF;
     font-size: 12px;
     text-align: center;
-    margin: 0;
-    padding-bottom: 12px;
-    padding-top: 12px;
-    padding-left: 6px;
-    padding-right: 20px;
-  }
-  
-  .t-p {
-    color: #FBFBFF;
-    font-size: 12px;
-    display: flex;
-    justify-content: space-around;
   }
   
   /*MEDIAS*/
@@ -257,33 +194,6 @@
   
     header div form button {
       font-size: 20px;
-    }
-  
-    /*footer*/
-    .categorias {
-      margin-top: 0.2%;
-    }
-  
-    .texto {
-      margin-top: 4%;
-    }
-  
-    .siguenos {
-      flex-direction: column;
-      justify-content: space-around;
-    }
-  
-    .redes {
-      margin-left: -13%;
-      display: flex;
-      flex-direction: row;
-    }
-  
-    .redes-2 {
-      margin-right: 10%;
-    }
-    .bar i{
-      visibility: initial;
     }
   }
   

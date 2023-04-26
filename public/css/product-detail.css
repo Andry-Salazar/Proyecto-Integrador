@@ -12,27 +12,12 @@
   margin-left: auto;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.col-12 {
-  position: relative;
-  width: 50%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
 h2 {
   display: block;
-  /* font-size: 1.5em; */
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  /* font-weight: bold; */
 }
 
 .products-title {
@@ -66,7 +51,7 @@ h2 {
 .product-detail-title {
   font-weight: 400;
   font-size: 30px;
-  margin: 50px 36px 8px;
+  margin: 50px 0px 8px 20px;
 }
 
 .product-detail-description {
@@ -78,7 +63,7 @@ h2 {
 
 .product-detail-price {
   font-size: 22px;
-  margin-left: 36px;
+  margin-left: 33%;
 }
 
 .small {
@@ -90,15 +75,11 @@ h2 {
   text-decoration: line-through;
 }
 
-.actions-list {
-  margin-bottom: 50px;
-}
-
 .actions-list li {
   display: flex;
   align-items: center;
   margin: 1rem 0;
-  }
+}
 
 .actions-list i {
   color: #ff007b;
@@ -112,16 +93,15 @@ h2 {
   margin: 0;
 }
 
-.cart-button {
+.blue-button {
   background-color: #01baefe6;
 }
 
-.buy-button {
+.pink-button {
   background-color: #ff007b;
 }
 
 .now-button {
-  /* font-size: 1.6em; */
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -129,34 +109,21 @@ h2 {
   padding: 15px;
   border-radius: 8px;
   border: none;
-  margin-bottom: 15px;
-  height: 40px;
-  width: 40%;
-  margin-left: 30%;
-  text-decoration: none;
-  font-weight: bold;
+  min-width: 153px;
 }
 
-.action-button {
-  border: none;
-  border-radius: 8px;
-  font-size: 15px;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px 30px;
-  margin-top: 15px;
-  text-decoration: none;
-  margin-right: 8%;
+/* Media Celular*/
+@media screen and (max-width: 599px) {
+  .product-detail-info {
+    border-left: none;
+    border-top: 1px solid grey;
+  }
 }
 
-.action-button.edit {
-  background-color: #ff007b;
-  width: 35%;
-  margin-left: 10%;
-}
-.action-button.delete {
-  background-color: #01baefe6;
-  width: 220px;
+/* Media Tablet*/
+@media screen and (max-width: 992px) {
+  .product-detail-info {
+    border-left: none;
+    border-top: 1px solid grey;
+  }
 }

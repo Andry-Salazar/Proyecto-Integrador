@@ -25,9 +25,9 @@
 
 a {
     display: inline-block;
-    text-decoration: none;
+    text-decoration: none !important;
     color: inherit;
-  }
+}
 
 main div h3 {
     background-color: #FBFBFF;
@@ -61,45 +61,30 @@ main div form button {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 3rem 15rem;
+    margin: 3rem 12rem;
 }
 
-.imgProducts {
-    width: 200px;
-    height: 200px;
 
-}
-
-.products {
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    margin-left: 3rem;
-    background: #fff;
-    border: 0 solid;
-    padding: 1rem;
-    margin: 1rem;
-    border-radius: 5px 5px 5px 5px;
+.product-shadow:hover {
+    width: auto;
     box-shadow: 0px 0px 10px 0px #36655e;
     -webkit-transition: all .4s;
     transition: all .4s;
 }
 
-.products:hover{
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+.product-shadow:hover h5{
+    font-size: 23px;
+    color: #01baefe6;
 }
-
-.products:hover p{
-    height: 30px;
-    margin-top: 15px;
-    color: #ff007b;
+.product-shadow:hover p {
+    font-size: 19px;
 }
 
 /* Footer Banner*/
 .bannerFoot {
     display: flex;
     height: 250px;
-    box-shadow: 0 0 5px ;
+    box-shadow: 0 0 5px;
 }
 
 .imgFoot {
@@ -185,6 +170,7 @@ main div form button {
         height: 40px;
         width: 130px;
     }
+
     .moreInfo {
         display: flex;
         flex-direction: column;

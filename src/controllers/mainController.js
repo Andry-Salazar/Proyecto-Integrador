@@ -6,26 +6,16 @@ const db = require("../database/models");
 
 const controller = {
   index: async function (req, res) {
-    try{
-      let destacado = await db.product.findAll({
-        where: {category_id: 1}
-      })
-      let deporte = await db.product.findAll({
-        where: { category_id: 2 }
-      })
-      let hombre = await db.product.findAll({
-        where: { category_id: 3 }
-      })
-      let mujer = await db.product.findAll({
-        where: { category_id: 4 }
-      })
-      let niño = await db.product.findAll({
-        where: { category_id: 5 }
-      })
-
-    Promise.all([ destacado, deporte, hombre, mujer, niño])
-    return res.render("index", {destacado, deporte, hombre, mujer, niño})  
-    }catch (error) {
+    try {
+      let productos = await db.product.findAll();
+      let destacado = productos.filter(x => x.category_id === 1);
+      let deporte = productos.filter(x => x.category_id === 2);
+      let hombre = productos.filter(x => x.category_id === 3);
+      let mujer = productos.filter(x => x.category_id === 4);
+      let nino = productos.filter(x => x.category_id === 5);
+      Promise.all([productos, destacado, deporte, hombre, mujer, nino])
+      return res.render("index", { destacado, deporte, hombre, mujer, nino })
+    } catch (error) {
       console.log(error);
     }
   },
