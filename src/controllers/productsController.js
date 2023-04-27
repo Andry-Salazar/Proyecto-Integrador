@@ -96,10 +96,14 @@ const controller = {
   },
 
   destroy: (req, res) => {
-
+    db.product_images.destroy({
+      where: {
+        id_product: req.params.id
+      }
+    })
     db.product.destroy({
       where: {
-        product_id: req.params.id
+        id: req.params.id
       }
     })
     res.redirect('/');

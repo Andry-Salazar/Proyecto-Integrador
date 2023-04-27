@@ -6,18 +6,19 @@ const productsController = require('../controllers/productsController');
 const authMiddleware = require('../middleware/authMiddleware');
 
 // use multer
-const storage = multer.diskStorage({ 
-    destination: (req, file, cb) => { 
-       cb(null, 'public/images/ropa-deportiva'); 
-    }, 
-    filename: function (req, file, cb) { 
-       cb(null, `${Date.now()}img${path.extname(file.originalname)}`);  } 
-  })
-  
-  const uploadFile = multer({ storage });
+const storage = multer.diskStorage({
+   destination: (req, file, cb) => {
+      cb(null, 'public/images/ropa-deportiva');
+   },
+   filename: function (req, file, cb) {
+      cb(null, `${Date.now()}img${path.extname(file.originalname)}`);
+   }
+})
+
+const uploadFile = multer({ storage });
 //end use multer
 
-router.get('/products/:id', productsController.detail);
+router.get('/products/:id', authMiddleware, productsController.detail);
 
 router.get('/create', authMiddleware, productsController.create);//vistas formulario de creacion
 
@@ -29,4 +30,3 @@ router.put('/edit/:id', uploadFile.single('product_image'), productsController.u
 
 router.post('/delete/:id', authMiddleware, productsController.destroy)
 module.exports = router;
-  
