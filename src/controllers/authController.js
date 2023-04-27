@@ -105,6 +105,43 @@ const controller = {
     } catch (error) {
       console.log(error);
     }
+  },
+
+  getUsers: async function (req, res) {
+    await db.user.findAll().then((users) => {
+      return res.render('users/users', { users });
+    });
+  },
+
+  promoteAdmin: async function (req, res) {
+
+    const userUpdate = {
+      role: "Administrador",
+    }
+
+    await db.user.update(userUpdate, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function () {
+      res.redirect('/auth/users');
+    })
+  },
+
+  promoteUser: async function (req, res) {
+
+    const userUpdate = {
+      role: "Usuario",
+    }
+
+    await db.user.update(userUpdate, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function () {
+      res.redirect('/auth/users');
+    })
+
   }
 };
 

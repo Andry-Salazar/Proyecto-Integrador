@@ -25,5 +25,8 @@ router.post("/create", upload.single('userImage'), authController.createRegister
 
 router.get("/profile/:id", authMiddleware, authController.profile);
 router.get('/logout', authMiddleware, authController.logout)
+router.get('/users', authMiddleware, authController.getUsers)
+router.post('/setAdmin/:id', authController.promoteAdmin)
+router.post('/setUser/:id', authController.promoteUser)
 
 module.exports = router;
