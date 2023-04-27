@@ -1,124 +1,82 @@
-const fs = require('fs');
-const path = require('path');
-const usersFilePath = path.join(__dirname, '../data/users-data.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 const bcrypt = require('bcryptjs');
-const session = require('express-session');
 const db = require('../database/models');
-const { validationResult } = require('express-validator');
 
 const controller = {
   register: (req, res) =>
     res.render(
       'users/register'
-      // errorMessage: undefined,
-      // name: "",
-      // lastName: "",
-      // email: "",
-      // password: "",
-      // passwordRepeat: "",
     ),
 
   createRegister: async function (req, res) {
-    const errors = validationResult(req);
+    let db = require("../database/models")
 
-    if (errors.errors.length > 0) {
-      res.render('./users/register', {
-        errors: errors.mapped(),
-        oldData: req.body,
-      });
-    } else {
-      const completedFields =
-        userRegister.first_name &&
-        userRegister.last_name &&
-        userRegister.user_email &&
-        userRegister.user_password &&
-        userRegister.passwordRepeat;
+    try {
+      const userRegister = {
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 10),
+        image: req.file ? req.file.filename : "img_user_default.png",
+        role: "User"
+      }
 
       const validPassword =
-        userRegister.user_password === userRegister.passwordRepeat;
+        req.body.password === req.body.passwordRepeat;
 
-      const emailValid = db.user.findOne({
+      const existingUser = await db.user.findOne({
         where: {
-          user_email: userRegister.user_email,
+          email: userRegister.email,
         },
       });
 
-      if (emailValid) {
-        res.render('users/register', {
-          errors: {
-            user_email: {
-              msg: 'Este email ya esta registrado',
-            },
-          },
-        });
-      }
-
-      if (req.file) {
-        userRegister.user_image = req.file.filename;
-      }
-
-      if (completedFields && validPassword && emailValid) {
+      if (validPassword && !existingUser) {
         await db.user.create(userRegister).then(function () {
-          res.redirect('users/login');
+          res.redirect('login');
         });
       } else {
-        const errorMessage = !completedFields
-          ? 'Formulario incompleto'
-          : !validPassword
-            ? 'Las contraseñas no coinciden'
-            : 'El usuario ya se encuentra registrado';
-
-        res.redirect('users/register');
+        res.redirect('register');
       }
+    } catch (error) {
+      console.log(error);
     }
-    // const userRegister = {
-    //   first_name: req.body.name,
-    //   last_name: req.body.lastName,
-    //   user_email: req.body.email,
-    //   user_password: req.body.password,
-    //   passwordRepeat: req.body.passwordRepeat,
-    //   user_image: "img_user_default.png"
-    // }
   },
 
   login: (req, res) => res.render('users/login'),
 
-  postLogin: (req, res) => {
+  postLogin: async (req, res) => {
     const { email, password } = req.body;
 
-    const loggedUser = users.find((users) => users.email == email);
+    let loggedUser = await db.user.findOne({
+      where: {
+        email: email
+      }
+    })
     const passwordUser = bcrypt.compareSync(password, loggedUser.password);
-    console.log('usuario logeado', loggedUser);
-
     if (!loggedUser) {
-      return res.render('/auth/login');
-      // ver video para los errores !
+      return res.redirect('login');
     } else if (!passwordUser) {
-      return res.render('/auth/login');
-      //ver video para los errores
+      return res.redirect('login');
     }
 
     delete loggedUser.password;
     req.session.userProfile = loggedUser;
-    console.log('usuario logueado');
-
+    res.locals.userLogged = loggedUser;
     if (req.body.remember) {
       res.cookie('userEmail', req.body.email, { maxAge: 90000 });
     }
 
-    return res.redirect('/auth/profile');
+    return res.redirect('profile/' + loggedUser.id);
   },
 
   profile: async function (req, res) {
-    let perfil = db.user
+    db.user
       .findOne({
         where: {
-          user_id: req.params.id,
+          id: req.params.id,
         },
       })
       .then((perfil) => {
-        return res.render('/auth/profile', { perfil });
+        return res.render('users/profile', { user: perfil });
       });
   },
 
@@ -133,13 +91,12 @@ const controller = {
       const userUpdate = {
         first_name: req.body.name,
         last_name: req.body.lastName,
-        user_email: req.body.email,
-        //user_password: bcrypt.hashSync(req.body.password, 10),
+        email: req.body.email,
       }
 
       await db.user.update(userUpdate, {
         where: {
-          user_id: req.params.id
+          id: req.params.id
         }
       }).then(function () {
         res.redirect('/');

@@ -20,7 +20,6 @@ router.get("/login", guestMiddleware, authController.login);
 router.post("/login", authController.postLogin);
 
 router.get("/register", guestMiddleware, authController.register);
-router.post("/create", upload.single('userImage'), authController.create);
 router.post('/update/:id', authMiddleware, authController.updateUser);
 router.post("/create", upload.single('userImage'), authController.createRegister);
 
