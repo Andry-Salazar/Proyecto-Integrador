@@ -1,15 +1,16 @@
 CREATE DATABASE PlaySport;
 USE PlaySport;
 
-create table users(
-user_id int NOT NULL AUTO_INCREMENT,
-first_name varchar(50) NOT NULL,
-last_name varchar(50) NOT NULL,
-user_email varchar(60) NOT NULL,
-user_password varchar(60) NOT NULL,
-user_image varchar(40) NOT NULL,
-primary key(user_id)
-);
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 create table orders(
 order_id int NOT NULL,
