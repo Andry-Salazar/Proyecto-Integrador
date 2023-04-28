@@ -71,6 +71,7 @@
                     <%= resultado.description %>
                   </p>
 
+                  <% if (locals.userLogged.role==="Administrador") { %>
                   <div class="d-flex flex-column align-items-center">
                     <a href="/products/edit/<%= resultado.id %>" class="now-button pink-button mb-3">Editar
                       producto</a>
@@ -78,7 +79,7 @@
                       <button type="submit" class="now-button blue-button">Eliminar</button>
                     </form>
                   </div>
-
+                  <% } %>
 
                 </article>
               </div>

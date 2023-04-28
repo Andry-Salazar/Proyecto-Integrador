@@ -56,6 +56,11 @@ main div form button {
     width: 200px;
 }
 
+main div form button.pink{
+    background-color: #FF007B;
+    border: solid 1px #FF007B;
+}
+
 .subir {
     text-align: center;
     font-weight: bold;

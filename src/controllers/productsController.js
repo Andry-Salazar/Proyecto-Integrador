@@ -1,8 +1,3 @@
-const { Console } = require('console');
-const fs = require('fs');
-const path = require('path');
-const productsFilePath = path.join(__dirname, '../data/products-data.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require("../database/models");
 
 const controller = {
@@ -11,14 +6,18 @@ const controller = {
       where: {
         id: req.params.id
       }
-    }).then(itemlist => itemlist.dataValues)
+    }).then(itemlist => itemlist?.dataValues)
     const images = await db.product_images.findAll().then(itemlist => itemlist.map(x => x.dataValues))
-    producto.images = images.filter(i => i.id_product == req.params.id).map(z => z.image_route);
-    return res.render("products/product-detail", { resultado: producto })
+    if (producto) {
+      producto.images = images.filter(i => i.id_product == req.params.id).map(z => z.image_route);
+      return res.render("products/product-detail", { resultado: producto })
+    }
   },
 
   // Create - Form to create
   create: (req, res) => {
+    console.log("Here")
+
     res.render('products/create');
   },
 
@@ -27,20 +26,30 @@ const controller = {
 
     try {
       const newProduct = {
-        product_name: req.body.product_name,
-        product_description: req.body.product_description,
-        product_price: req.body.product_price,
-        product_image: "image-default.png",
-        category_id: req.body.category_id
+        name: req.body.product_name,
+        description: req.body.product_description,
+        price: req.body.product_price,
       }
-      //preguntar si el usuario subo una imagen
-      if (req.file) {
-        newProduct.product_image = req.file.filename
-      }
-      await db.product.create(newProduct)
-        .then(function () {
-          res.redirect('/');
+
+
+
+      const productId = await db.product.create(newProduct)
+        .then(function (file) {
+          return file.id
         })
+
+      if (req.files) {
+        req.files.forEach(async element => {
+          const newImage = {
+            image_route: element.filename,
+            id_product: productId
+          }
+
+          await db.product_images.create(newImage)
+        });
+      }
+
+      res.redirect('/');
 
     } catch (error) {
       console.log(error);
@@ -63,13 +72,12 @@ const controller = {
 
   //edid - Update
   update: async function (req, res) {
-
     try {
       const productUpdate = {
         name: req.body.product_name,
         description: req.body.product_description,
         price: req.body.product_price,
-        category_id: req.body.category_id
+        category: req.body.category_id
       }
 
       if (req.file) {
@@ -83,7 +91,7 @@ const controller = {
         }
       })
         .then(function () {
-          res.redirect('/');
+          res.redirect('/products/edit/' + req.params.id);
         })
 
     } catch (error) {
