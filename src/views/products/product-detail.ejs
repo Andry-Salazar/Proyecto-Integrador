@@ -72,8 +72,8 @@
                   </p>
 
                   <div class="d-flex flex-column align-items-center">
-                    <button href="/products/edit/<%= resultado.id %>" class="now-button pink-button mb-3">Editar
-                      producto</button>
+                    <a href="/products/edit/<%= resultado.id %>" class="now-button pink-button mb-3">Editar
+                      producto</a>
                     <form action="/products/delete/<%= resultado.id %>" method="POST" style="display: inline-flex">
                       <button type="submit" class="now-button blue-button">Eliminar</button>
                     </form>
