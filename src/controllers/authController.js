@@ -65,7 +65,7 @@ const controller = {
       res.cookie('userEmail', req.body.email, { maxAge: 90000 });
     }
 
-    return res.redirect('profile/' + loggedUser.id);
+    return res.redirect('/');
   },
 
   profile: async function (req, res) {
