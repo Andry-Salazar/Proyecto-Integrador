@@ -3,6 +3,7 @@ const router = express.Router();
 const authController = require("../controllers/authController");
 const multer = require('multer');
 const guestMiddleware = require('../middleware/guestMiddleware');
+const validationRegister = require('../middleware/validationsRegister');
 const authMiddleware = require('../middleware/authMiddleware');
 
 var storage = multer.diskStorage({
@@ -21,7 +22,7 @@ router.post("/login", authController.postLogin);
 
 router.get("/register", guestMiddleware, authController.register);
 router.post('/update/:id', authMiddleware, authController.updateUser);
-router.post("/create", upload.single('userImage'), authController.createRegister);
+router.post("/create", upload.single('userImage'), validationRegister, authController.createRegister);
 
 router.get("/profile/:id", authMiddleware, authController.profile);
 router.get('/logout', authMiddleware, authController.logout)

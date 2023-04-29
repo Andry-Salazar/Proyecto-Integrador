@@ -1,13 +1,31 @@
 const bcrypt = require('bcryptjs');
 const db = require('../database/models');
+const { validationResult } = require('express-validator');
 
 const controller = {
   register: (req, res) =>
     res.render(
-      'users/register'
+      'users/register',
+      {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        image: '',
+        errorsObj: {}
+      }
     ),
 
   createRegister: async function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const errorsObj = {}
+      errors.errors.forEach(err => {
+        errorsObj[err.param] = err.msg
+      });
+      return res.render('users/register', { ...req.body, errorsObj });
+    }
+
     let db = require("../database/models")
 
     try {
@@ -17,11 +35,12 @@ const controller = {
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password, 10),
         image: req.file ? req.file.filename : "img_user_default.png",
-        role: "User"
+        role: "Usuario"
       }
 
-      const validPassword =
-        req.body.password === req.body.passwordRepeat;
+      if (req.body.password !== req.body.passwordRepeat) {
+        return res.render('users/register', { ...req.body, errorsObj: {}, errorMessage: "Los passwords no son iguales" });
+      }
 
       const existingUser = await db.user.findOne({
         where: {
@@ -29,13 +48,13 @@ const controller = {
         },
       });
 
-      if (validPassword && !existingUser) {
-        await db.user.create(userRegister).then(function () {
-          res.redirect('login');
-        });
-      } else {
-        res.redirect('register');
+      if (existingUser) {
+        return res.render('users/register', { ...req.body, errorsObj: {}, errorMessage: "El email ingresado ya se encuentra registrado" });
       }
+
+      await db.user.create(userRegister).then(function () {
+        res.redirect('login');
+      });
     } catch (error) {
       console.log(error);
     }

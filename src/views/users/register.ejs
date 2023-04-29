@@ -15,8 +15,13 @@
                                         <i class="fas fa-user"></i>
                                     </span>
                                 </div>
-                                <input type="text" autocomplete="off" class="form-control" id="full_name_id" name="first_name"
-                                    required placeholder="Nombres">
+                                <input type="text" autocomplete="off" class="form-control" id="full_name_id"
+                                    name="first_name" required placeholder="Nombres" value="<%=first_name%>">
+                                <% if (errorsObj['first_name']) { %>
+                                    <div class="invalid-feedback">
+                                        <%= errorsObj['first_name'] %>
+                                    </div>
+                                    <% }%>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
@@ -24,8 +29,13 @@
                                         <i class="fas fa-user"></i>
                                     </span>
                                 </div>
-                                <input type="text" autocomplete="off" class="form-control" id="lastName" name="last_name"
-                                    required placeholder="Apellidos">
+                                <input type="text" autocomplete="off" class="form-control" id="lastName"
+                                    name="last_name" required placeholder="Apellidos" value="<%=last_name%>">
+                                <% if (errorsObj['last_name']) { %>
+                                    <div class="invalid-feedback">
+                                        <%= errorsObj['last_name'] %>
+                                    </div>
+                                    <% }%>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
@@ -33,26 +43,43 @@
                                             class="far fa-envelope"></i></span>
                                 </div>
                                 <input type="text" autocomplete="off" type="email" class="form-control" id="email"
-                                    name="email" required placeholder="Email">
+                                    name="email" required placeholder="Email" value="<%=email%>">
+                                <% if (errorsObj['email']) { %>
+                                    <div class="invalid-feedback">
+                                        <%= errorsObj['email'] %>
+                                    </div>
+                                    <% }%>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text custom" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                                    <span class="input-group-text custom" id="basic-addon1"><i
+                                            class="fas fa-lock"></i></span>
                                 </div>
                                 <input autocomplete="off" type="password" class="form-control" id="password"
-                                    name="password" required placeholder="Contraseña">
+                                    name="password" required placeholder="Contraseña" value="<%=password%>">
+                                <% if (errorsObj['password']) { %>
+                                    <div class="invalid-feedback">
+                                        <%= errorsObj['password'] %>
+                                    </div>
+                                    <% }%>
                             </div>
                             <div class="input-group mb-4">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text custom" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                                    <span class="input-group-text custom" id="basic-addon1"><i
+                                            class="fas fa-lock"></i></span>
                                 </div>
-                                <input autocomplete="off" type="password" class="form-control"
-                                    id="passwordRepeat" name="passwordRepeat" r placeholder="Confirmar Contraseña"
-                                    equired>
+                                <input autocomplete="off" type="password" class="form-control" id="passwordRepeat"
+                                    name="passwordRepeat" r placeholder="Confirmar Contraseña" equired
+                                    value="<%=password%>">
+                                <% if (errorsObj['password']) { %>
+                                    <div class="invalid-feedback">
+                                        <%= errorsObj['password'] %>
+                                    </div>
+                                    <% }%>
                             </div>
                             <div class="input-group">
                                 <label class="input-group-text" for="userImage">Imagen de Perfil</label>
-                                <input type="file" class="form-control"  name="userImage" id="userImage">
+                                <input type="file" class="form-control" name="userImage" id="userImage">
                             </div>
                         </div>
 
@@ -60,7 +87,7 @@
                     </form>
 
                     <% if (typeof errorMessage !=="undefined" ) { %>
-                        <div class="errorBanner">
+                        <div class="errorBanner mt-5">
                             <p>
                                 <i class="fas fa-exclamation-triangle"></i>
                                 <%= errorMessage %>

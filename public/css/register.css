@@ -34,6 +34,11 @@ footer {
     margin-top: 20px;
 }
 
+.invalid-feedback {
+    display: block !important;
+    margin-left: 2rem;
+}
+
 .btn-register:hover {
     background-color: #FF007B;
     border: solid 1px #FF007B;
