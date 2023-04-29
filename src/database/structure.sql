@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table playsport.products: ~0 rows (approximately)
+-- Dumping data for table playsport.products: ~14 rows (approximately)
 DELETE FROM `products`;
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `category`) VALUES
 	(32, 'Steps Aeróbicos 2 Niveles', 'Steps Sportfitness ideal para entrenamiento funcional y cardiovascular. Los beneficios de los Steps Aeróbicos incluyen quema de calorías y tonificación muscular, especialmente glúteos y piernas.\r\n\r\nSteps con 2 niveles de altura (13 cm y 17 cm).\r\nBases antideslizantes.\r\nPeso máximo de usuario: 100 kg.\r\nTrabajo cardiovascular.\r\nMedidas: Largo; 70 cm. Ancho; 27 cm.\r\nUso: doméstico', 145500, 1),
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   CONSTRAINT `FK_product_images_products` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table playsport.product_images: ~2 rows (approximately)
+-- Dumping data for table playsport.product_images: ~35 rows (approximately)
 DELETE FROM `product_images`;
 INSERT INTO `product_images` (`id`, `image_route`, `id_product`) VALUES
 	(1, '1682725516915img.jpg', 32),
@@ -122,8 +122,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table playsport.users: ~2 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role`, `image`) VALUES
-	(1, 'Jasbleydi', 'Gonzalez', 'natalia2@gmail.com', '$2a$10$NjOk9RRPbJSzSGKxUEHwOemUtIbuvbpYzw./L1b1EwrEZFO238Lwa', 'Administrador', 'user1.png'),
-	(2, 'Natalia', 'Mora', 'natalia1@gmail.com', '$2a$10$lpLD0iMn7NgYL9zDxv6fCuPn0/4iM.pQgUFXBn5M59GeyqyKbbk0q', 'Usuario', 'img_user_default.png');
+	(7, 'Natalia', 'Mora', 'natalia1@gmail.com', '$2a$10$YK/1ZA7LD2YK6GlqH5UsKua/5G5RDbwEWsyxO0G6hYT404X/XaYNS', 'Administrador', 'user1.png'),
+	(8, 'Jaasbleydi', 'Gonzalez', 'natalia2@gmail.com', '$2a$10$5HUegvyPj2JKUJLwbV/Qu.wiI.kv23CXzNwgzffFYwLGIDh9kliEq', 'Usuario', 'Screenshot 2023-04-28 185934.png');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
