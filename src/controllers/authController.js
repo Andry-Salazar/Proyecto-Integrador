@@ -83,10 +83,12 @@ const controller = {
         email: email
       }
     })
-    const passwordUser = bcrypt.compareSync(password, loggedUser.password);
     if (!loggedUser) {
       return res.render('users/login', { ...req.body, errorsObj: { email: "El email no existe" } });
-    } else if (!passwordUser) {
+    }
+
+    const passwordUser = bcrypt.compareSync(password, loggedUser.password);
+    if (!passwordUser) {
       return res.render('users/login', { ...req.body, errorsObj: { password: "La contraseña no es valida" } });
     }
 

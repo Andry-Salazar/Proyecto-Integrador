@@ -4,6 +4,8 @@ const multer = require('multer');
 const path = require('path')
 const productsController = require('../controllers/productsController');
 const authMiddleware = require('../middleware/authMiddleware');
+const validationsProducts = require('../middleware/validationsProducts');
+
 
 const storage = multer.diskStorage({
    destination: (req, file, cb) => {
@@ -18,7 +20,7 @@ const uploadFile = multer({ storage });
 
 router.get('/create', authMiddleware, productsController.create);
 router.get('/:id', authMiddleware, productsController.detail);
-router.post('/create', uploadFile.array('product_image'), productsController.store);
+router.post('/create', uploadFile.array('product_image'), validationsProducts, productsController.store);
 router.get('/edit/:id', authMiddleware, productsController.edit);
 router.post('/edit/:id', uploadFile.single('product_image'), productsController.update);
 router.post('/removeImage/:id/:productId', productsController.removeImage);

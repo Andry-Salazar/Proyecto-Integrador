@@ -1,4 +1,5 @@
 const db = require("../database/models");
+const { validationResult } = require('express-validator');
 
 const controller = {
   detail: async (req, res) => {
@@ -16,20 +17,38 @@ const controller = {
 
   // Create - Form to create
   create: (req, res) => {
-    res.render('products/create');
+    res.render('products/create',
+      {
+        category_id: '',
+        product_name: '',
+        product_description: '',
+        product_price: '',
+        product_image: '',
+        errorsObj: {}
+      });
   },
 
   // Create - Save
   store: async function (req, res) {
 
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log(errors)
+      const errorsObj = {}
+      errors.errors.forEach(err => {
+        errorsObj[err.param] = err.msg
+      });
+
+      return res.render('products/create', { ...req.body, errorsObj });
+    }
+
     try {
       const newProduct = {
+        category: req.body.category_id,
         name: req.body.product_name,
         description: req.body.product_description,
         price: req.body.product_price,
       }
-
-
 
       const productId = await db.product.create(newProduct)
         .then(function (file) {

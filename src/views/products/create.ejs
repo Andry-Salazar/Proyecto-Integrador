@@ -14,29 +14,51 @@
                         <div class="form-group mb-4">
                             <label for="exampleFormControlSelect1">Categoria del producto</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="category_id">
-                                <option value="1">Destacado</option>
-                                <option value="2">Deporte</option>
-                                <option value="3">Hombre</option>
-                                <option value="4">Mujer</option>
-                                <option value="5">Niño</option>
+                                <% var options=[ "Destacado" , "Deporte" , "Hombre" , "Mujer" , "Niño" ]; for ( var i=0;
+                                    i < options.length; i++ ) { var selected=( category_id==i+1 ) ? "selected" : "" ; %>
+                                    <option value="<%=i+1%>" <%=selected %>><%=options[ i ] %>
+                                    </option>
+                                    <% } %>
                             </select>
                         </div>
                         <div class="form-group mb-4">
                             <label for="exampleInputEmail1">Nombre del producto</label>
-                            <input class="form-control" id="product_name" name="product_name" type="text">
+                            <input class="form-control" id="product_name" name="product_name" type="text"
+                                value="<%=product_name%>">
+                            <% if (errorsObj['product_name']) { %>
+                                <div class="invalid-feedback d-block">
+                                    <%= errorsObj['product_name'] %>
+                                </div>
+                                <% }%>
                         </div>
                         <div class="form-group mb-4">
                             <label for="exampleInputEmail1">Descripcion del producto</label>
                             <textarea class="form-control" id="product_description" rows="5"
-                                name="product_description"></textarea>
+                                name="product_description"> <%=product_description%></textarea>
+                            <% if (errorsObj['product_description']) { %>
+                                <div class="invalid-feedback d-block">
+                                    <%= errorsObj['product_description'] %>
+                                </div>
+                                <% }%>
                         </div>
                         <div class="form-group mb-4">
                             <label for="exampleInputEmail1">Precio del producto</label>
-                            <input class="form-control" id="product_price" name="product_price" type="text">
+                            <input class="form-control" id="product_price" name="product_price" type="text"
+                                value="<%=product_price%>">
+                            <% if (errorsObj['product_price']) { %>
+                                <div class="invalid-feedback d-block">
+                                    <%= errorsObj['product_price'] %>
+                                </div>
+                                <% }%>
                         </div>
                         <div class="form-group mb-4">
                             <label class="titulos">Imagenes del producto</label>
                             <input type="file" class="form-control" name="product_image" id="product_image" multiple>
+                            <% if (errorsObj['product_image']) { %>
+                                <div class="invalid-feedback d-block">
+                                    <%= errorsObj['product_image'] %>
+                                </div>
+                                <% }%>
                         </div>
                         <input class="guardar" value="Guardar" type="submit">
                     </div>
