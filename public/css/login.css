@@ -4,6 +4,11 @@
     margin-top: 3rem;
 }
 
+.invalid-feedback {
+    display: block !important;
+    margin-left: 2rem;
+}
+
 footer {
     bottom: 0;
 }

@@ -60,11 +60,24 @@ const controller = {
     }
   },
 
-  login: (req, res) => res.render('users/login'),
+  login: (req, res) => res.render('users/login', {
+    email: null,
+    password: null,
+    errorsObj: {}
+  }),
 
   postLogin: async (req, res) => {
-    const { email, password } = req.body;
 
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      const errorsObj = {}
+      errors.errors.forEach(err => {
+        errorsObj[err.param] = err.msg
+      });
+      return res.render('users/login', { ...req.body, errorsObj });
+    }
+
+    const { email, password } = req.body;
     let loggedUser = await db.user.findOne({
       where: {
         email: email
@@ -72,9 +85,9 @@ const controller = {
     })
     const passwordUser = bcrypt.compareSync(password, loggedUser.password);
     if (!loggedUser) {
-      return res.redirect('login');
+      return res.render('users/login', { ...req.body, errorsObj: { email: "El email no existe" } });
     } else if (!passwordUser) {
-      return res.redirect('login');
+      return res.render('users/login', { ...req.body, errorsObj: { password: "La contraseña no es valida" } });
     }
 
     delete loggedUser.password;
