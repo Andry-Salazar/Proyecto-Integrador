@@ -8,10 +8,15 @@
             <main>
                 <div class="banner">
                     <img class="img" src="images/logo-banner/banner.png" alt="">
-                    <div class="informacion">
+                    <div class="informacion d-flex justify-content-center">
                         <form action="/DEPORTES" method="post">
-                            <button type="submit">Compra ahora</button>
+                            <button type="submit" class="mx-2">Compra ahora</button>
                         </form>
+                        <% if (locals.userLogged.role==="Administrador" ) { %>
+                            <form action="/products/create" method="GET">
+                                <button type="submit" class="pink">Crear producto</button>
+                            </form>
+                            <% } %>
                     </div>
                 </div>
 
@@ -20,17 +25,44 @@
                 </div>
                 <section class="productsWrapper">
                     <% for (const p of destacado) { %>
-                        <a href="/products/products/<%= p.product_id%>">
-                            <div class="card product-shadow m-3" style="width: 18rem;">
-                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
-                                    alt="products Set Body Pump" />
+                        <a href="/products/<%= p.id%>">
+                            <div class="card product-shadow m-3" style="width: 24rem;">
+                                <div id="carouselExampleControls<%= p.id%>" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <% for(var i=0; i < p.images.length; i++) { %>
+                                            <% if (i===0) { %>
+                                                <div class="carousel-item active">
+                                                    <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                        class="d-block img" alt="...">
+                                                </div>
+                                                <%} %>
+                                                    <% if (i!==0) { %>
+                                                        <div class="carousel-item">
+                                                            <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                                class="d-block img" alt="...">
+                                                        </div>
+                                                        <%} %>
+                                                            <%} %>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <%= p.product_name %>
+                                        <%= p.name %>
                                     </h5>
                                     <p class="card-text">
                                         <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                            }).format(p.product_price) %>
+                                            }).format(p.price) %>
                                     </p>
                                 </div>
                             </div>
@@ -43,17 +75,44 @@
                 </div>
                 <section class="productsWrapper">
                     <% for (const p of deporte) { %>
-                        <a href="/products/products/<%= p.product_id %>">
-                            <div class="card product-shadow m-3" style="width: 18rem;">
-                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
-                                    alt="products Set Body Pump" />
+                        <a href="/products/<%= p.id%>">
+                            <div class="card product-shadow m-3" style="width: 24rem;">
+                                <div id="carouselExampleControls<%= p.id%>" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <% for(var i=0; i < p.images.length; i++) { %>
+                                            <% if (i===0) { %>
+                                                <div class="carousel-item active">
+                                                    <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                        class="d-block img" alt="...">
+                                                </div>
+                                                <%} %>
+                                                    <% if (i!==0) { %>
+                                                        <div class="carousel-item">
+                                                            <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                                class="d-block img" alt="...">
+                                                        </div>
+                                                        <%} %>
+                                                            <%} %>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <%= p.product_name %>
+                                        <%= p.name %>
                                     </h5>
                                     <p class="card-text">
                                         <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                            }).format(p.product_price) %>
+                                            }).format(p.price) %>
                                     </p>
                                 </div>
                             </div>
@@ -66,17 +125,44 @@
                 </div>
                 <section class="productsWrapper">
                     <% for (const p of hombre) { %>
-                        <a href="/products/products/<%= p.product_id %>">
-                            <div class="card product-shadow m-3" style="width: 18rem;">
-                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
-                                    alt="products Set Body Pump" />
+                        <a href="/products/<%= p.id%>">
+                            <div class="card product-shadow m-3" style="width: 24rem;">
+                                <div id="carouselExampleControls<%= p.id%>" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <% for(var i=0; i < p.images.length; i++) { %>
+                                            <% if (i===0) { %>
+                                                <div class="carousel-item active">
+                                                    <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                        class="d-block img" alt="...">
+                                                </div>
+                                                <%} %>
+                                                    <% if (i!==0) { %>
+                                                        <div class="carousel-item">
+                                                            <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                                class="d-block img" alt="...">
+                                                        </div>
+                                                        <%} %>
+                                                            <%} %>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <%= p.product_name %>
+                                        <%= p.name %>
                                     </h5>
                                     <p class="card-text">
                                         <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                            }).format(p.product_price) %>
+                                            }).format(p.price) %>
                                     </p>
                                 </div>
                             </div>
@@ -89,17 +175,44 @@
                 </div>
                 <section class="productsWrapper">
                     <% for (const p of mujer) { %>
-                        <a href="/products/products/<%= p.product_id %>">
-                            <div class="card product-shadow m-3" style="width: 18rem;">
-                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
-                                    alt="products Set Body Pump" />
+                        <a href="/products/<%= p.id%>">
+                            <div class="card product-shadow m-3" style="width: 24rem;">
+                                <div id="carouselExampleControls<%= p.id%>" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <% for(var i=0; i < p.images.length; i++) { %>
+                                            <% if (i===0) { %>
+                                                <div class="carousel-item active">
+                                                    <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                        class="d-block img" alt="...">
+                                                </div>
+                                                <%} %>
+                                                    <% if (i!==0) { %>
+                                                        <div class="carousel-item">
+                                                            <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                                class="d-block img" alt="...">
+                                                        </div>
+                                                        <%} %>
+                                                            <%} %>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <%= p.product_name %>
+                                        <%= p.name %>
                                     </h5>
                                     <p class="card-text">
                                         <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                            }).format(p.product_price) %>
+                                            }).format(p.price) %>
                                     </p>
                                 </div>
                             </div>
@@ -112,17 +225,44 @@
                 </div>
                 <section class="productsWrapper">
                     <% for (const p of nino) { %>
-                        <a href="/products/products/<%= p.product_id %>">
-                            <div class="card product-shadow m-3" style="width: 18rem;">
-                                <img class="card-img-top" src="/images/ropa-deportiva/<%= p.product_image %>"
-                                    alt="products Set Body Pump" />
+                        <a href="/products/<%= p.id%>">
+                            <div class="card product-shadow m-3" style="width: 24rem;">
+                                <div id="carouselExampleControls<%= p.id%>" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <% for(var i=0; i < p.images.length; i++) { %>
+                                            <% if (i===0) { %>
+                                                <div class="carousel-item active">
+                                                    <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                        class="d-block img" alt="...">
+                                                </div>
+                                                <%} %>
+                                                    <% if (i!==0) { %>
+                                                        <div class="carousel-item">
+                                                            <img src="/images/ropa-deportiva/<%= p.images[i] %>"
+                                                                class="d-block img" alt="...">
+                                                        </div>
+                                                        <%} %>
+                                                            <%} %>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button"
+                                        data-bs-target="#carouselExampleControls<%= p.id%>" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <%= p.product_name %>
+                                        <%= p.name %>
                                     </h5>
                                     <p class="card-text">
                                         <%= new Intl.NumberFormat('es-CO', { style: 'currency' , currency: 'COP'
-                                            }).format(p.product_price) %>
+                                            }).format(p.price) %>
                                     </p>
                                 </div>
                             </div>

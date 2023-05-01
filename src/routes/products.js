@@ -4,29 +4,26 @@ const multer = require('multer');
 const path = require('path')
 const productsController = require('../controllers/productsController');
 const authMiddleware = require('../middleware/authMiddleware');
+const validationsProducts = require('../middleware/validationsProducts');
 
-// use multer
-const storage = multer.diskStorage({ 
-    destination: (req, file, cb) => { 
-       cb(null, 'public/images/ropa-deportiva'); 
-    }, 
-    filename: function (req, file, cb) { 
-       cb(null, `${Date.now()}img${path.extname(file.originalname)}`);  } 
-  })
-  
-  const uploadFile = multer({ storage });
-//end use multer
 
-router.get('/products/:id', productsController.detail);
+const storage = multer.diskStorage({
+   destination: (req, file, cb) => {
+      cb(null, 'public/images/ropa-deportiva');
+   },
+   filename: function (req, file, cb) {
+      cb(null, `${Date.now()}img${path.extname(file.originalname)}`);
+   }
+})
 
-router.get('/create', authMiddleware, productsController.create);//vistas formulario de creacion
+const uploadFile = multer({ storage });
 
-router.post('/create', uploadFile.single('product_image'), productsController.store);//funcionalidad de creacion de producto
-
-router.get('/edit/:id', authMiddleware, productsController.edit);//vistas formulario de edicion
-
-router.put('/edit/:id', uploadFile.single('product_image'), productsController.update);//funcionalidad edicion de producto
-
+router.get('/create', authMiddleware, productsController.create);
+router.get('/:id', authMiddleware, productsController.detail);
+router.post('/create', uploadFile.array('product_image'), validationsProducts, productsController.store);
+router.get('/edit/:id', authMiddleware, productsController.edit);
+router.post('/edit/:id', uploadFile.single('product_image'), productsController.update);
+router.post('/removeImage/:id/:productId', productsController.removeImage);
+router.post('/addImage/:id', uploadFile.single('product_image'), productsController.addImage);
 router.post('/delete/:id', authMiddleware, productsController.destroy)
 module.exports = router;
-  

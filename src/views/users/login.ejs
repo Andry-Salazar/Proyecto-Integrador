@@ -14,22 +14,22 @@
                             <div class="input-group mb-3">
                                 <input type="text" autocomplete="off" type="email" class="form-control" id="email"
                                     name="email" required placeholder="Email"
-                                    value="<%= locals.old && old.email ? old.email:'' %>" required>
-                                <% if (locals.errors && errors.email){%>
-                                    <div class="errores">
-                                        <%= errors.email.msg%>>
+                                    value="<%=email%>" required>
+                                <% if (errorsObj['email']) { %>
+                                    <div class="invalid-feedback">
+                                        <%= errorsObj['email'] %>
                                     </div>
-                                    <% } %>
+                                    <% }%>
                             </div>
 
                             <div class="input-group mb-3">
                                 <input autocomplete="off" type="password" class="form-control" id="password"
                                     name="password" required placeholder="Contraseña">
-                                <% if (locals.errrors && errors.password){%>
-                                    <div class="errores">
-                                        <%= errors.password.msg%>
+                                <% if (errorsObj['password']) { %>
+                                    <div class="invalid-feedback">
+                                        <%= errorsObj['password'] %>
                                     </div>
-                                    <% } %>
+                                    <% }%>
                             </div>
 
                             <div class="row">

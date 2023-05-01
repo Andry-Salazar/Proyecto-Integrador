@@ -1,64 +1,132 @@
-CREATE DATABASE PlaySport;
-USE PlaySport;
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Server version:               10.4.28-MariaDB - mariadb.org binary distribution
+-- Server OS:                    Win64
+-- HeidiSQL Version:             12.4.0.6659
+-- --------------------------------------------------------
 
-create table users(
-user_id int NOT NULL AUTO_INCREMENT,
-first_name varchar(50) NOT NULL,
-last_name varchar(50) NOT NULL,
-user_email varchar(60) NOT NULL,
-user_password varchar(60) NOT NULL,
-user_image varchar(40) NOT NULL,
-primary key(user_id)
-);
-
-create table orders(
-order_id int NOT NULL,
-order_date timestamp NOT NULL,
-order_status boolean NOT NULL,
-primary key (order_id)
-);
-
-create table categorys(
-category_id int NOT NULL,
-category_name varchar(40) NOT NULL,
-primary key (category_id)
-);
-
-create table products(
-product_id int NOT NULL AUTO_INCREMENT,
-product_name varchar(60) NOT NULL,
-product_description varchar(380) NOT NULL,
-product_price int NOT NULL,
-product_image varchar(60) NOT NULL,
-category_id int NOT NULL,
-primary key (product_id),
-foreign key (category_id) references categorys(category_id)
-);
-
-create table orders_products(
-order_products_id int NOT NULL,
-order_id int NOT NULL,
-product_id int NOT NULL,
-primary key (order_products_id),
-foreign key (order_id) references orders(order_id),
-foreign key (product_id) references products(product_id)
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-INSERT INTO categorys (category_id, category_name) VALUES (1,"Destacado"),(2,"Deporte"),(3,"Hombre"),(4,"Mujer"),(5,"Niño");
+-- Dumping database structure for playsport
+CREATE DATABASE IF NOT EXISTS `playsport` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `playsport`;
 
-INSERT INTO products (product_id, product_name, product_description, product_price, product_image, category_id) VALUES
-(1,"Sudadera Deportiva","Conjunto deportivo de 2 piezas para hombre, sudadera: manga larga plisada, color sólido, capucha con cordón, bolsillo canguro, ajuste entallado.",119000,"conj-dep-gris.jpg",3),
-(2,"Báscula Digital","Báscula de 50cm x 50cm, de uso: domestico, institucional y profesional",68000,"bascula.jpeg",1),
-(3,"Mat de Yoga Doble Fax","Las mat de yoga Sportfitness son un implemento esencial para un entrenamiento de yoga y pilates. Los tapetes de yoga están diseñados para brindar seguridad, soporte y una tracción adecuada. Longitud: 1.73cm Ancho: 61cm Espesor: 0.6cm",72000, "colchoneta-yoga.jpg",1),
-(4,"Mancuerna Encauchetada","Mancuernas Sportfitness ideales para ejercicios de fuerza. Variedad de pesos que se ajustan a tu nivel de entrenamiento. Las pesas Sportfitness encauchadas tienen recubrimiento que protegen las superficies.",125000,"mancuerna-encauchetada-sportfitness.jpg",2),
-(5,"Saco de Boxeo 23 KG","Mancuernas Sportfitness ideales para ejercicios de fuerza. Variedad de pesos que se ajustan a tu nivel de entrenamiento. Las pesas Sportfitness encauchadas tienen recubrimiento que protegen las superficies. Material en cuero sintético (PVC)",376000,"saco-de-boxeo-23-kg-sportfitness.jpg",2),
-(6,"Set Body Pump","El set body pump Sportfitness es un implemento para levantamiento de peso y entrenamiento de fuerza. El set body pump es ideal para aumentar masa muscular, tonificar y para bajar de peso. Es un implemento versatil que tiene recubrimiento en los discos lo cual protege los suelos y aumenta su resistencia.",450000,"set-body-pump-sportfitness.jpg",2),
-(7,"Colchoneta Pofesional","Las Colchonetas Sportfitness son un implemento esencial para un entrenamiento en el piso. La Colchoneta Profesional esta diseñada para proporcionar una absorción de impactos reduciendo la probabilidad de lesiones deportivas. Medidas 100cm x 47cm Espesor 3cm.",90000,"colchoneta.jpg",1),
-(8,"Steps Aeróbico","Steps Sportfitness ideal para entrenamiento funcional y cardiovascular. Los beneficios del steps aeróbicos incluyen quema de calorías y tonificación muscular, especialmente glúteos y piernas. Medidas: Largo 70 cm, ancho 27 cm.",120000,"steps-aerobicos-sportfitness.jpg",2),
-(9,"Sudadera Deportiva","Perfecta para ir al gimnasio, hacer ejercicio, entrenamiento de pesas, culturismo, salir a correr",130000,"conjunto.png",4),
-(10,"Set de Bandas Elasticas x5","Bandas elásticas sportfitness para ejercicios en casa o gym. Ideal para trabajo funcional. Set de bandas con cinco resistencias.",32000,"bandas.png",5);
+-- Dumping structure for table playsport.orders
+CREATE TABLE IF NOT EXISTS `orders` (
+  `order_id` int(11) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `order_status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO users (user_id,first_name, last_name, user_email, user_password, user_image) VALUES
-(1,"santiago","leon","santiagoleon12@gmail.com","satiago123","img_user_default.png"),
-(2,"gabriel","gaitan","gabrielgaitan17@gmail.com","123","img_user_default.png");
+-- Dumping data for table playsport.orders: ~0 rows (approximately)
+DELETE FROM `orders`;
+
+-- Dumping structure for table playsport.products
+CREATE TABLE IF NOT EXISTS `products` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varchar(380) NOT NULL,
+  `price` bigint(20) NOT NULL DEFAULT 0,
+  `category` bigint(20) NOT NULL DEFAULT 1,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table playsport.products: ~14 rows (approximately)
+DELETE FROM `products`;
+INSERT INTO `products` (`id`, `name`, `description`, `price`, `category`) VALUES
+	(32, 'Steps Aeróbicos 2 Niveles', 'Steps Sportfitness ideal para entrenamiento funcional y cardiovascular. Los beneficios de los Steps Aeróbicos incluyen quema de calorías y tonificación muscular, especialmente glúteos y piernas.\r\n\r\nSteps con 2 niveles de altura (13 cm y 17 cm).\r\nBases antideslizantes.\r\nPeso máximo de usuario: 100 kg.\r\nTrabajo cardiovascular.\r\nMedidas: Largo; 70 cm. Ancho; 27 cm.\r\nUso: doméstico', 145500, 1),
+	(33, 'Mancuerna Encauchetada', 'Aumenta tu fuerza y tonifica tus músculos con las mancuernas encauchetadas SportFitness. Estas mancuernas están recubiertas de un material de alta calidad que no solo protege tus manos y el suelo de daños, sino que también proporciona un agarre antideslizante para mayor seguridad durante tus entrenamientos. Disponibles en varios pesos, las mancuernas encauchetadas son ideales p', 65200, 1),
+	(34, 'Set de Bandas Elásticas en Tela', 'Mejora tu entrenamiento y hazlo más cómodo con las Bandas en Tela por 3 Sportfitness! Nuestras bandas están diseñadas con una suave y duradera tela que es cómoda en la piel. Con tres niveles de resistencia diferentes, estas bandas son perfectas para cualquier persona que busque mejorar su fuerza y flexibilidad en casa o en el gimnasio. Además, su diseño compacto y portátil perm', 83500, 1),
+	(35, 'Colchoneta Profesional', 'Las Colchonetas Sportfitness son un implemento esencial para un entrenamiento de piso. La Colchoneta Profesional esta diseñada para proporcionar una absorción de impactos reduciendo la probabilidad de lesiones deportivas.', 112500, 2),
+	(36, 'Bicicleta Spinning Urbino', 'Bicicletas spinning de banda Sportfitness ideal para tu entrenamiento cardiovascular. Algunos de los beneficios de las bicicletas estáticas son la tonificación del cuerpo, quema de calorías y prevención de enfermedades. Es perfecto para los que buscan ejercicio con bajo riesgo de lesión. La Bicicleta Spinning Urbino Sportfitness tiene la ventaja de tener un diseño compacto y pr', 1093500, 2),
+	(37, 'Caminador Mecánico Plegable', 'El caminador mecánico Sportfitness es ideal para tu entrenamiento cardiovascular. Los beneficios de las caminadoras incluyen el fortalecimiento de piernas, incrementar tu energía, y prevención de enfermedades. El caminador mecánico Sportfitness es plegable y no requiere energía ideal para tu hogar. ', 1319200, 2),
+	(38, 'Camiseta fitness cardio', 'Una camiseta básica como nos gusta, de corte simple y ceñido. Sigue tus movimientos, está pensada para cualquier tipo de actividad de fitness.\r\n', 39000, 4),
+	(39, 'Leggings slim fitness', 'Los leggings básicos por excelencia.Nuestros estilistas los han diseñado para ti y siempre tendrán un lugar en tu rutina deportiva... o en tu día a día.\r\n', 39000, 4),
+	(40, 'Short 2 en 1 fitness', 'Un short fitness 21 -con un look deportivo y femenino, recomendado para prácticas deportivas cómodas.\r\n', 131000, 4),
+	(41, 'Chaqueta hombre cremallera con capucha', 'Nuestros estilistas han diseñado este saco de felpa con capucha para mantenerte abrigada de camino al entrenamiento o sencillamente en tu vida diaria.\r\n', 145000, 3),
+	(42, 'Camiseta fitness regular', 'Esta camiseta de manga corta 100 % algodón es una prenda esencial en cualquier armario masculino gracias a su corte recto, su cuello redondo y su tela de 150 g/m².\r\n', 21000, 3),
+	(43, 'Pantaloneta fitness', 'Nuestros equipos han trabajado mucho para proponerte una pantaloneta de fitness cómoda, con una relación calidad/precio imbatible y con una tela ecosostenible.\r\n', 79000, 3),
+	(44, 'Tenis velcro niños', 'Los tenis AT EASY se han diseñado para acompañar a los niños durante sus actividades deportivas cotidianas.\r\n', 100000, 5),
+	(45, 'Zapatillas ballet', 'Nuestro equipo de apasionados ha diseñado las medias puntas suela partida de tela para bailarines intermedios y en perfeccionamiento que buscan extensibilidad.\r\n', 134000, 5);
+
+-- Dumping structure for table playsport.product_images
+CREATE TABLE IF NOT EXISTS `product_images` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `image_route` varchar(255) DEFAULT NULL,
+  `id_product` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_product_images_products` (`id_product`),
+  CONSTRAINT `FK_product_images_products` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table playsport.product_images: ~35 rows (approximately)
+DELETE FROM `product_images`;
+INSERT INTO `product_images` (`id`, `image_route`, `id_product`) VALUES
+	(1, '1682725516915img.jpg', 32),
+	(2, '1682725516916img.jpg', 32),
+	(4, '1682725660852img.png', 33),
+	(5, '1682725660854img.png', 33),
+	(6, '1682725785844img.png', 34),
+	(7, '1682725785854img.png', 34),
+	(8, '1682725785850img.png', 34),
+	(9, '1682725979863img.png', 35),
+	(10, '1682725979864img.png', 35),
+	(11, '1682726106482img.png', 36),
+	(12, '1682726106486img.png', 36),
+	(13, '1682726106488img.png', 36),
+	(14, '1682726192569img.png', 37),
+	(15, '1682726192572img.png', 37),
+	(16, '1682726389341img.png', 38),
+	(17, '1682726389343img.png', 38),
+	(18, '1682726389344img.png', 38),
+	(19, '1682726492648img.png', 39),
+	(20, '1682726492650img.png', 39),
+	(21, '1682726492651img.png', 39),
+	(22, '1682726582227img.png', 40),
+	(23, '1682726582229img.png', 40),
+	(24, '1682726582230img.png', 40),
+	(25, '1682726656232img.png', 41),
+	(26, '1682726656234img.png', 41),
+	(27, '1682726723025img.png', 42),
+	(28, '1682726723028img.png', 42),
+	(29, '1682726723032img.png', 42),
+	(30, '1682726831709img.png', 43),
+	(31, '1682726831712img.png', 43),
+	(32, '1682726831712img.png', 43),
+	(33, '1682726951055img.png', 44),
+	(34, '1682726951057img.png', 44),
+	(35, '1682727016664img.png', 45),
+	(36, '1682727016665img.png', 45);
+
+-- Dumping structure for table playsport.users
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `role` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table playsport.users: ~2 rows (approximately)
+DELETE FROM `users`;
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role`, `image`) VALUES
+	(7, 'Natalia', 'Mora', 'natalia1@gmail.com', '$2a$10$YK/1ZA7LD2YK6GlqH5UsKua/5G5RDbwEWsyxO0G6hYT404X/XaYNS', 'Administrador', 'user1.png'),
+	(8, 'Jaasbleydi', 'Gonzalez', 'natalia2@gmail.com', '$2a$10$5HUegvyPj2JKUJLwbV/Qu.wiI.kv23CXzNwgzffFYwLGIDh9kliEq', 'Usuario', 'Screenshot 2023-04-28 185934.png');
+
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
