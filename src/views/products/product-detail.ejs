@@ -25,7 +25,7 @@
                                 class="d-block product-detail-img" alt="...">
                             </div>
                             <%} %>
-                            <%} %>
+                              <%} %>
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls>"
                     data-bs-slide="prev">
@@ -62,7 +62,9 @@
                   </ul>
 
                   <div class="d-flex flex-column align-items-center">
-                    <button href="#" class="now-button blue-button mb-3">Agregar al carrito</button>
+                    <form action="/cart/create/<%= resultado.id %>/<%=locals.userLogged.id%>" method="POST" style="display: inline-flex">
+                      <button type="submit" class="now-button blue-button mb-3">Agregar al carrito</button>
+                    </form>
                     <button href="#" class="now-button pink-button">Comprar ahora</button>
                   </div>
                   <hr />
@@ -71,15 +73,15 @@
                     <%= resultado.description %>
                   </p>
 
-                  <% if (locals.userLogged.role==="Administrador") { %>
-                  <div class="d-flex flex-column align-items-center">
-                    <a href="/products/edit/<%= resultado.id %>" class="now-button pink-button mb-3">Editar
-                      producto</a>
-                    <form action="/products/delete/<%= resultado.id %>" method="POST" style="display: inline-flex">
-                      <button type="submit" class="now-button blue-button">Eliminar</button>
-                    </form>
-                  </div>
-                  <% } %>
+                  <% if (locals.userLogged.role==="Administrador" ) { %>
+                    <div class="d-flex flex-column align-items-center">
+                      <a href="/products/edit/<%= resultado.id %>" class="now-button pink-button mb-3">Editar
+                        producto</a>
+                      <form action="/products/delete/<%= resultado.id %>" method="POST" style="display: inline-flex">
+                        <button type="submit" class="now-button blue-button">Eliminar</button>
+                      </form>
+                    </div>
+                    <% } %>
 
                 </article>
               </div>

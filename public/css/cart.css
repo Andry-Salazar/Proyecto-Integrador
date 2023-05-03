@@ -1,6 +1,6 @@
 /* MAIN */
 #main {
-  padding: 0 2rem;
+  padding: 5% 10%;
 }
 
 #main h1 {
@@ -15,6 +15,17 @@
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+}
+
+.text-container{
+  min-width: 350px;
+}
+
+.deleteButton{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
 }
 
 .product {
@@ -38,14 +49,14 @@
   height: 150px;
 }
 
-form.add {
+div.add {
   display: flex;
   margin: 0 !important;
 }
 
-form.add input[type='text'] {
+div.add input[type='text'] {
   padding: 3px;
-  width: 17px;
+  width: 25px;
   font-size: 17px;
   border: 1px solid grey;
   border-left: none;
@@ -64,7 +75,7 @@ form.add input[type='text'] {
   border-left: none !important;
 }
 
-form.add button {
+div.add button {
   padding: 3px;
   background: #fbfbff;
   color: black;
@@ -73,11 +84,11 @@ form.add button {
   cursor: pointer;
 }
 
-form.add button:hover {
+div.add button:hover {
   background: gray;
 }
 
-form.add::after {
+div.add::after {
   content: '';
   clear: both;
   display: table;
@@ -114,12 +125,12 @@ td:nth-child(2) {
   text-align: right;
 }
 
-form.discount {
+div.discount {
   display: flex;
   align-items: center;
 }
 
-form.discount input[type='text'] {
+div.discount input[type='text'] {
   background: white;
   border: 1px solid #ccc;
   font-size: 17px;
@@ -189,7 +200,7 @@ section.recentView {
     height: 120px;
   }
 
-  form.discount input[type='text'] {
+  div.discount input[type='text'] {
     width: 60%;
   }
 
@@ -204,7 +215,7 @@ section.recentView {
     width: 10%;
   }
 
-  form {
+  div {
     width: auto;
   }
 

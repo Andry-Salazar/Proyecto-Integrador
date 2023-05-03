@@ -16,7 +16,7 @@
                                     </span>
                                 </div>
                                 <input type="text" autocomplete="off" class="form-control" id="full_name_id"
-                                    name="first_name" required placeholder="Nombres" value="<%=first_name%>">
+                                    name="first_name" placeholder="Nombres" value="<%=first_name%>">
                                 <% if (errorsObj['first_name']) { %>
                                     <div class="invalid-feedback">
                                         <%= errorsObj['first_name'] %>
@@ -30,7 +30,7 @@
                                     </span>
                                 </div>
                                 <input type="text" autocomplete="off" class="form-control" id="lastName"
-                                    name="last_name" required placeholder="Apellidos" value="<%=last_name%>">
+                                    name="last_name" placeholder="Apellidos" value="<%=last_name%>">
                                 <% if (errorsObj['last_name']) { %>
                                     <div class="invalid-feedback">
                                         <%= errorsObj['last_name'] %>
@@ -43,7 +43,7 @@
                                             class="far fa-envelope"></i></span>
                                 </div>
                                 <input type="text" autocomplete="off" type="email" class="form-control" id="email"
-                                    name="email" required placeholder="Email" value="<%=email%>">
+                                    name="email" placeholder="Email" value="<%=email%>">
                                 <% if (errorsObj['email']) { %>
                                     <div class="invalid-feedback">
                                         <%= errorsObj['email'] %>
@@ -56,7 +56,7 @@
                                             class="fas fa-lock"></i></span>
                                 </div>
                                 <input autocomplete="off" type="password" class="form-control" id="password"
-                                    name="password" required placeholder="Contraseña" value="<%=password%>">
+                                    name="password" placeholder="Contraseña" value="<%=password%>">
                                 <% if (errorsObj['password']) { %>
                                     <div class="invalid-feedback">
                                         <%= errorsObj['password'] %>

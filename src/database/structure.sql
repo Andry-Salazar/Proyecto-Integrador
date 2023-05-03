@@ -19,17 +19,6 @@
 CREATE DATABASE IF NOT EXISTS `playsport` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `playsport`;
 
--- Dumping structure for table playsport.orders
-CREATE TABLE IF NOT EXISTS `orders` (
-  `order_id` int(11) NOT NULL,
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `order_status` tinyint(1) NOT NULL,
-  PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Dumping data for table playsport.orders: ~0 rows (approximately)
-DELETE FROM `orders`;
-
 -- Dumping structure for table playsport.products
 CREATE TABLE IF NOT EXISTS `products` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -38,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `price` bigint(20) NOT NULL DEFAULT 0,
   `category` bigint(20) NOT NULL DEFAULT 1,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table playsport.products: ~14 rows (approximately)
 DELETE FROM `products`;
@@ -66,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   PRIMARY KEY (`id`),
   KEY `FK_product_images_products` (`id_product`),
   CONSTRAINT `FK_product_images_products` FOREIGN KEY (`id_product`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table playsport.product_images: ~35 rows (approximately)
 DELETE FROM `product_images`;
@@ -117,13 +106,33 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table playsport.users: ~2 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `password`, `role`, `image`) VALUES
 	(7, 'Natalia', 'Mora', 'natalia1@gmail.com', '$2a$10$YK/1ZA7LD2YK6GlqH5UsKua/5G5RDbwEWsyxO0G6hYT404X/XaYNS', 'Administrador', 'user1.png'),
 	(8, 'Jaasbleydi', 'Gonzalez', 'natalia2@gmail.com', '$2a$10$5HUegvyPj2JKUJLwbV/Qu.wiI.kv23CXzNwgzffFYwLGIDh9kliEq', 'Usuario', 'Screenshot 2023-04-28 185934.png');
+
+-- Dumping structure for table playsport.user_carts
+CREATE TABLE IF NOT EXISTS `user_carts` (
+  `cart_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `quantity` int(11) DEFAULT 1,
+  `product_id` bigint(20) DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`cart_id`) USING BTREE,
+  KEY `FK_user_cart_users` (`user_id`) USING BTREE,
+  KEY `FK_user_cart_products` (`product_id`),
+  CONSTRAINT `FK_user_cart_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_user_cart_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table playsport.user_carts: ~3 rows (approximately)
+DELETE FROM `user_carts`;
+INSERT INTO `user_carts` (`cart_id`, `quantity`, `product_id`, `user_id`) VALUES
+	(9, 1, 37, 7),
+	(11, 1, 32, 7),
+	(12, 1, 34, 7);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
