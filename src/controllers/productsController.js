@@ -33,7 +33,6 @@ const controller = {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log(errors)
       const errorsObj = {}
       errors.errors.forEach(err => {
         errorsObj[err.param] = err.msg
