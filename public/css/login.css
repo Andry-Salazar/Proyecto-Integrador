@@ -66,7 +66,6 @@ footer {
 
 /* Media Celular*/
 @media screen and (max-width: 599px) {
-
     .btn-facebook,
     .btn-google,
     .btn-register {
@@ -75,7 +74,6 @@ footer {
 }
 
 @media screen and (max-width: 992px) {
-
     .btn-facebook,
     .btn-google,
     .btn-register {

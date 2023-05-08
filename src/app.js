@@ -6,6 +6,7 @@ const cookies = require ('cookie-parser');
 const session = require('express-session');
 const app = express();
 const port = 3000;
+const cors = require('cors');
 
 const routesProduct = require('./routes/products');
 const routesCart = require('./routes/cart');
@@ -16,6 +17,7 @@ const api = require('./api');
 
 //middlewares
 const userLoggedMiddleware = require('./middleware/userLoggedMiddleware');
+
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -30,10 +32,14 @@ app.use(session({
     saveUninitialized: true,
 }));
 
+// aquí se autoriza el acceso al front-end
+const frontRoute = '*';
+app.use(cors({Origin: frontRoute}));
+
 //uso middlewares
 app.use(userLoggedMiddleware);
 
-app.listen(port, () => console.log('Servidor de PlaySport funcionando'));
+app.listen(port, () => console.log(`Servidor de PlaySport funcionando en ${port}`));
 
 app.use('/', routesMain);
 app.use('/products', routesProduct);
