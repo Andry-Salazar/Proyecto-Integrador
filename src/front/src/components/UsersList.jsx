@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom'
-
-
+import { Link } from 'react-router-dom';
 
 const UsersList = (props) => {
   const [users, setUsers] = useState([]);
-
-  const nextPath = (path) => {
-    props.history.push(path);
-  }
 
   useEffect(() => {
     fetch('http://localhost:3000/api/users')
@@ -53,7 +47,7 @@ const UsersList = (props) => {
                 <Card.Title className='text-center'>{user.first_name} {user.last_name}</Card.Title>
                 <div className='text-center'>
                   <Button variant="primary" >
-                    <Link to={`/usuarios/${user.id}`} style={{color:'white', textDecoration:'none'}}>Ver Detalle</Link>
+                    <Link to={`/usuarios/${user.id}`} style={{ color: 'white', textDecoration: 'none' }}>Ver Detalle</Link>
                   </Button>
                 </div>
               </Card.Body>
