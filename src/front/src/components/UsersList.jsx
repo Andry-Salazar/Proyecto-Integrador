@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
 
 const UsersList = (props) => {
   const [users, setUsers] = useState([]);
@@ -15,7 +16,6 @@ const UsersList = (props) => {
       });
   }, []);
 
-  console.log(users);
 
   return (
     <div>
@@ -29,7 +29,6 @@ const UsersList = (props) => {
               key={user.id}
               style={{
                 width: '20rem',
-                height: '24rem',
                 maxWidth: '30rem',
                 color: '#000',
                 background: '#f5f5f5',
@@ -50,6 +49,7 @@ const UsersList = (props) => {
                   <p className='m-0'> <b style={{	color: "	#808080" }}>Email:</b> {user.email}</p>
                   <p><b style={{	color: "	#808080" }}>Type:</b> {user.role}</p>
                 </Card.Text>
+
               </Card.Body>
             </Card>
           </Col>
