@@ -5,18 +5,19 @@ import { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Table from 'react-bootstrap/Table';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const ProductList = (props) => {
+  const [searchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/products')
+    fetch(`http://localhost:3000/api/products?${searchParams}`)
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.products);
       });
-  }, []);
+  }, [searchParams]);
 
   console.log(products);
 
