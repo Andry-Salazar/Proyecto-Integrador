@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+import Carousel from 'react-bootstrap/Carousel';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState, useEffect } from 'react';
@@ -9,6 +10,14 @@ function ProductDetail(props) {
   let { id } = useParams();
   const [product, setProduct] = useState();
 
+  const categories = {
+    1: 'Destacado',
+    2: 'Deporte',
+    3: 'Hombre',
+    4: 'Mujer',
+    5: 'Niño'
+  }
+
   useEffect(() => {
     fetch(`http://localhost:3000/api/products/${id}`)
       .then((response) => response.json())
@@ -17,30 +26,31 @@ function ProductDetail(props) {
       });
   }, []);
 
-  console.log(product);
-
   return (
     <Container className='pt-3 mx-6' >
+      <h1 className='text-center mb-5'>{product?.name}</h1>
       <Row >
-        <Col md="auto">
-          <img
-            src={'/images/products/' + product?.images[0].image_route}
-            style={{ maxHeight: '350px' }}
-          />
+        <Col>
+          <Carousel variant="dark">
+            {product?.images.map(image => <Carousel.Item>
+              <img
+                style={{ maxHeight: '700px', objectFit: 'cover', width: '100%' }}
+                src={'/images/products/' + image.image_route}
+                alt="First slide"
+              />
+            </Carousel.Item>)}
+          </Carousel>
         </Col>
-        <Col style={{ fontSize: "1.3rem", paddingTop: "1.3rem", paddingLeft: "2.5em"}}>
+        <Col style={{ fontSize: "1.3rem", paddingTop: "1.3rem", padding: "2.5em" }}>
           <div>
-            <p >
-              <b>NOMBRE:</b> "{product?.name}"
+            <p style={{ textAlign: 'justify', marginTop: "1rem" }}>
+              {product?.description}
             </p>
             <p>
-              <b>DESCRIPCIÓN:</b> {product?.description}
+            <b>CATEGORÍA:</b> {categories[product?.category]}
             </p>
-            {/* <p>
-              <b>CATEGORÍA:</b> {product?.category}
-            </p> */}
             <p>
-              <b>PRECIO:</b> ${product?.price}
+              <b>PRECIO:</b> ${product?.price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             </p>
           </div>
         </Col>

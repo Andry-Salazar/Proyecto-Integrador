@@ -1,0 +1,165 @@
+.root {
+  margin-bottom: 15px;
+  text-align: center;
+  height: 100px;
+}
+
+.heading {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  color: #ffffff;
+  height: 80px;
+  margin: 0 auto -40px;
+  position: relative;
+  transition: all 0.3s ease-in-out 0s;
+  width: 80px;
+}
+
+
+.heading {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  line-height: 80px;
+  margin-top: 40px;
+}
+
+.content {
+  padding-top: 50px;
+
+}
+
+.number {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 0 15px;
+}
+
+.description {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 70px;
+}
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  display: block;
+  padding: 5px;
+  transition: all 0.3s ease-in-out 0s;
+  margin-top: 70px;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.footer:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+}
+
+.heading.darkBlue:hover {
+  background-color: #2e4154;
+}
+
+.heading.green:hover {
+  background-color: #138f77;
+}
+
+.heading.orange:hover {
+  background-color: #da8c10;
+}
+
+.heading.blue:hover {
+  background-color: #01baefe6;
+}
+
+.heading.red:hover {
+  background-color: #cf4435;
+}
+
+.heading.purple:hover {
+  background-color: #7f3d9b;
+}
+
+.heading.pink:hover {
+  background-color: #FF007B;
+}
+
+.tileImg {
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.darkBlue {
+  background-color: #34495e;
+}
+
+.green {
+  background-color: #16a085;
+}
+
+.blue {
+  background-color: #01baefe6;
+}
+
+.orange {
+  background-color: #f39c12;
+}
+
+.red {
+  background-color: #e74c3c;
+}
+
+.purple {
+  background-color: #8e44ad;
+}
+
+.pink {
+  background-color: #FF007B;
+}
+
+.darkGray {
+  background-color: #7f8c8d;
+}
+
+.gray {
+  background-color: #95a5a6;
+}
+
+.lightGray {
+  background-color: #bdc3c7;
+}
+
+.yellow {
+  background-color: #f1c40f;
+}
+
+.textDarkBlue {
+  color: #34495e;
+}
+
+.textGreen {
+  color: #16a085;
+}
+
+.textBlue {
+  color: #2980b9;
+}
+
+.textOrange {
+  color: #f39c12;
+}
+
+.textRed {
+  color: #e74c3c;
+}
+
+.textPurple {
+  color: #8e44ad;
+}
+
+.textFaded {
+  color: rgba(255, 255, 255, 0.7);
+}
