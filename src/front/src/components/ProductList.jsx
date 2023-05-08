@@ -47,7 +47,7 @@ const ProductList = (props) => {
               </td>
               <td className='p-3' style={{ fontSize: '0.9rem', verticalAlign: 'middle', textAlign: 'justify' }}>{product.description}</td>
               <td style={{ minWidth: '150px', verticalAlign: 'middle' }}>${product.price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</td>
-              <td style={{ minWidth: '150px', verticalAlign: 'middle' }}><Link to={`/productos/${product.id}`}>Ver detalle</Link>
+              <td style={{ minWidth: '150px', verticalAlign: 'middle' }}><Link to={`/productos/${product.id}`}>View details</Link>
               </td>
             </tr>
           ))}
