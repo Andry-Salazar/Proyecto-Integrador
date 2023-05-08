@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
-import { useState, useEffect } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
+
+
 
 const UsersList = (props) => {
   const [users, setUsers] = useState([]);
+
+  const nextPath = (path) => {
+    props.history.push(path);
+  }
 
   useEffect(() => {
     fetch('http://localhost:3000/api/users')
@@ -15,7 +22,6 @@ const UsersList = (props) => {
       });
   }, []);
 
-  console.log(users);
 
   return (
     <div>
@@ -29,7 +35,6 @@ const UsersList = (props) => {
               key={user.id}
               style={{
                 width: '20rem',
-                height: '24rem',
                 maxWidth: '30rem',
                 color: '#000',
                 background: '#f5f5f5',
@@ -46,10 +51,11 @@ const UsersList = (props) => {
               <Card.Img variant="top" style={{ maxHeight: '200px', objectFit: 'cover', objectPosition: '0px 0%' }} src={user?.image ? `/images/user/${user.image}` : '/images/user/img_user_default.png'} />
               <Card.Body style={{ color: "#000" }}>
                 <Card.Title className='text-center'>{user.first_name} {user.last_name}</Card.Title>
-                <Card.Text>
-                  <p className='m-0'> <b>Email:</b> {user.email}</p>
-                  <p><b>Tipo:</b> {user.role}</p>
-                </Card.Text>
+                <div className='text-center'>
+                  <Button variant="primary" >
+                    <Link to={`/usuarios/${user.id}`} style={{color:'white', textDecoration:'none'}}>Ver Detalle</Link>
+                  </Button>
+                </div>
               </Card.Body>
             </Card>
           </Col>
