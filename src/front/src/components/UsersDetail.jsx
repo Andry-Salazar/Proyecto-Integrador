@@ -38,15 +38,14 @@ const UsersDetail = (props) => {
             display: 'flex',
           }}
         >
-          <Card.Header className='text-center'>
-            <b>Perfil de usuario </b>
+          <Card.Header className='text-center' style={{ color: "	#808080", fontSize: "1.4rem" }} >
+            <b>{users.first_name} {users.last_name}</b>
           </Card.Header>
           <Card.Img variant="top" style={{ maxHeight: '400px', objectFit: 'cover', objectPosition: '0px 0%' }} src={users?.image ? `/images/user/${users.image}` : '/images/user/img_user_default.png'} />
           <Card.Body style={{ color: "#000" }}>
-            <Card.Title className='text-center'>{users.first_name} {users.last_name}</Card.Title>
             <Card.Text>
-              <p className='m-0'> <b>Email:</b> {users.email}</p>
-              <p><b>Tipo:</b> {users.role}</p>
+              <p className='m-0'> <b style={{ color: "	#808080" }}>Email:</b> {users.email}</p>
+              <p><b style={{ color: "	#808080" }}>Type:</b> {users.role}</p>
             </Card.Text>
           </Card.Body>
         </Card>
