@@ -21,36 +21,39 @@ const ProductList = (props) => {
   console.log(products);
 
   return (
-    <Table className='text-center' striped bordered hover size="sm" variant="light">
-      <thead>
-        <tr>
-          <th>#ID</th>
-          <th>Nombre</th>
-          <th>Imagen</th>
-          <th>Descripción</th>
-          <th>Precio</th>
-          <th>Ver detalle</th>
-        </tr>
-      </thead>
-      <tbody>
-        {products.map((product, idx) => (
-          <tr key={idx}>
-            <td>{product.id}</td>
-            <td>{product.name}</td>
-            <td>
-              <img
-                src={'/images/products/' + product.images[1].image_route}
-                style={{ width: '5rem' }}
-              />
-            </td>
-            <td style={{ fontSize: '0.9rem' }}>{product.description}</td>
-            <td>${product.price}</td>
-            <td><Link to={`/productos/${product.id}`}>Ver detalle</Link> 
-            </td>
+    <div className='mx-5'>
+      <h1 className='text-center mb-5'>Listado de productos</h1>
+      <Table className='text-center' striped bordered hover size="sm" variant="light">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Acciones</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
+        </thead>
+        <tbody>
+          {products.map((product, idx) => (
+            <tr key={idx}>
+              <td style={{ minWidth: '50px', verticalAlign: 'middle' }}>{product.id}</td>
+              <td style={{ minWidth: '200px', verticalAlign: 'middle' }}>{product.name}</td>
+              <td className='p-3'>
+                <img
+                  src={'/images/products/' + product.images[1].image_route}
+                  style={{ width: '10rem' }}
+                />
+              </td>
+              <td className='p-3' style={{ fontSize: '0.9rem', verticalAlign: 'middle', textAlign: 'justify' }}>{product.description}</td>
+              <td style={{ minWidth: '150px', verticalAlign: 'middle' }}>${product.price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</td>
+              <td style={{ minWidth: '150px', verticalAlign: 'middle' }}><Link to={`/productos/${product.id}`}>Ver detalle</Link>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+    </div>
 
     // <Row xs={3} className="col-m-12">
     //   {products.map((product, idx) => (
