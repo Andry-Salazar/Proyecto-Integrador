@@ -40,16 +40,14 @@ const UsersList = (props) => {
               }}
             >
               <Card.Header className='text-center' style={{	color: "	#808080", fontSize: "1.4rem"}} >
-                <b>Usuario {idx + 1}</b>
+                <b>{user.first_name} {user.last_name}</b>
               </Card.Header>
               <Card.Img variant="top" style={{ maxHeight: '200px', objectFit: 'cover', objectPosition: '0px 0%' }} src={user?.image ? `/images/user/${user.image}` : '/images/user/img_user_default.png'} />
               <Card.Body style={{ color: "#000" }}>
-                <Card.Title className='text-center' style={{	fontWeight: "600" }} >{user.first_name} {user.last_name}</Card.Title>
                 <Card.Text>
                   <p className='m-0'> <b style={{	color: "	#808080" }}>Email:</b> {user.email}</p>
                   <p><b style={{	color: "	#808080" }}>Type:</b> {user.role}</p>
                 </Card.Text>
-
               </Card.Body>
             </Card>
           </Col>
