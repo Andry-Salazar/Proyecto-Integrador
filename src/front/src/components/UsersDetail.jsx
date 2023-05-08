@@ -28,7 +28,6 @@ const UsersDetail = (props) => {
           key={users.id}
           style={{
             width: '20rem',
-            height: '26rem',
             maxWidth: '30rem',
             color: '#000',
             background: '#f5f5f5',
