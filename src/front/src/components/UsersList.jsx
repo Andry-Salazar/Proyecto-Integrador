@@ -19,7 +19,7 @@ const UsersList = (props) => {
 
   return (
     <div>
-      <h1 className='text-center mb-5'>Usuarios del sistema</h1>
+      <h1 className='text-center mb-5' style={{	color: "	#808080" }} >Registered Users</h1>
       <Row xs={3} className="col-m-12">
         {users.map((user, idx) => (
           <Col key={idx}>
@@ -40,15 +40,15 @@ const UsersList = (props) => {
                 display: 'flex',
               }}
             >
-              <Card.Header className='text-center'>
+              <Card.Header className='text-center' style={{	color: "	#808080", fontSize: "1.4rem"}} >
                 <b>Usuario {idx + 1}</b>
               </Card.Header>
               <Card.Img variant="top" style={{ maxHeight: '200px', objectFit: 'cover', objectPosition: '0px 0%' }} src={user?.image ? `/images/user/${user.image}` : '/images/user/img_user_default.png'} />
               <Card.Body style={{ color: "#000" }}>
-                <Card.Title className='text-center'>{user.first_name} {user.last_name}</Card.Title>
+                <Card.Title className='text-center' style={{	fontWeight: "600" }} >{user.first_name} {user.last_name}</Card.Title>
                 <Card.Text>
-                  <p className='m-0'> <b>Email:</b> {user.email}</p>
-                  <p><b>Tipo:</b> {user.role}</p>
+                  <p className='m-0'> <b style={{	color: "	#808080" }}>Email:</b> {user.email}</p>
+                  <p><b style={{	color: "	#808080" }}>Type:</b> {user.role}</p>
                 </Card.Text>
               </Card.Body>
             </Card>

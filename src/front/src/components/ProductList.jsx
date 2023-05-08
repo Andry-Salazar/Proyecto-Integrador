@@ -22,16 +22,16 @@ const ProductList = (props) => {
 
   return (
     <div className='mx-5'>
-      <h1 className='text-center mb-5'>Listado de productos</h1>
-      <Table className='text-center' striped bordered hover size="sm" variant="light">
+      <h1 className='text-center mb-5' style={{	color: "	#808080" }} >List Products</h1>
+      <Table className='text-center' striped bordered hover size="sm" variant="light" style={{	color: "	#808080", fontSize: "1.4rem", fontWeight: "400" }}>
         <thead>
           <tr>
             <th>#</th>
-            <th>Nombre</th>
-            <th>Imagen</th>
-            <th>Descripción</th>
-            <th>Precio</th>
-            <th>Acciones</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

@@ -14,18 +14,18 @@ function Header() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/Productos">Productos</Nav.Link>
-            <Nav.Link href="/Usuarios">Usuarios</Nav.Link>
-            <NavDropdown title="Categorias" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="/Deportes">Deportes</NavDropdown.Item>
-              <NavDropdown.Item href="/Mujeres">Mujeres</NavDropdown.Item>
-              <NavDropdown.Item href="/Hombres">Hombres</NavDropdown.Item>
-              <NavDropdown.Item href="/Niños">Niños</NavDropdown.Item>
+          <Nav className="me-auto" style={{	fontSize: "1.1rem" }}>
+            <Nav.Link href="/Productos">Products</Nav.Link>
+            <Nav.Link href="/Usuarios">Users</Nav.Link>
+            <NavDropdown title="Category" id="collasible-nav-dropdown"  style={{	color:'black', fontWeight: "600" }}>
+              <NavDropdown.Item href="/Deportes" style={{	color:'black', fontWeight: "500" }}>Sports</NavDropdown.Item>
+              <NavDropdown.Item href="/Mujeres" style={{	color:'black', fontWeight: "500" }}>Womens</NavDropdown.Item>
+              <NavDropdown.Item href="/Hombres" style={{	color:'black', fontWeight: "500" }}>Men</NavDropdown.Item>
+              <NavDropdown.Item href="/Niños" style={{	color:'black', fontWeight: "500" }}>Children</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/">Logout</Nav.Link>
+            <Nav.Link href="/login" style={{ fontSize: "1.1rem", fontWeight: "600" }}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
