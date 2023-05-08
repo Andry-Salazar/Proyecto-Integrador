@@ -15,7 +15,7 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/Productos">Products</Nav.Link>
+            <Nav.Link href="/Productos">Productos</Nav.Link>
             <Nav.Link href="/Usuarios">Usuarios</Nav.Link>
             <NavDropdown title="Categorias" id="collasible-nav-dropdown">
               <NavDropdown.Item href="/Deportes">Deportes</NavDropdown.Item>
