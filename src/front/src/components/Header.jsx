@@ -106,7 +106,7 @@ function Header() {
           </Nav>
           <Nav>
             <Nav.Link
-              href="/login"
+              href="/"
               style={{ fontSize: '1.1rem', fontWeight: '600' }}
             >
               Logout
