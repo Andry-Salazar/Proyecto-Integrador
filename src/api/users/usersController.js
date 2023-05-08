@@ -8,7 +8,7 @@ async function getAll(req, res) {
 async function get(req, res) {
   const usersDetail = await db.user.findOne({
     where: {
-      user_id: req.params.id,
+      id: req.params.id,
     },
   });
   res.json(usersDetail);

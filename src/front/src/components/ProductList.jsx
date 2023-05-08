@@ -14,7 +14,7 @@ const ProductList = (props) => {
     fetch('http://localhost:3000/api/products')
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data);
+        setProducts(data.products);
       });
   }, []);
 
