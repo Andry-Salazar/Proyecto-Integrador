@@ -47,10 +47,10 @@ function ProductDetail(props) {
               {product?.description}
             </p>
             <p>
-            <b>CATEGORÍA:</b> {categories[product?.category]}
+            <b>CATEGORY:</b> {categories[product?.category]}
             </p>
             <p>
-              <b>PRECIO:</b> ${product?.price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+              <b>PRICE:</b> ${product?.price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
             </p>
           </div>
         </Col>
