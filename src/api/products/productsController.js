@@ -1,14 +1,14 @@
 const db = require('../../database/models');
 
 async function getAll(req, res) {
-  const products = await db.product.findAll();
+  const products = await db.product.findAll({ include: ['images'] });
   res.json(products);
 }
 
 async function get(req, res) {
-  const productsDetail = await db.product.findOne({
+  const productsDetail = await db.product.findOne({ include: ['images'],
     where: {
-      product_id: req.params.id,
+      id: req.params.id,
     },
   });
   res.json(productsDetail);
