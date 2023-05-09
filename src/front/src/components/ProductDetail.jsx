@@ -35,7 +35,7 @@ function ProductDetail(props) {
             {product?.images.map(image => <Carousel.Item>
               <img
                 style={{ maxHeight: '700px', objectFit: 'cover', width: '100%' }}
-                src={'/images/products/' + image.image_route}
+                src={'http://localhost:3000/images/ropa-deportiva/' + image?.image_route}
                 alt="First slide"
               />
             </Carousel.Item>)}

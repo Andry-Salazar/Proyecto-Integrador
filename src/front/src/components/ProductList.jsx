@@ -42,7 +42,7 @@ const ProductList = (props) => {
               <td style={{ minWidth: '200px', verticalAlign: 'middle' }}>{product.name}</td>
               <td className='p-3'>
                 <img
-                  src={'/images/products/' + product.images[1].image_route}
+                  src={'http://localhost:3000/images/ropa-deportiva/' + product.images[0]?.image_route}
                   style={{ width: '10rem' }}
                 />
               </td>
